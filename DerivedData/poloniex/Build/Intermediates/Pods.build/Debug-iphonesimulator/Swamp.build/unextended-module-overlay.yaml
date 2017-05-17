@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Swamp/Swamp.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Swamp.build/unextended-module.modulemap',
+    }]
+  }]
+}

@@ -1,0 +1,10 @@
+framework module Swamp {
+  umbrella header "Swamp-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Swamp.__Swift {
+    exclude header "Swamp-Swift.h"
+}

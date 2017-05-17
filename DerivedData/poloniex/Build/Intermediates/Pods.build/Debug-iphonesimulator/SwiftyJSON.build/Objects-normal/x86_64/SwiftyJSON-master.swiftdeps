@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "a247c98a550d3f74872bce1bd55a1c67"
+build_time: [544638030, 593834000]
+inputs:
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/SwiftyJSON/Source/SwiftyJSON.swift": [544638011, 0]

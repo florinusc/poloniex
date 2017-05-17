@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "3bb449c24208551215dc48dc48a5358e"
+build_time: [544638035, 4492000]
+inputs:
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Starscream/Source/SSLSecurity.swift": [544638008, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Starscream/Source/WebSocket.swift": [544638008, 0]

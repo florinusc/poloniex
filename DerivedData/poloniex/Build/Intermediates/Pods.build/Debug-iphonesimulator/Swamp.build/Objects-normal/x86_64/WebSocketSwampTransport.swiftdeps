@@ -1,0 +1,454 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "WebSocketSwampTransport"
+- "=="
+provides-nominal:
+- "C5Swamp23WebSocketSwampTransport"
+- "OC5Swamp23WebSocketSwampTransport13WebsocketMode"
+provides-member:
+- ["C5Swamp23WebSocketSwampTransport", ""]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "JSONSwampSerializer"
+- "SwampTransport"
+- !private "StringLiteralType"
+- "WebSocketSwampTransport"
+- "String"
+- "=="
+- "AssignmentPrecedence"
+- "WebSocketDelegate"
+- "Data"
+- "NSError"
+- "SwampTransportDelegate"
+- !private "FloatLiteralType"
+- "URL"
+- !private "IntegerLiteralType"
+- !private "Array"
+- "WebSocket"
+depends-member:
+- !private ["Ps9AnyObject", "Encoding"]
+- !private ["Ps9AnyObject", "JSONSwampSerializer"]
+- !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "WebSocket"]
+- ["Ps9AnyObject", "connect"]
+- !private ["Ps9AnyObject", "data"]
+- ["Ps9AnyObject", "delegate"]
+- ["Ps9AnyObject", "disconnect"]
+- !private ["Ps9AnyObject", "disconnectionReason"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "mode"]
+- ["Ps9AnyObject", "sendData"]
+- !private ["Ps9AnyObject", "socket"]
+- ["Ps9AnyObject", "websocketDidConnect"]
+- ["Ps9AnyObject", "websocketDidDisconnect"]
+- ["Ps9AnyObject", "websocketDidReceiveData"]
+- ["Ps9AnyObject", "websocketDidReceiveMessage"]
+- !private ["Ps9AnyObject", "write"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Element"]
+- ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Element"]
+- !private ["Ps22BidirectionalIndexable", "Element"]
+- !private ["P11CryptoSwift22BitshiftOperationsType", "hashValue"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["P11CryptoSwift15ByteConvertible", "hashValue"]
+- !private ["P11CryptoSwift11CSArrayType", "Element"]
+- !private ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "Encoding"]
+- !private ["Ps7CVarArg", "connect"]
+- !private ["Ps7CVarArg", "data"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "disconnect"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "write"]
+- !private ["Ps10Collection", "Element"]
+- !private ["Ps10Comparable", "Encoding"]
+- !private ["Ps10Comparable", "data"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "Encoding"]
+- !private ["Ps28CustomDebugStringConvertible", "connect"]
+- !private ["Ps28CustomDebugStringConvertible", "data"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "disconnect"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "write"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Encoding"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "data"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "Encoding"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "data"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "text"]
+- !private ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "Encoding"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "connect"]
+- !private ["Ps23CustomStringConvertible", "data"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "disconnect"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "utf8"]
+- !private ["Ps23CustomStringConvertible", "write"]
+- ["V10Foundation4Data", "deinit"]
+- ["VE10FoundationSS8Encoding", "deinit"]
+- !private ["VE10FoundationSS8Encoding", "utf8"]
+- !private ["Ps9Equatable", "Encoding"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- !private ["Ps9Equatable", "connect"]
+- !private ["Ps9Equatable", "data"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "disconnect"]
+- ["Ps9Equatable", "hashValue"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "utf8"]
+- !private ["Ps9Equatable", "write"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "Encoding"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "data"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps23ExpressibleByNilLiteral", "text"]
+- !private ["Ps32ExpressibleByStringInterpolation", "Encoding"]
+- !private ["Ps32ExpressibleByStringInterpolation", "data"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "Encoding"]
+- !private ["Ps26ExpressibleByStringLiteral", "data"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "Encoding"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "data"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "Encoding"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- !private ["Ps8Hashable", "connect"]
+- !private ["Ps8Hashable", "data"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "disconnect"]
+- ["Ps8Hashable", "hashValue"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "utf8"]
+- !private ["Ps8Hashable", "write"]
+- ["Ps8Hashable", ""]
+- !private ["Ps9Indexable", "Element"]
+- !private ["Ps13IndexableBase", "Element"]
+- !private ["P11CryptoSwift9Initiable", "hashValue"]
+- ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "Encoding"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "data"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "hashValue"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- ["C5Swamp19JSONSwampSerializer", "deinit"]
+- !private ["C5Swamp19JSONSwampSerializer", "init"]
+- !private ["Ps25LosslessStringConvertible", "Encoding"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "data"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "Encoding"]
+- !private ["Ps10MirrorPath", "data"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Element"]
+- !private ["Ps16MutableIndexable", "Element"]
+- !private ["PSo8NSCoding", "Encoding"]
+- !private ["PSo8NSCoding", "data"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "Encoding"]
+- !private ["PSo9NSCopying", "data"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "Encoding"]
+- !private ["PSo16NSMutableCopying", "data"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "Encoding"]
+- !private ["CSo8NSObject", "connect"]
+- !private ["CSo8NSObject", "data"]
+- !private ["CSo8NSObject", "delegate"]
+- !private ["CSo8NSObject", "disconnect"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "write"]
+- !private ["PSo16NSObjectProtocol", "Encoding"]
+- !private ["PSo16NSObjectProtocol", "connect"]
+- !private ["PSo16NSObjectProtocol", "data"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "disconnect"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "write"]
+- !private ["PSo14NSSecureCoding", "Encoding"]
+- !private ["PSo14NSSecureCoding", "data"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "Encoding"]
+- !private ["CSo8NSString", "data"]
+- !private ["CSo8NSString", "init"]
+- ["Sq", "deinit"]
+- !private ["Sq", "text"]
+- !private ["Ps22RandomAccessCollection", "Element"]
+- !private ["Ps21RandomAccessIndexable", "Element"]
+- !private ["Ps26RangeReplaceableCollection", "Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Element"]
+- !private ["Ps16RawRepresentable", "utf8"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["PSo14StreamDelegate", "connect"]
+- !private ["PSo14StreamDelegate", "delegate"]
+- !private ["PSo14StreamDelegate", "disconnect"]
+- !private ["PSo14StreamDelegate", "init"]
+- !private ["PSo14StreamDelegate", "write"]
+- !private ["Ps10Strideable", "hashValue"]
+- !private ["SS", "Encoding"]
+- !private ["SS", "data"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["P5Swamp15SwampSerializer", "init"]
+- !private ["P5Swamp14SwampTransport", "JSONSwampSerializer"]
+- !private ["P5Swamp14SwampTransport", "String"]
+- !private ["P5Swamp14SwampTransport", "WebSocket"]
+- ["P5Swamp14SwampTransport", "connect"]
+- ["P5Swamp14SwampTransport", "delegate"]
+- ["P5Swamp14SwampTransport", "disconnect"]
+- !private ["P5Swamp14SwampTransport", "disconnectionReason"]
+- !private ["P5Swamp14SwampTransport", "mode"]
+- ["P5Swamp14SwampTransport", "sendData"]
+- !private ["P5Swamp14SwampTransport", "socket"]
+- ["P5Swamp14SwampTransport", "websocketDidConnect"]
+- ["P5Swamp14SwampTransport", "websocketDidDisconnect"]
+- ["P5Swamp14SwampTransport", "websocketDidReceiveData"]
+- ["P5Swamp14SwampTransport", "websocketDidReceiveMessage"]
+- ["P5Swamp14SwampTransport", ""]
+- !private ["P5Swamp22SwampTransportDelegate", "swampTransportDidConnectWithSerializer"]
+- !private ["P5Swamp22SwampTransportDelegate", "swampTransportDidDisconnect"]
+- !private ["P5Swamp22SwampTransportDelegate", "swampTransportReceivedData"]
+- !private ["Ps16TextOutputStream", "Encoding"]
+- !private ["Ps16TextOutputStream", "data"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "Encoding"]
+- !private ["Ps20TextOutputStreamable", "data"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- ["V10Foundation3URL", "deinit"]
+- !private ["C10Starscream9WebSocket", "connect"]
+- ["C10Starscream9WebSocket", "deinit"]
+- !private ["C10Starscream9WebSocket", "delegate"]
+- !private ["C10Starscream9WebSocket", "disconnect"]
+- !private ["C10Starscream9WebSocket", "init"]
+- !private ["C10Starscream9WebSocket", "write"]
+- !private ["P10Starscream17WebSocketDelegate", "JSONSwampSerializer"]
+- !private ["P10Starscream17WebSocketDelegate", "String"]
+- !private ["P10Starscream17WebSocketDelegate", "WebSocket"]
+- ["P10Starscream17WebSocketDelegate", "connect"]
+- ["P10Starscream17WebSocketDelegate", "delegate"]
+- ["P10Starscream17WebSocketDelegate", "disconnect"]
+- !private ["P10Starscream17WebSocketDelegate", "disconnectionReason"]
+- !private ["P10Starscream17WebSocketDelegate", "mode"]
+- ["P10Starscream17WebSocketDelegate", "sendData"]
+- !private ["P10Starscream17WebSocketDelegate", "socket"]
+- ["P10Starscream17WebSocketDelegate", "websocketDidConnect"]
+- ["P10Starscream17WebSocketDelegate", "websocketDidDisconnect"]
+- ["P10Starscream17WebSocketDelegate", "websocketDidReceiveData"]
+- ["P10Starscream17WebSocketDelegate", "websocketDidReceiveMessage"]
+- ["P10Starscream17WebSocketDelegate", ""]
+- ["C5Swamp23WebSocketSwampTransport", "Data"]
+- !private ["C5Swamp23WebSocketSwampTransport", "JSONSwampSerializer"]
+- ["C5Swamp23WebSocketSwampTransport", "NSError"]
+- ["C5Swamp23WebSocketSwampTransport", "String"]
+- ["C5Swamp23WebSocketSwampTransport", "SwampTransportDelegate"]
+- ["C5Swamp23WebSocketSwampTransport", "URL"]
+- ["C5Swamp23WebSocketSwampTransport", "WebSocket"]
+- ["C5Swamp23WebSocketSwampTransport", "WebsocketMode"]
+- ["C5Swamp23WebSocketSwampTransport", "connect"]
+- ["C5Swamp23WebSocketSwampTransport", "deinit"]
+- ["C5Swamp23WebSocketSwampTransport", "delegate"]
+- ["C5Swamp23WebSocketSwampTransport", "disconnect"]
+- !private ["C5Swamp23WebSocketSwampTransport", "disconnectionReason"]
+- ["C5Swamp23WebSocketSwampTransport", "init"]
+- ["C5Swamp23WebSocketSwampTransport", "mode"]
+- ["C5Swamp23WebSocketSwampTransport", "sendData"]
+- ["C5Swamp23WebSocketSwampTransport", "socket"]
+- ["C5Swamp23WebSocketSwampTransport", "websocketDidConnect"]
+- ["C5Swamp23WebSocketSwampTransport", "websocketDidDisconnect"]
+- ["C5Swamp23WebSocketSwampTransport", "websocketDidReceiveData"]
+- ["C5Swamp23WebSocketSwampTransport", "websocketDidReceiveMessage"]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", "=="]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", "_toAnyHashable"]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", "binary"]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", "deinit"]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", "hashValue"]
+- ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", "text"]
+- !private ["Ps14_ArrayProtocol", "Element"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "Encoding"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "data"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "Encoding"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "data"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "Encoding"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "data"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "Encoding"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "data"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "Encoding"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "data"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Encoding"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- !private ["Ps9_Hashable", "connect"]
+- !private ["Ps9_Hashable", "data"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "disconnect"]
+- ["Ps9_Hashable", "hashValue"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "utf8"]
+- !private ["Ps9_Hashable", "write"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "Encoding"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "data"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "text"]
+- !private ["Vs26_OptionalNilComparisonType", "text"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "P11CryptoSwift22BitshiftOperationsType"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "P11CryptoSwift15ByteConvertible"
+- !private "P11CryptoSwift11CSArrayType"
+- !private "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "V10Foundation4Data"
+- "VE10FoundationSS8Encoding"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "P11CryptoSwift9Initiable"
+- "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "P10SwiftyJSON17JSONSubscriptType"
+- "C5Swamp19JSONSwampSerializer"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps16RawRepresentable"
+- !private "Ps8Sequence"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "PSo14StreamDelegate"
+- !private "Ps10Strideable"
+- "SS"
+- !private "P5Swamp15SwampSerializer"
+- "P5Swamp14SwampTransport"
+- !private "P5Swamp22SwampTransportDelegate"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "V10Foundation3URL"
+- "C10Starscream9WebSocket"
+- "P10Starscream17WebSocketDelegate"
+- "C5Swamp23WebSocketSwampTransport"
+- "OC5Swamp23WebSocketSwampTransport13WebsocketMode"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/Swamp/Swamp-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Swamp.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftyJSON.build/module.modulemap"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework/Modules/CryptoSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework/Headers/CryptoSwift-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/CryptoSwift/CryptoSwift-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/CryptoSwift.build/module.modulemap"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Starscream/Starscream.framework/Modules/Starscream.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Starscream/Starscream.framework/Headers/Starscream-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/Starscream/Starscream-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Starscream.build/module.modulemap"
+interface-hash: "2167ad85e7ebe582544d5d9df3cf230e"

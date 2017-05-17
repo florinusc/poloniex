@@ -1,0 +1,886 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CallCallback"
+- "ErrorCallCallback"
+- "SubscribeCallback"
+- "ErrorSubscribeCallback"
+- "EventCallback"
+- "UnsubscribeCallback"
+- "ErrorUnsubscribeCallback"
+- "PublishCallback"
+- "ErrorPublishCallback"
+- "Subscription"
+- "SwampSessionDelegate"
+- "SwampSession"
+provides-nominal:
+- "C5Swamp12Subscription"
+- "P5Swamp20SwampSessionDelegate"
+- "C5Swamp12SwampSession"
+provides-member:
+- ["C5Swamp12Subscription", ""]
+- ["P5Swamp20SwampSessionDelegate", ""]
+- ["C5Swamp12SwampSession", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "ErrorCallCallback"
+- "PublishCallback"
+- "EventCallback"
+- "SwampTransportDelegate"
+- !private "PublishSwampMessage"
+- "StringLiteralType"
+- !private "CallSwampMessage"
+- !private "HelloSwampMessage"
+- "BooleanLiteralType"
+- !private "SubscribeSwampMessage"
+- "Void"
+- !private "+="
+- "Dictionary"
+- !private "ChallengeSwampMessage"
+- "ErrorPublishCallback"
+- !private "WelcomeSwampMessage"
+- "SwampRole"
+- !private "UnsubscribedSwampMessage"
+- "Int"
+- "Bool"
+- "SwampTransport"
+- "Data"
+- !private "SubscribedSwampMessage"
+- "CallCallback"
+- "UnsubscribeCallback"
+- "SubscribeCallback"
+- !private "SwampMessage"
+- "Subscription"
+- "NSError"
+- !private "ResultSwampMessage"
+- !private "AuthenticateSwampMessage"
+- "String"
+- !private "UnsubscribeSwampMessage"
+- !private "print"
+- "SwampSessionDelegate"
+- !private "PublishedSwampMessage"
+- !private "ErrorSwampMessage"
+- "ErrorUnsubscribeCallback"
+- "ErrorSubscribeCallback"
+- !private "GoodbyeSwampMessage"
+- !private "SwampMessages"
+- "SwampSerializer"
+- "SwampSession"
+- !private "AbortSwampMessage"
+- !private "!"
+- !private "!="
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- !private "EventSwampMessage"
+depends-member:
+- !private ["C5Swamp17AbortSwampMessage", "deinit"]
+- !private ["C5Swamp17AbortSwampMessage", "init"]
+- !private ["C5Swamp17AbortSwampMessage", "reason"]
+- !private ["Ps9AnyObject", "AbortSwampMessage"]
+- !private ["Ps9AnyObject", "AuthenticateSwampMessage"]
+- !private ["Ps9AnyObject", "CallSwampMessage"]
+- !private ["Ps9AnyObject", "GoodbyeSwampMessage"]
+- !private ["Ps9AnyObject", "HelloSwampMessage"]
+- !private ["Ps9AnyObject", "PublishSwampMessage"]
+- !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "SubscribeSwampMessage"]
+- !private ["Ps9AnyObject", "Subscription"]
+- !private ["Ps9AnyObject", "SwampMessages"]
+- ["Ps9AnyObject", "SwampRole"]
+- !private ["Ps9AnyObject", "UnsubscribeSwampMessage"]
+- !private ["Ps9AnyObject", "abort"]
+- !private ["Ps9AnyObject", "args"]
+- !private ["Ps9AnyObject", "authMethod"]
+- !private ["Ps9AnyObject", "authextra"]
+- !private ["Ps9AnyObject", "authid"]
+- !private ["Ps9AnyObject", "authmethods"]
+- !private ["Ps9AnyObject", "authrole"]
+- !private ["Ps9AnyObject", "callRequests"]
+- !private ["Ps9AnyObject", "clientName"]
+- !private ["Ps9AnyObject", "currRequestId"]
+- !private ["Ps9AnyObject", "deinit"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "description"]
+- !private ["Ps9AnyObject", "details"]
+- !private ["Ps9AnyObject", "error"]
+- !private ["Ps9AnyObject", "eventCallback"]
+- !private ["Ps9AnyObject", "extra"]
+- !private ["Ps9AnyObject", "generateRequestId"]
+- !private ["Ps9AnyObject", "handleMessage"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "invalidate"]
+- !private ["Ps9AnyObject", "isActive"]
+- !private ["Ps9AnyObject", "kwResults"]
+- !private ["Ps9AnyObject", "kwargs"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "publishRequests"]
+- !private ["Ps9AnyObject", "realm"]
+- !private ["Ps9AnyObject", "reason"]
+- !private ["Ps9AnyObject", "requestId"]
+- !private ["Ps9AnyObject", "requestType"]
+- !private ["Ps9AnyObject", "results"]
+- !private ["Ps9AnyObject", "routerSupportedRoles"]
+- !private ["Ps9AnyObject", "sendMessage"]
+- !private ["Ps9AnyObject", "serializer"]
+- !private ["Ps9AnyObject", "session"]
+- !private ["Ps9AnyObject", "sessionId"]
+- !private ["Ps9AnyObject", "subscribeRequests"]
+- !private ["Ps9AnyObject", "subscription"]
+- !private ["Ps9AnyObject", "subscriptions"]
+- !private ["Ps9AnyObject", "supportedRoles"]
+- ["Ps9AnyObject", "swampTransportDidConnectWithSerializer"]
+- ["Ps9AnyObject", "swampTransportDidDisconnect"]
+- ["Ps9AnyObject", "swampTransportReceivedData"]
+- !private ["Ps9AnyObject", "transport"]
+- !private ["Ps9AnyObject", "unsubscribe"]
+- !private ["Ps9AnyObject", "unsubscribeRequests"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- ["Sa", "deinit"]
+- !private ["C5Swamp24AuthenticateSwampMessage", "deinit"]
+- !private ["C5Swamp24AuthenticateSwampMessage", "init"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["P11CryptoSwift22BitshiftOperationsType", "IntegerLiteralType"]
+- !private ["P11CryptoSwift22BitshiftOperationsType", "Stride"]
+- !private ["P11CryptoSwift22BitshiftOperationsType", "_DisabledRangeIndex"]
+- !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
+- !private ["Ps17BitwiseOperations", "Stride"]
+- !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["P11CryptoSwift15ByteConvertible", "IntegerLiteralType"]
+- !private ["P11CryptoSwift15ByteConvertible", "Stride"]
+- !private ["P11CryptoSwift15ByteConvertible", "_DisabledRangeIndex"]
+- !private ["P11CryptoSwift11CSArrayType", "Iterator"]
+- !private ["P11CryptoSwift11CSArrayType", "_Element"]
+- !private ["Ps7CVarArg", "Index"]
+- !private ["Ps7CVarArg", "IndexDistance"]
+- !private ["Ps7CVarArg", "Indices"]
+- !private ["Ps7CVarArg", "IntegerLiteralType"]
+- !private ["Ps7CVarArg", "Iterator"]
+- ["Ps7CVarArg", "Key"]
+- !private ["Ps7CVarArg", "Stride"]
+- !private ["Ps7CVarArg", "SubSequence"]
+- ["Ps7CVarArg", "Value"]
+- !private ["Ps7CVarArg", "_DisabledRangeIndex"]
+- !private ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "description"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "keys"]
+- !private ["Ps7CVarArg", "removeValue"]
+- !private ["Ps7CVarArg", "subscript"]
+- ["C5Swamp16CallSwampMessage", "deinit"]
+- !private ["C5Swamp16CallSwampMessage", "init"]
+- !private ["C5Swamp21ChallengeSwampMessage", "authMethod"]
+- !private ["C5Swamp21ChallengeSwampMessage", "deinit"]
+- !private ["C5Swamp21ChallengeSwampMessage", "extra"]
+- !private ["Vs9Character", "deinit"]
+- !private ["Ps10Collection", "Elements"]
+- !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "Indices"]
+- !private ["Ps10Collection", "Iterator"]
+- ["Ps10Collection", "Key"]
+- !private ["Ps10Collection", "SubSequence"]
+- ["Ps10Collection", "Value"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "init"]
+- !private ["Ps10Collection", "keys"]
+- !private ["Ps10Collection", "map"]
+- !private ["Ps10Collection", "removeValue"]
+- !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["Ps10Comparable", "_DisabledRangeIndex"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Index"]
+- !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "Indices"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- ["Ps28CustomDebugStringConvertible", "Key"]
+- !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- ["Ps28CustomDebugStringConvertible", "Value"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "description"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "keys"]
+- !private ["Ps28CustomDebugStringConvertible", "removeValue"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "Index"]
+- !private ["Ps17CustomReflectable", "IndexDistance"]
+- !private ["Ps17CustomReflectable", "Indices"]
+- !private ["Ps17CustomReflectable", "IntegerLiteralType"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- ["Ps17CustomReflectable", "Key"]
+- !private ["Ps17CustomReflectable", "Stride"]
+- !private ["Ps17CustomReflectable", "SubSequence"]
+- ["Ps17CustomReflectable", "Value"]
+- !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "keys"]
+- !private ["Ps17CustomReflectable", "removeValue"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- !private ["Ps23CustomStringConvertible", "Index"]
+- !private ["Ps23CustomStringConvertible", "IndexDistance"]
+- !private ["Ps23CustomStringConvertible", "Indices"]
+- !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- ["Ps23CustomStringConvertible", "Key"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
+- !private ["Ps23CustomStringConvertible", "SubSequence"]
+- ["Ps23CustomStringConvertible", "Value"]
+- !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "description"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "keys"]
+- !private ["Ps23CustomStringConvertible", "removeValue"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- ["V10Foundation4Data", "deinit"]
+- !private ["Vs14DefaultIndices", "Index"]
+- !private ["Vs14DefaultIndices", "Iterator"]
+- !private ["Vs14DefaultIndices", "SubSequence"]
+- !private ["Vs14DefaultIndices", "_Element"]
+- !private ["Vs10Dictionary", "Index"]
+- !private ["Vs10Dictionary", "IndexDistance"]
+- !private ["Vs10Dictionary", "Indices"]
+- !private ["Vs10Dictionary", "Iterator"]
+- ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "SubSequence"]
+- ["Vs10Dictionary", "Value"]
+- !private ["Vs10Dictionary", "_Element"]
+- ["Vs10Dictionary", "deinit"]
+- !private ["Vs10Dictionary", "init"]
+- !private ["Vs10Dictionary", "keys"]
+- !private ["Vs10Dictionary", "removeValue"]
+- !private ["Vs10Dictionary", "subscript"]
+- !private ["Vs18DictionaryIterator", "Element"]
+- !private ["Sd", "deinit"]
+- ["Ps9Equatable", "Caller"]
+- !private ["Ps9Equatable", "IntegerLiteralType"]
+- ["Ps9Equatable", "Publisher"]
+- !private ["Ps9Equatable", "Stride"]
+- ["Ps9Equatable", "Subscriber"]
+- !private ["Ps9Equatable", "_DisabledRangeIndex"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "call"]
+- !private ["Ps9Equatable", "createMessage"]
+- !private ["Ps9Equatable", "description"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "publish"]
+- !private ["Ps9Equatable", "rawValue"]
+- !private ["Ps9Equatable", "subscribe"]
+- !private ["Ps9Equatable", "unsubscribe"]
+- !private ["Ps5Error", "description"]
+- !private ["C5Swamp17ErrorSwampMessage", "args"]
+- !private ["C5Swamp17ErrorSwampMessage", "deinit"]
+- !private ["C5Swamp17ErrorSwampMessage", "details"]
+- !private ["C5Swamp17ErrorSwampMessage", "error"]
+- !private ["C5Swamp17ErrorSwampMessage", "kwargs"]
+- !private ["C5Swamp17ErrorSwampMessage", "requestId"]
+- !private ["C5Swamp17ErrorSwampMessage", "requestType"]
+- !private ["C5Swamp17EventSwampMessage", "args"]
+- !private ["C5Swamp17EventSwampMessage", "deinit"]
+- !private ["C5Swamp17EventSwampMessage", "details"]
+- !private ["C5Swamp17EventSwampMessage", "kwargs"]
+- !private ["C5Swamp17EventSwampMessage", "subscription"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "IndexDistance"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Indices"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Iterator"]
+- ["Ps30ExpressibleByDictionaryLiteral", "Key"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
+- ["Ps30ExpressibleByDictionaryLiteral", "Value"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "_Element"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "init"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "keys"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "removeValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Sf", "deinit"]
+- ["C5Swamp19GoodbyeSwampMessage", "deinit"]
+- !private ["C5Swamp19GoodbyeSwampMessage", "init"]
+- !private ["C5Swamp19GoodbyeSwampMessage", "reason"]
+- ["Ps8Hashable", "Caller"]
+- !private ["Ps8Hashable", "IntegerLiteralType"]
+- ["Ps8Hashable", "Publisher"]
+- !private ["Ps8Hashable", "Stride"]
+- ["Ps8Hashable", "Subscriber"]
+- !private ["Ps8Hashable", "_DisabledRangeIndex"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "call"]
+- !private ["Ps8Hashable", "createMessage"]
+- !private ["Ps8Hashable", "description"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "publish"]
+- !private ["Ps8Hashable", "rawValue"]
+- !private ["Ps8Hashable", "subscribe"]
+- !private ["Ps8Hashable", "unsubscribe"]
+- ["C5Swamp17HelloSwampMessage", "deinit"]
+- !private ["C5Swamp17HelloSwampMessage", "init"]
+- !private ["Ps9Indexable", "Elements"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "Indices"]
+- !private ["Ps9Indexable", "Iterator"]
+- ["Ps9Indexable", "Key"]
+- !private ["Ps9Indexable", "SubSequence"]
+- ["Ps9Indexable", "Value"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "keys"]
+- !private ["Ps9Indexable", "map"]
+- !private ["Ps9Indexable", "removeValue"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Elements"]
+- !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "Indices"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- ["Ps13IndexableBase", "Key"]
+- !private ["Ps13IndexableBase", "SubSequence"]
+- ["Ps13IndexableBase", "Value"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "init"]
+- !private ["Ps13IndexableBase", "keys"]
+- !private ["Ps13IndexableBase", "map"]
+- !private ["Ps13IndexableBase", "removeValue"]
+- !private ["Ps13IndexableBase", "subscript"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["P11CryptoSwift9Initiable", "IntegerLiteralType"]
+- !private ["P11CryptoSwift9Initiable", "Stride"]
+- !private ["P11CryptoSwift9Initiable", "_DisabledRangeIndex"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "Stride"]
+- !private ["Si", "_DisabledRangeIndex"]
+- ["Si", "deinit"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "IntegerLiteralType"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps7Integer", "_DisabledRangeIndex"]
+- !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "IntegerLiteralType"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "Stride"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "_DisabledRangeIndex"]
+- ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["Ps22LazyCollectionProtocol", "Elements"]
+- !private ["Ps22LazyCollectionProtocol", "Iterator"]
+- !private ["Ps22LazyCollectionProtocol", "map"]
+- !private ["Vs17LazyMapCollection", "Elements"]
+- !private ["Vs17LazyMapCollection", "Iterator"]
+- !private ["Vs17LazyMapCollection", "deinit"]
+- !private ["Vs17LazyMapCollection", "map"]
+- !private ["Vs15LazyMapIterator", "Element"]
+- !private ["Ps20LazySequenceProtocol", "Elements"]
+- !private ["Ps20LazySequenceProtocol", "Iterator"]
+- !private ["Ps20LazySequenceProtocol", "map"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "IntegerLiteralType"]
+- !private ["Ps10MirrorPath", "Stride"]
+- !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
+- ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["PSo8NSCoding", "description"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "description"]
+- ["PSo9NSCopying", "init"]
+- ["CSo7NSError", "deinit"]
+- !private ["CSo7NSError", "description"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "description"]
+- ["CSo8NSObject", "init"]
+- !private ["PSo16NSObjectProtocol", "description"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo14NSSecureCoding", "description"]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- ["Sq", "deinit"]
+- ["C5Swamp19PublishSwampMessage", "deinit"]
+- !private ["C5Swamp19PublishSwampMessage", "init"]
+- !private ["C5Swamp21PublishedSwampMessage", "deinit"]
+- !private ["C5Swamp21PublishedSwampMessage", "requestId"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- ["Ps16RawRepresentable", "Caller"]
+- ["Ps16RawRepresentable", "Publisher"]
+- ["Ps16RawRepresentable", "Subscriber"]
+- !private ["Ps16RawRepresentable", "call"]
+- !private ["Ps16RawRepresentable", "createMessage"]
+- !private ["Ps16RawRepresentable", "init"]
+- !private ["Ps16RawRepresentable", "publish"]
+- !private ["Ps16RawRepresentable", "rawValue"]
+- !private ["Ps16RawRepresentable", "subscribe"]
+- !private ["Ps16RawRepresentable", "unsubscribe"]
+- !private ["C5Swamp18ResultSwampMessage", "deinit"]
+- !private ["C5Swamp18ResultSwampMessage", "details"]
+- !private ["C5Swamp18ResultSwampMessage", "kwResults"]
+- !private ["C5Swamp18ResultSwampMessage", "requestId"]
+- !private ["C5Swamp18ResultSwampMessage", "results"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Elements"]
+- !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "Indices"]
+- !private ["Ps8Sequence", "Iterator"]
+- ["Ps8Sequence", "Key"]
+- !private ["Ps8Sequence", "SubSequence"]
+- ["Ps8Sequence", "Value"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "keys"]
+- !private ["Ps8Sequence", "map"]
+- !private ["Ps8Sequence", "removeValue"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["Ps13SignedInteger", "IntegerLiteralType"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps12SignedNumber", "IntegerLiteralType"]
+- !private ["Ps12SignedNumber", "Stride"]
+- !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "Iterator"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["Ps10Strideable", "_DisabledRangeIndex"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["C5Swamp21SubscribeSwampMessage", "deinit"]
+- !private ["C5Swamp21SubscribeSwampMessage", "init"]
+- !private ["C5Swamp22SubscribedSwampMessage", "deinit"]
+- !private ["C5Swamp22SubscribedSwampMessage", "requestId"]
+- !private ["C5Swamp22SubscribedSwampMessage", "subscription"]
+- ["C5Swamp12Subscription", "Bool"]
+- ["C5Swamp12Subscription", "ErrorUnsubscribeCallback"]
+- ["C5Swamp12Subscription", "EventCallback"]
+- ["C5Swamp12Subscription", "Int"]
+- ["C5Swamp12Subscription", "SwampSession"]
+- ["C5Swamp12Subscription", "UnsubscribeCallback"]
+- ["C5Swamp12Subscription", "cancel"]
+- ["C5Swamp12Subscription", "deinit"]
+- ["C5Swamp12Subscription", "eventCallback"]
+- ["C5Swamp12Subscription", "init"]
+- ["C5Swamp12Subscription", "invalidate"]
+- !private ["C5Swamp12Subscription", "isActive"]
+- !private ["C5Swamp12Subscription", "session"]
+- ["C5Swamp12Subscription", "subscription"]
+- !private ["P5Swamp12SwampMessage", "args"]
+- !private ["P5Swamp12SwampMessage", "authMethod"]
+- ["P5Swamp12SwampMessage", "deinit"]
+- !private ["P5Swamp12SwampMessage", "details"]
+- !private ["P5Swamp12SwampMessage", "error"]
+- !private ["P5Swamp12SwampMessage", "extra"]
+- !private ["P5Swamp12SwampMessage", "init"]
+- !private ["P5Swamp12SwampMessage", "kwResults"]
+- !private ["P5Swamp12SwampMessage", "kwargs"]
+- !private ["P5Swamp12SwampMessage", "marshal"]
+- !private ["P5Swamp12SwampMessage", "reason"]
+- !private ["P5Swamp12SwampMessage", "requestId"]
+- !private ["P5Swamp12SwampMessage", "requestType"]
+- !private ["P5Swamp12SwampMessage", "results"]
+- !private ["P5Swamp12SwampMessage", "sessionId"]
+- !private ["P5Swamp12SwampMessage", "subscription"]
+- !private ["O5Swamp13SwampMessages", "call"]
+- !private ["O5Swamp13SwampMessages", "createMessage"]
+- !private ["O5Swamp13SwampMessages", "deinit"]
+- !private ["O5Swamp13SwampMessages", "publish"]
+- !private ["O5Swamp13SwampMessages", "subscribe"]
+- !private ["O5Swamp13SwampMessages", "unsubscribe"]
+- ["O5Swamp9SwampRole", "Caller"]
+- ["O5Swamp9SwampRole", "Publisher"]
+- ["O5Swamp9SwampRole", "Subscriber"]
+- ["O5Swamp9SwampRole", "deinit"]
+- !private ["O5Swamp9SwampRole", "init"]
+- !private ["O5Swamp9SwampRole", "rawValue"]
+- ["P5Swamp15SwampSerializer", "deinit"]
+- !private ["P5Swamp15SwampSerializer", "pack"]
+- !private ["P5Swamp15SwampSerializer", "unpack"]
+- !private ["C5Swamp12SwampSession", "AbortSwampMessage"]
+- !private ["C5Swamp12SwampSession", "AuthenticateSwampMessage"]
+- ["C5Swamp12SwampSession", "Bool"]
+- ["C5Swamp12SwampSession", "CallCallback"]
+- !private ["C5Swamp12SwampSession", "CallSwampMessage"]
+- !private ["C5Swamp12SwampSession", "ChallengeSwampMessage"]
+- ["C5Swamp12SwampSession", "Data"]
+- ["C5Swamp12SwampSession", "ErrorCallCallback"]
+- ["C5Swamp12SwampSession", "ErrorPublishCallback"]
+- ["C5Swamp12SwampSession", "ErrorSubscribeCallback"]
+- !private ["C5Swamp12SwampSession", "ErrorSwampMessage"]
+- ["C5Swamp12SwampSession", "ErrorUnsubscribeCallback"]
+- ["C5Swamp12SwampSession", "EventCallback"]
+- !private ["C5Swamp12SwampSession", "EventSwampMessage"]
+- !private ["C5Swamp12SwampSession", "GoodbyeSwampMessage"]
+- !private ["C5Swamp12SwampSession", "HelloSwampMessage"]
+- ["C5Swamp12SwampSession", "Int"]
+- ["C5Swamp12SwampSession", "NSError"]
+- ["C5Swamp12SwampSession", "PublishCallback"]
+- !private ["C5Swamp12SwampSession", "PublishSwampMessage"]
+- !private ["C5Swamp12SwampSession", "PublishedSwampMessage"]
+- !private ["C5Swamp12SwampSession", "ResultSwampMessage"]
+- ["C5Swamp12SwampSession", "String"]
+- ["C5Swamp12SwampSession", "SubscribeCallback"]
+- !private ["C5Swamp12SwampSession", "SubscribeSwampMessage"]
+- !private ["C5Swamp12SwampSession", "SubscribedSwampMessage"]
+- ["C5Swamp12SwampSession", "Subscription"]
+- !private ["C5Swamp12SwampSession", "SwampMessage"]
+- !private ["C5Swamp12SwampSession", "SwampMessages"]
+- ["C5Swamp12SwampSession", "SwampRole"]
+- ["C5Swamp12SwampSession", "SwampSerializer"]
+- ["C5Swamp12SwampSession", "SwampSessionDelegate"]
+- ["C5Swamp12SwampSession", "SwampTransport"]
+- ["C5Swamp12SwampSession", "UnsubscribeCallback"]
+- !private ["C5Swamp12SwampSession", "UnsubscribeSwampMessage"]
+- !private ["C5Swamp12SwampSession", "UnsubscribedSwampMessage"]
+- !private ["C5Swamp12SwampSession", "WelcomeSwampMessage"]
+- !private ["C5Swamp12SwampSession", "abort"]
+- !private ["C5Swamp12SwampSession", "authextra"]
+- !private ["C5Swamp12SwampSession", "authid"]
+- !private ["C5Swamp12SwampSession", "authmethods"]
+- !private ["C5Swamp12SwampSession", "authrole"]
+- ["C5Swamp12SwampSession", "call"]
+- !private ["C5Swamp12SwampSession", "callRequests"]
+- !private ["C5Swamp12SwampSession", "clientName"]
+- ["C5Swamp12SwampSession", "connect"]
+- !private ["C5Swamp12SwampSession", "currRequestId"]
+- ["C5Swamp12SwampSession", "deinit"]
+- ["C5Swamp12SwampSession", "delegate"]
+- ["C5Swamp12SwampSession", "disconnect"]
+- !private ["C5Swamp12SwampSession", "generateRequestId"]
+- !private ["C5Swamp12SwampSession", "handleMessage"]
+- ["C5Swamp12SwampSession", "init"]
+- ["C5Swamp12SwampSession", "isConnected"]
+- !private ["C5Swamp12SwampSession", "print"]
+- ["C5Swamp12SwampSession", "publish"]
+- !private ["C5Swamp12SwampSession", "publishRequests"]
+- !private ["C5Swamp12SwampSession", "realm"]
+- !private ["C5Swamp12SwampSession", "routerSupportedRoles"]
+- !private ["C5Swamp12SwampSession", "sendMessage"]
+- !private ["C5Swamp12SwampSession", "serializer"]
+- !private ["C5Swamp12SwampSession", "sessionId"]
+- ["C5Swamp12SwampSession", "subscribe"]
+- !private ["C5Swamp12SwampSession", "subscribeRequests"]
+- !private ["C5Swamp12SwampSession", "subscriptions"]
+- !private ["C5Swamp12SwampSession", "supportedRoles"]
+- ["C5Swamp12SwampSession", "swampTransportDidConnectWithSerializer"]
+- ["C5Swamp12SwampSession", "swampTransportDidDisconnect"]
+- ["C5Swamp12SwampSession", "swampTransportReceivedData"]
+- !private ["C5Swamp12SwampSession", "transport"]
+- ["C5Swamp12SwampSession", "unsubscribe"]
+- !private ["C5Swamp12SwampSession", "unsubscribeRequests"]
+- ["P5Swamp20SwampSessionDelegate", "Int"]
+- ["P5Swamp20SwampSessionDelegate", "String"]
+- ["P5Swamp20SwampSessionDelegate", "SwampSession"]
+- ["P5Swamp20SwampSessionDelegate", "swampSessionConnected"]
+- ["P5Swamp20SwampSessionDelegate", "swampSessionEnded"]
+- ["P5Swamp20SwampSessionDelegate", "swampSessionHandleChallenge"]
+- !private ["P5Swamp14SwampTransport", "connect"]
+- ["P5Swamp14SwampTransport", "deinit"]
+- !private ["P5Swamp14SwampTransport", "delegate"]
+- !private ["P5Swamp14SwampTransport", "disconnect"]
+- !private ["P5Swamp14SwampTransport", "sendData"]
+- !private ["P5Swamp22SwampTransportDelegate", "AbortSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "AuthenticateSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "CallSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "GoodbyeSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "HelloSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "PublishSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "String"]
+- !private ["P5Swamp22SwampTransportDelegate", "SubscribeSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "Subscription"]
+- !private ["P5Swamp22SwampTransportDelegate", "SwampMessages"]
+- ["P5Swamp22SwampTransportDelegate", "SwampRole"]
+- !private ["P5Swamp22SwampTransportDelegate", "UnsubscribeSwampMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "abort"]
+- !private ["P5Swamp22SwampTransportDelegate", "authextra"]
+- !private ["P5Swamp22SwampTransportDelegate", "authid"]
+- !private ["P5Swamp22SwampTransportDelegate", "authmethods"]
+- !private ["P5Swamp22SwampTransportDelegate", "authrole"]
+- !private ["P5Swamp22SwampTransportDelegate", "callRequests"]
+- !private ["P5Swamp22SwampTransportDelegate", "clientName"]
+- !private ["P5Swamp22SwampTransportDelegate", "currRequestId"]
+- !private ["P5Swamp22SwampTransportDelegate", "delegate"]
+- !private ["P5Swamp22SwampTransportDelegate", "generateRequestId"]
+- !private ["P5Swamp22SwampTransportDelegate", "handleMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "print"]
+- !private ["P5Swamp22SwampTransportDelegate", "publishRequests"]
+- !private ["P5Swamp22SwampTransportDelegate", "realm"]
+- !private ["P5Swamp22SwampTransportDelegate", "routerSupportedRoles"]
+- !private ["P5Swamp22SwampTransportDelegate", "sendMessage"]
+- !private ["P5Swamp22SwampTransportDelegate", "serializer"]
+- !private ["P5Swamp22SwampTransportDelegate", "sessionId"]
+- !private ["P5Swamp22SwampTransportDelegate", "subscribeRequests"]
+- !private ["P5Swamp22SwampTransportDelegate", "subscriptions"]
+- !private ["P5Swamp22SwampTransportDelegate", "supportedRoles"]
+- ["P5Swamp22SwampTransportDelegate", "swampTransportDidConnectWithSerializer"]
+- ["P5Swamp22SwampTransportDelegate", "swampTransportDidDisconnect"]
+- ["P5Swamp22SwampTransportDelegate", "swampTransportReceivedData"]
+- !private ["P5Swamp22SwampTransportDelegate", "transport"]
+- !private ["P5Swamp22SwampTransportDelegate", "unsubscribe"]
+- !private ["P5Swamp22SwampTransportDelegate", "unsubscribeRequests"]
+- ["P5Swamp22SwampTransportDelegate", ""]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- ["C5Swamp23UnsubscribeSwampMessage", "deinit"]
+- !private ["C5Swamp23UnsubscribeSwampMessage", "init"]
+- !private ["C5Swamp24UnsubscribedSwampMessage", "deinit"]
+- !private ["C5Swamp24UnsubscribedSwampMessage", "requestId"]
+- !private ["C5Swamp19WelcomeSwampMessage", "deinit"]
+- !private ["C5Swamp19WelcomeSwampMessage", "details"]
+- !private ["C5Swamp19WelcomeSwampMessage", "sessionId"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "Caller"]
+- !private ["Ps9_Hashable", "IntegerLiteralType"]
+- ["Ps9_Hashable", "Publisher"]
+- !private ["Ps9_Hashable", "Stride"]
+- ["Ps9_Hashable", "Subscriber"]
+- !private ["Ps9_Hashable", "_DisabledRangeIndex"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "call"]
+- !private ["Ps9_Hashable", "createMessage"]
+- !private ["Ps9_Hashable", "description"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "publish"]
+- !private ["Ps9_Hashable", "rawValue"]
+- !private ["Ps9_Hashable", "subscribe"]
+- !private ["Ps9_Hashable", "unsubscribe"]
+- !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- !private ["Ps8_Integer", "IntegerLiteralType"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps8_Integer", "_DisabledRangeIndex"]
+- !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "Index"]
+- !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
+- !private ["Ps21_ObjectiveCBridgeable", "Indices"]
+- !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
+- !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- ["Ps21_ObjectiveCBridgeable", "Value"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "keys"]
+- !private ["Ps21_ObjectiveCBridgeable", "removeValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps14_SignedInteger", "IntegerLiteralType"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps11_Strideable", "IntegerLiteralType"]
+- !private ["Ps11_Strideable", "Stride"]
+- !private ["Ps11_Strideable", "_DisabledRangeIndex"]
+depends-nominal:
+- !private "C5Swamp17AbortSwampMessage"
+- "Ps9AnyObject"
+- "Sa"
+- !private "C5Swamp24AuthenticateSwampMessage"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "P11CryptoSwift22BitshiftOperationsType"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "P11CryptoSwift15ByteConvertible"
+- !private "P11CryptoSwift11CSArrayType"
+- "Ps7CVarArg"
+- "C5Swamp16CallSwampMessage"
+- !private "C5Swamp21ChallengeSwampMessage"
+- !private "Vs9Character"
+- "Ps10Collection"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Data"
+- !private "Vs14DefaultIndices"
+- "Vs10Dictionary"
+- !private "Vs18DictionaryIterator"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "C5Swamp17ErrorSwampMessage"
+- !private "C5Swamp17EventSwampMessage"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps30ExpressibleByDictionaryLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Sf"
+- "C5Swamp19GoodbyeSwampMessage"
+- "Ps8Hashable"
+- "C5Swamp17HelloSwampMessage"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- !private "P11CryptoSwift9Initiable"
+- "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps16IteratorProtocol"
+- "P10SwiftyJSON17JSONSubscriptType"
+- !private "Ps22LazyCollectionProtocol"
+- !private "Vs17LazyMapCollection"
+- !private "Vs15LazyMapIterator"
+- !private "Ps20LazySequenceProtocol"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "CSo7NSError"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "Sq"
+- "C5Swamp19PublishSwampMessage"
+- !private "C5Swamp21PublishedSwampMessage"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- "Ps16RawRepresentable"
+- !private "C5Swamp18ResultSwampMessage"
+- "Ps8Sequence"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Vs5Slice"
+- !private "Ps10Strideable"
+- "SS"
+- "C5Swamp21SubscribeSwampMessage"
+- !private "C5Swamp22SubscribedSwampMessage"
+- "C5Swamp12Subscription"
+- "P5Swamp12SwampMessage"
+- !private "O5Swamp13SwampMessages"
+- "O5Swamp9SwampRole"
+- "P5Swamp15SwampSerializer"
+- "C5Swamp12SwampSession"
+- "P5Swamp20SwampSessionDelegate"
+- "P5Swamp14SwampTransport"
+- "P5Swamp22SwampTransportDelegate"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- !private "Sc"
+- "C5Swamp23UnsubscribeSwampMessage"
+- !private "C5Swamp24UnsubscribedSwampMessage"
+- !private "C5Swamp19WelcomeSwampMessage"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/Swamp/Swamp-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Swamp.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftyJSON.build/module.modulemap"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework/Modules/CryptoSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework/Headers/CryptoSwift-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/CryptoSwift/CryptoSwift-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/CryptoSwift.build/module.modulemap"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Starscream/Starscream.framework/Modules/Starscream.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Starscream/Starscream.framework/Headers/Starscream-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/Starscream/Starscream-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Starscream.build/module.modulemap"
+interface-hash: "bed3e5c7877016fb626667c05ebc0719"

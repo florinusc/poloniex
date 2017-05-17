@@ -1,0 +1,64 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SwampTransportDelegate"
+- "SwampTransport"
+provides-nominal:
+- "P5Swamp22SwampTransportDelegate"
+- "P5Swamp14SwampTransport"
+provides-member:
+- ["P5Swamp22SwampTransportDelegate", ""]
+- ["P5Swamp14SwampTransport", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "Data"
+- "SwampTransportDelegate"
+- "NSError"
+- "String"
+- "SwampSerializer"
+- "SwampTransport"
+depends-member:
+- ["P5Swamp14SwampTransport", "Data"]
+- ["P5Swamp14SwampTransport", "String"]
+- ["P5Swamp14SwampTransport", "SwampTransportDelegate"]
+- ["P5Swamp14SwampTransport", "connect"]
+- ["P5Swamp14SwampTransport", "delegate"]
+- ["P5Swamp14SwampTransport", "disconnect"]
+- ["P5Swamp14SwampTransport", "sendData"]
+- ["P5Swamp14SwampTransport", ""]
+- ["P5Swamp22SwampTransportDelegate", "Data"]
+- ["P5Swamp22SwampTransportDelegate", "NSError"]
+- ["P5Swamp22SwampTransportDelegate", "String"]
+- ["P5Swamp22SwampTransportDelegate", "SwampSerializer"]
+- ["P5Swamp22SwampTransportDelegate", "swampTransportDidConnectWithSerializer"]
+- ["P5Swamp22SwampTransportDelegate", "swampTransportDidDisconnect"]
+- ["P5Swamp22SwampTransportDelegate", "swampTransportReceivedData"]
+depends-nominal:
+- "P5Swamp14SwampTransport"
+- "P5Swamp22SwampTransportDelegate"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/Swamp/Swamp-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Swamp.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftyJSON.build/module.modulemap"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework/Modules/CryptoSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework/Headers/CryptoSwift-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/CryptoSwift/CryptoSwift-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/CryptoSwift.build/module.modulemap"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Starscream/Starscream.framework/Modules/Starscream.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/Starscream/Starscream.framework/Headers/Starscream-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/Starscream/Starscream-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/Starscream.build/module.modulemap"
+interface-hash: "a1e8ed2a4be85dd31adc3c887f5e0773"
