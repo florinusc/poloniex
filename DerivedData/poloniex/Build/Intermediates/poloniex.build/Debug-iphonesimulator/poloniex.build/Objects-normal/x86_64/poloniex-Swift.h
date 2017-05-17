@@ -171,7 +171,6 @@ SWIFT_CLASS("_TtC8poloniex12TickerDetail")
 
 @class UISearchController;
 @class UIStoryboardSegue;
-@class UIImage;
 
 SWIFT_CLASS("_TtC8poloniex12TickerListVC")
 @interface TickerListVC : UITableViewController
@@ -182,7 +181,7 @@ SWIFT_CLASS("_TtC8poloniex12TickerListVC")
 - (void)viewDidLoad;
 - (void)requestData;
 - (void)requestCoinInfo;
-- (UIImage * _Nonnull)requestCoinLogoWithCoinURL:(NSString * _Nonnull)coinURL;
+- (void)requestCoinLogoWithCoinURL:(NSString * _Nonnull)coinURL index:(NSInteger)index;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;

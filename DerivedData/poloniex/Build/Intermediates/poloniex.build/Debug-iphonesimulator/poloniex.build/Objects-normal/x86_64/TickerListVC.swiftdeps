@@ -6,60 +6,60 @@ provides-nominal:
 provides-member:
 - ["C8poloniex12TickerListVC", ""]
 provides-dynamic-lookup:
-- "updateSearchResults"
 - "tableView"
 - "tableView"
 - "tableView"
-- "numberOfSections"
-- "filterContentForSearchText"
-- "requestCoinInfo"
-- "selectedCoinPair"
-- "searchController"
-- "viewDidLoad"
-- "requestCoinLogo"
-- "requestData"
 - "prepare"
-- "coinData"
+- "updateSearchResults"
+- "searchController"
+- "requestData"
+- "requestCoinInfo"
+- "numberOfSections"
+- "selectedCoinPair"
+- "viewDidLoad"
 - "searchBar"
+- "requestCoinLogo"
+- "coinData"
+- "filterContentForSearchText"
 depends-top-level:
-- "UISearchController"
-- !private "URL"
-- "CastingPrecedence"
-- !private "print"
-- !private "TickerCell"
-- !private "Array"
 - "String"
-- "UIImage"
-- !private "=="
-- "AssignmentPrecedence"
-- !private "!="
-- "UnicodeScalarType"
 - "Int"
-- "IndexPath"
-- !private "!"
-- !private "HTTPURLResponse"
-- !private "BooleanLiteralType"
-- !private "&&"
-- "CoinPair"
-- "NSDictionary"
-- !private "NSMutableURLRequest"
-- !private "Void"
-- "UISearchBarDelegate"
-- "UIStoryboardSegue"
-- "UISearchBar"
 - !private "TickerDetail"
-- !private "URLSession"
+- !private "=="
+- "UISearchBar"
 - "UITableViewController"
+- "CastingPrecedence"
 - !private "+"
-- "TickerListVC"
-- !private "JSONSerialization"
-- "UISearchResultsUpdating"
-- !private "||"
-- !private "StringLiteralType"
-- !private "UIColor"
-- "ExtendedGraphemeClusterType"
+- "AssignmentPrecedence"
+- !private "&&"
+- !private "!"
+- !private "print"
+- !private "HTTPURLResponse"
+- !private "URL"
+- "CoinPair"
 - "UITableViewCell"
+- !private "TickerCell"
+- !private "UIColor"
+- !private "!="
+- !private "||"
+- "NSDictionary"
+- "UISearchResultsUpdating"
+- "UISearchController"
+- !private "BooleanLiteralType"
+- !private "Array"
+- "UIStoryboardSegue"
 - "UITableView"
+- "ExtendedGraphemeClusterType"
+- "IndexPath"
+- !private "NSMutableURLRequest"
+- !private "UIImage"
+- !private "URLSession"
+- !private "StringLiteralType"
+- !private "Void"
+- !private "JSONSerialization"
+- "UnicodeScalarType"
+- "UISearchBarDelegate"
+- "TickerListVC"
 depends-member:
 - !private ["Vs11AnyIterator", "Element"]
 - ["Ps9AnyObject", "CoinPair"]
@@ -561,7 +561,6 @@ depends-member:
 - !private ["Vs10Dictionary", "SubSequence"]
 - !private ["Vs10Dictionary", "deinit"]
 - !private ["Vs10Dictionary", "subscript"]
-- !private ["Sd", "deinit"]
 - !private ["Vs18EnumeratedIterator", "Element"]
 - !private ["Vs18EnumeratedSequence", "Iterator"]
 - !private ["Vs18EnumeratedSequence", "deinit"]
@@ -688,7 +687,6 @@ depends-member:
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "contains"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "lowercased"]
-- !private ["Sf", "deinit"]
 - !private ["CSo15HTTPURLResponse", "deinit"]
 - ["Ps8Hashable", "CoinPair"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
@@ -810,10 +808,6 @@ depends-member:
 - !private ["Si", "Stride"]
 - !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
-- !private ["Vs5Int16", "deinit"]
-- !private ["Vs5Int32", "deinit"]
-- !private ["Vs5Int64", "deinit"]
-- !private ["Vs4Int8", "deinit"]
 - !private ["Ps7Integer", "IntegerLiteralType"]
 - !private ["Ps7Integer", "Stride"]
 - !private ["Ps7Integer", "_DisabledRangeIndex"]
@@ -1021,7 +1015,7 @@ depends-member:
 - !private ["CSo8NSObject", "TickerCell"]
 - !private ["CSo8NSObject", "TickerDetail"]
 - !private ["CSo8NSObject", "UIColor"]
-- ["CSo8NSObject", "UIImage"]
+- !private ["CSo8NSObject", "UIImage"]
 - ["CSo8NSObject", "UISearchBar"]
 - ["CSo8NSObject", "UISearchController"]
 - ["CSo8NSObject", "UIStoryboardSegue"]
@@ -1320,7 +1314,7 @@ depends-member:
 - !private ["C8poloniex12TickerListVC", "TickerCell"]
 - !private ["C8poloniex12TickerListVC", "TickerDetail"]
 - !private ["C8poloniex12TickerListVC", "UIColor"]
-- ["C8poloniex12TickerListVC", "UIImage"]
+- !private ["C8poloniex12TickerListVC", "UIImage"]
 - ["C8poloniex12TickerListVC", "UISearchBar"]
 - ["C8poloniex12TickerListVC", "UISearchController"]
 - ["C8poloniex12TickerListVC", "UIStoryboardSegue"]
@@ -1640,7 +1634,7 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "coinImage"]
 - !private ["PSo27UIGestureRecognizerDelegate", "detailLabel"]
 - !private ["PSo27UIGestureRecognizerDelegate", "tickerLabel"]
-- ["CSo7UIImage", "deinit"]
+- !private ["CSo7UIImage", "deinit"]
 - !private ["CSo7UIImage", "init"]
 - !private ["CSo11UIImageView", "image"]
 - !private ["CSo7UILabel", "text"]
@@ -1655,7 +1649,7 @@ depends-member:
 - !private ["CSo11UIResponder", "TickerCell"]
 - !private ["CSo11UIResponder", "TickerDetail"]
 - !private ["CSo11UIResponder", "UIColor"]
-- ["CSo11UIResponder", "UIImage"]
+- !private ["CSo11UIResponder", "UIImage"]
 - ["CSo11UIResponder", "UISearchBar"]
 - ["CSo11UIResponder", "UISearchController"]
 - ["CSo11UIResponder", "UIStoryboardSegue"]
@@ -1977,7 +1971,7 @@ depends-member:
 - !private ["CSo21UITableViewController", "TickerCell"]
 - !private ["CSo21UITableViewController", "TickerDetail"]
 - !private ["CSo21UITableViewController", "UIColor"]
-- ["CSo21UITableViewController", "UIImage"]
+- !private ["CSo21UITableViewController", "UIImage"]
 - ["CSo21UITableViewController", "UISearchBar"]
 - ["CSo21UITableViewController", "UISearchController"]
 - ["CSo21UITableViewController", "UIStoryboardSegue"]
@@ -2194,7 +2188,7 @@ depends-member:
 - !private ["CSo16UIViewController", "TickerCell"]
 - !private ["CSo16UIViewController", "TickerDetail"]
 - !private ["CSo16UIViewController", "UIColor"]
-- ["CSo16UIViewController", "UIImage"]
+- !private ["CSo16UIViewController", "UIImage"]
 - ["CSo16UIViewController", "UISearchBar"]
 - ["CSo16UIViewController", "UISearchController"]
 - ["CSo16UIViewController", "UIStoryboardSegue"]
@@ -2249,11 +2243,6 @@ depends-member:
 - !private ["PSo37UIViewControllerTransitioningDelegate", "isActive"]
 - !private ["PSo37UIViewControllerTransitioningDelegate", "searchBar"]
 - !private ["PSo37UIViewControllerTransitioningDelegate", "searchResultsUpdater"]
-- !private ["Su", "deinit"]
-- !private ["Vs6UInt16", "deinit"]
-- !private ["Vs6UInt32", "deinit"]
-- !private ["Vs6UInt64", "deinit"]
-- !private ["Vs5UInt8", "deinit"]
 - ["V10Foundation3URL", "deinit"]
 - !private ["V10Foundation3URL", "init"]
 - !private ["CSo10URLSession", "dataTask"]
@@ -2265,7 +2254,6 @@ depends-member:
 - ["CSo18URLSessionDataTask", "deinit"]
 - !private ["CSo18URLSessionDataTask", "resume"]
 - !private ["CSo14URLSessionTask", "resume"]
-- !private ["Sc", "deinit"]
 - !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps14_ArrayProtocol", "Index"]
 - !private ["Ps14_ArrayProtocol", "IndexDistance"]
@@ -2477,7 +2465,6 @@ depends-nominal:
 - !private "Vs27DefaultBidirectionalIndices"
 - !private "Vs26DefaultRandomAccessIndices"
 - !private "Vs10Dictionary"
-- !private "Sd"
 - !private "Vs18EnumeratedIterator"
 - !private "Vs18EnumeratedSequence"
 - "Ps9Equatable"
@@ -2490,7 +2477,6 @@ depends-nominal:
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
-- !private "Sf"
 - !private "CSo15HTTPURLResponse"
 - "Ps8Hashable"
 - "V10Foundation9IndexPath"
@@ -2498,10 +2484,6 @@ depends-nominal:
 - "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
 - "Si"
-- !private "Vs5Int16"
-- !private "Vs5Int32"
-- !private "Vs5Int64"
-- !private "Vs4Int8"
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
 - !private "CE10FoundationCSo12NSDictionary8Iterator"
@@ -2559,7 +2541,7 @@ depends-nominal:
 - "PSo18UIFocusEnvironment"
 - !private "PSo11UIFocusItem"
 - !private "PSo27UIGestureRecognizerDelegate"
-- "CSo7UIImage"
+- !private "CSo7UIImage"
 - !private "CSo11UIImageView"
 - !private "CSo7UILabel"
 - "CSo11UIResponder"
@@ -2584,17 +2566,11 @@ depends-nominal:
 - "CSo16UIViewController"
 - "PSo37UIViewControllerAnimatedTransitioning"
 - "PSo37UIViewControllerTransitioningDelegate"
-- !private "Su"
-- !private "Vs6UInt16"
-- !private "Vs6UInt32"
-- !private "Vs6UInt64"
-- !private "Vs5UInt8"
 - "V10Foundation3URL"
 - "CSo10URLSession"
 - "CSo23URLSessionConfiguration"
 - "CSo18URLSessionDataTask"
 - !private "CSo14URLSessionTask"
-- !private "Sc"
 - "Ps14_ArrayProtocol"
 - !private "Ps37_DefaultCustomPlaygroundQuickLookable"
 - "Ps24_DestructorSafeContainer"
@@ -2628,4 +2604,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
-interface-hash: "2369541fa41563fd768dad4ca29976c7"
+interface-hash: "484a82af666b95fe954d584cc6a8f6f5"

@@ -1,9 +1,9 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "2cbe530dbf1128a2877c079d379df580"
-build_time: [548343251, 336928000]
+build_time: [548345119, 105513000]
 inputs:
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerDetail.swift": [544781238, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerListVC.swift": [548343250, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerListVC.swift": [548345118, 0]
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/CoinPairs.swift": [547903662, 0]
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/AppDelegate.swift": [544637912, 0]
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerCell.swift": [547904790, 0]

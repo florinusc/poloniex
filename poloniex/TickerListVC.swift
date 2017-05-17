@@ -113,7 +113,7 @@ class TickerListVC: UITableViewController {
                             }
                             if let url = coin["ImageUrl"] {
                                 self.coinPairs[i].imageURL = url as! String
-                                self.coinPairs[i].image = self.requestCoinLogo(coinURL: ("https://www.cryptocompare.com" + (url as! String)))
+                                self.requestCoinLogo(coinURL: ("https://www.cryptocompare.com" + (url as! String)), index: i)
                             }
                         }
                     }
@@ -128,9 +128,7 @@ class TickerListVC: UITableViewController {
         
     }
     
-    func requestCoinLogo(coinURL: String) -> UIImage {
-        
-        var coinLogo = UIImage()
+    func requestCoinLogo(coinURL: String, index: Int) {
         
         let coinLogoURL = URL(string: coinURL)
         let session = URLSession(configuration: .default)
@@ -142,7 +140,7 @@ class TickerListVC: UITableViewController {
                 if (response as? HTTPURLResponse) != nil {
                     if let imageData = data {
                         let image = UIImage(data: imageData)
-                        coinLogo = image!
+                        self.coinPairs[index].image = image!
                     } else {
                         print("couldn't get image")
                     }
@@ -153,7 +151,6 @@ class TickerListVC: UITableViewController {
         }
         
         dlLogoTask.resume()
-        return coinLogo
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
