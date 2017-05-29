@@ -117,6 +117,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import Foundation;
+@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -170,13 +171,18 @@ SWIFT_CLASS("_TtC8poloniex12TickerDetail")
 @end
 
 @class UISearchController;
+@class UIView;
 @class UIStoryboardSegue;
 
 SWIFT_CLASS("_TtC8poloniex12TickerListVC")
-@interface TickerListVC : UITableViewController
+@interface TickerListVC : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, readonly, strong) UISearchController * _Nonnull searchController;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableView;
 @property (nonatomic, strong) NSDictionary * _Nonnull coinData;
 @property (nonatomic, copy) NSString * _Nonnull selectedCoinPair;
+@property (nonatomic, readonly, strong) UIView * _Nonnull loadingView;
+- (void)createLoadingView;
+- (void)hideLoadingView;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (void)viewDidLoad;
 - (void)requestData;
@@ -186,8 +192,8 @@ SWIFT_CLASS("_TtC8poloniex12TickerListVC")
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section;
 - (void)filterContentForSearchTextWithSearchText:(NSString * _Nonnull)searchText scope:(NSString * _Nonnull)scope;
-- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

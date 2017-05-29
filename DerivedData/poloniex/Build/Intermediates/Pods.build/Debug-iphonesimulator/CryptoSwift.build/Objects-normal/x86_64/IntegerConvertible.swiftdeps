@@ -34,23 +34,23 @@ provides-member:
 - ["Vs6UInt64", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "UInt16"
-- "Int8"
-- "UInt64"
-- "Int64"
-- "Int"
-- "ByteConvertible"
-- "BitshiftOperationsType"
 - "<<"
-- "UInt32"
-- "Int32"
-- "AssignmentPrecedence"
-- "<<="
-- "Int16"
-- "UInt8"
-- ">>"
-- ">>="
+- "Int8"
+- "Int64"
+- "UInt64"
+- "UInt16"
+- "BitshiftOperationsType"
+- "ByteConvertible"
 - "UInt"
+- ">>"
+- "Int32"
+- "UInt32"
+- "AssignmentPrecedence"
+- "Int16"
+- "<<="
+- "UInt8"
+- ">>="
+- "Int"
 depends-member:
 - ["P11CryptoSwift22BitshiftOperationsType", "<<"]
 - ["P11CryptoSwift22BitshiftOperationsType", "<<="]

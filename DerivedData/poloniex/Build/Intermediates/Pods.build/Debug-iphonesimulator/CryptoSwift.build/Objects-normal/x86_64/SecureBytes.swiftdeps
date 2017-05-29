@@ -7,18 +7,18 @@ provides-member:
 - ["C11CryptoSwift11SecureBytes", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "mlock"
+- !private "Void"
 - "Range"
+- "Collection"
+- "Array"
+- "UInt8"
+- "ExpressibleByArrayLiteral"
+- "ArraySlice"
 - !private "munlock"
 - "Int"
-- "UInt8"
-- "Array"
-- "ExpressibleByArrayLiteral"
-- !private "Void"
 - "SecureBytes"
 - "AssignmentPrecedence"
-- "ArraySlice"
-- "Collection"
-- !private "mlock"
 depends-member:
 - ["Ps9AnyObject", "Element"]
 - ["Ps9AnyObject", "Index"]

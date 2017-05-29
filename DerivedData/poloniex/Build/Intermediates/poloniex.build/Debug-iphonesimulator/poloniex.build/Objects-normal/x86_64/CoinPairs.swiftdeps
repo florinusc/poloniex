@@ -7,8 +7,8 @@ provides-member:
 - ["V8poloniex8CoinPair", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "UIImage"
 - "String"
+- "UIImage"
 - "CoinPair"
 depends-member:
 - ["Ps9AnyObject", "init"]

@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "aa5459f9c7b81bc94badcb9cd5fbef2a"
-build_time: [544638036, 404506000]
+build_time: [549294092, 911990000]
 inputs:
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/CryptoSwift/Sources/CryptoSwift/Foundation/AES+Foundation.swift": [544638006, 0]
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/CryptoSwift/Sources/CryptoSwift/AES.swift": [544638006, 0]

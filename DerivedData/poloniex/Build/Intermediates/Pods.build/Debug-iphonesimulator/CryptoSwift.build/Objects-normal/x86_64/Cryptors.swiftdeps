@@ -8,12 +8,12 @@ provides-member:
 - ["P11CryptoSwift8Cryptors", "randomIV"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Array"
-- "UInt8"
-- !private "RandomBytesSequence"
 - "Updatable"
-- "Cryptors"
+- !private "RandomBytesSequence"
 - "Int"
+- "UInt8"
+- "Array"
+- "Cryptors"
 depends-member:
 - !private ["Vs11AnyIterator", "Element"]
 - !private ["Sa", "Iterator"]

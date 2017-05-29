@@ -8,18 +8,18 @@ provides-member:
 - ["Vs6UInt16", "bytes"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "arrayOfBytes"
+- !private "MemoryLayout"
 - "Collection"
+- "ArraySlice"
+- !private "<<"
+- "Int"
+- !private "arrayOfBytes"
+- "UInt16"
+- !private "|"
 - "UInt8"
 - "Array"
-- !private "MemoryLayout"
-- "UInt16"
-- "Int"
-- !private "<<"
-- !private "|"
 - "AssignmentPrecedence"
 - !private "IntegerLiteralType"
-- "ArraySlice"
 - !private "FloatLiteralType"
 depends-member:
 - ["Sa", "deinit"]

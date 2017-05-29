@@ -24,6 +24,7 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = coinPair
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

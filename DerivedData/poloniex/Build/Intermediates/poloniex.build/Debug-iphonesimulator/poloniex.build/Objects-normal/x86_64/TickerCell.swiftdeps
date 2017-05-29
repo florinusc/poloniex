@@ -7,17 +7,17 @@ provides-member:
 - ["C8poloniex10TickerCell", ""]
 provides-dynamic-lookup:
 - "coinImage"
-- "setSelected"
-- "tickerLabel"
 - "detailLabel"
 - "awakeFromNib"
+- "tickerLabel"
+- "setSelected"
 depends-top-level:
-- "TickerCell"
-- "Bool"
-- "UITableViewCell"
-- "AssignmentPrecedence"
-- "UIImageView"
 - "UILabel"
+- "UITableViewCell"
+- "TickerCell"
+- "UIImageView"
+- "AssignmentPrecedence"
+- "Bool"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "coinImage"]

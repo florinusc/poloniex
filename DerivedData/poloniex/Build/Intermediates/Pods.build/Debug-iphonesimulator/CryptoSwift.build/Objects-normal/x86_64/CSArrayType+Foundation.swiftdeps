@@ -7,12 +7,12 @@ provides-member:
 - ["P11CryptoSwift11CSArrayType", "init"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Data"
-- "CSArrayType"
 - "String"
-- !private "Array"
 - "UInt8"
+- !private "Array"
+- "CSArrayType"
 - "CastingPrecedence"
+- !private "Data"
 depends-member:
 - !private ["Sa", "Iterator"]
 - !private ["Sa", "_Element"]

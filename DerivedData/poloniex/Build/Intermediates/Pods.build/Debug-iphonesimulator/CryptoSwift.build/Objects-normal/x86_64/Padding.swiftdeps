@@ -7,10 +7,10 @@ provides-member:
 - ["P11CryptoSwift7Padding", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Int"
+- "Padding"
 - "Array"
 - "UInt8"
-- "Padding"
+- "Int"
 depends-member:
 - ["P11CryptoSwift7Padding", "Array"]
 - ["P11CryptoSwift7Padding", "Int"]

@@ -8,16 +8,16 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "&-"
-- !private "Swift"
 - "BytesSequence"
+- !private "&+"
 - !private "!"
-- "UInt8"
-- "Array"
+- !private "Swift"
 - "AnyIterator"
 - "ArraySlice"
-- !private "..<"
 - !private "AssignmentPrecedence"
-- !private "&+"
+- !private "..<"
+- "Array"
+- "UInt8"
 - "Sequence"
 depends-member:
 - ["Vs11AnyIterator", "Element"]

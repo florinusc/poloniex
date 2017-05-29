@@ -21,22 +21,22 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "BooleanLiteralType"
-- !private "Digest"
-- "Bool"
-- "Cipher"
 - "SHA3"
-- "String"
-- "UInt16"
+- "Data"
+- !private "%"
 - "Authenticator"
-- !private "+"
-- "UInt32"
-- "AssignmentPrecedence"
 - !private "Checksum"
+- "UInt32"
+- "Bool"
+- "String"
+- !private "+"
+- "AssignmentPrecedence"
+- !private "..<"
+- "UInt16"
+- "Cipher"
 - "Array"
 - "UInt8"
-- !private "..<"
-- !private "%"
-- "Data"
+- !private "Digest"
 depends-member:
 - ["Ps9AnyObject", "Variant"]
 - !private ["Ps9AnyObject", "crc16"]

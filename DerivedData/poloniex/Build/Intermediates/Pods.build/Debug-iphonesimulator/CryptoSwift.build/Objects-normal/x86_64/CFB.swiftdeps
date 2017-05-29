@@ -7,13 +7,13 @@ provides-member:
 - ["V11CryptoSwift13CFBModeWorker", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "xor"
-- !private "??"
 - "Array"
 - "UInt8"
-- "BlockModeWorker"
+- !private "xor"
+- !private "??"
 - "AssignmentPrecedence"
 - "CFBModeWorker"
+- "BlockModeWorker"
 - "CipherOperationOnBlock"
 depends-member:
 - !private ["Sa", "Element"]

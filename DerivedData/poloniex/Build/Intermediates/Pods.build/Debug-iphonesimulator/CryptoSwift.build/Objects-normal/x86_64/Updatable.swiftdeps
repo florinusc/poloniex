@@ -14,12 +14,12 @@ provides-dynamic-lookup:
 depends-top-level:
 - "BooleanLiteralType"
 - "Void"
-- !private "!"
 - "Collection"
-- "UInt8"
-- "Bool"
-- "Array"
 - "Updatable"
+- "Bool"
+- "UInt8"
+- "Array"
+- !private "!"
 depends-member:
 - !private ["Sa", "Element"]
 - !private ["Sa", "Iterator"]

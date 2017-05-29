@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "BlockModeWorker"
+- !private "??"
 - !private "xor"
 - "CBCModeWorker"
-- "UInt8"
-- "Array"
 - "CipherOperationOnBlock"
 - "AssignmentPrecedence"
-- !private "??"
+- "UInt8"
+- "Array"
 depends-member:
 - ["Sa", "deinit"]
 - ["P11CryptoSwift15BlockModeWorker", "cipherOperation"]

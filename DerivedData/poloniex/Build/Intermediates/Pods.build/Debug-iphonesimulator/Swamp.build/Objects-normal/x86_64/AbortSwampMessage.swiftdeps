@@ -7,15 +7,15 @@ provides-member:
 - ["C5Swamp17AbortSwampMessage", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
-- "SwampMessage"
-- "AssignmentPrecedence"
-- !private "SwampMessages"
-- "AnyObject"
-- "CastingPrecedence"
-- !private "IntegerLiteralType"
 - "AbortSwampMessage"
 - !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "String"
+- !private "SwampMessages"
+- "SwampMessage"
+- "AnyObject"
 depends-member:
 - ["C5Swamp17AbortSwampMessage", "AnyObject"]
 - ["C5Swamp17AbortSwampMessage", "String"]

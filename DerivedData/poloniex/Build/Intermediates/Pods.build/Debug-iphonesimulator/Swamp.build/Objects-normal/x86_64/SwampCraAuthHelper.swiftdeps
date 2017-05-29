@@ -7,8 +7,8 @@ provides-member:
 - ["C5Swamp18SwampCraAuthHelper", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
 - "SwampCraAuthHelper"
+- "String"
 - !private "CryptoSwift"
 - !private "UInt8"
 - !private "Array"

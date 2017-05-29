@@ -7,11 +7,11 @@ provides-member:
 - ["C5Swamp19JSONSwampSerializer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "JSONSwampSerializer"
 - !private "JSON"
-- "CastingPrecedence"
-- "Data"
+- "JSONSwampSerializer"
 - "SwampSerializer"
+- "Data"
+- "CastingPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "JSON"]
 - ["Ps9AnyObject", "pack"]

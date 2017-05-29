@@ -16,16 +16,16 @@ provides-member:
 - ["SS", "authenticate"]
 provides-dynamic-lookup:
 depends-top-level:
-- "UInt16"
-- "UInt32"
-- "Cipher"
-- "String"
-- !private "UInt8"
 - "BooleanLiteralType"
-- "Bool"
-- !private "CastingPrecedence"
-- "Authenticator"
 - "SHA3"
+- "Authenticator"
+- "UInt32"
+- "Bool"
+- "String"
+- !private "CastingPrecedence"
+- "UInt16"
+- "Cipher"
+- !private "UInt8"
 depends-member:
 - ["Ps9AnyObject", "Variant"]
 - !private ["Ps9AnyObject", "utf8"]

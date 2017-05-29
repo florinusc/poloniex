@@ -7,18 +7,18 @@ provides-member:
 - ["V11CryptoSwift11ZeroPadding", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "+"
+- "ZeroPadding"
+- "Int"
+- !private "!="
 - !private ">"
-- !private "%"
-- !private "-"
+- "Padding"
 - "UInt8"
 - "Array"
-- "ZeroPadding"
-- !private "+"
-- "Int"
-- "Padding"
-- !private "IntegerLiteralType"
-- !private "!="
 - !private "..<"
+- !private "-"
+- !private "%"
+- !private "IntegerLiteralType"
 - !private "FloatLiteralType"
 depends-member:
 - !private ["Sa", "Index"]

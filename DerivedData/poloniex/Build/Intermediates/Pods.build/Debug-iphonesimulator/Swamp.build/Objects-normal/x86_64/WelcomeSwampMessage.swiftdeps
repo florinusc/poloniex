@@ -8,15 +8,15 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "AnyObject"
-- "String"
-- "SwampMessage"
-- "Int"
-- "WelcomeSwampMessage"
-- !private "SwampMessages"
-- !private "IntegerLiteralType"
 - !private "FloatLiteralType"
+- "Int"
+- !private "IntegerLiteralType"
 - "AssignmentPrecedence"
 - "CastingPrecedence"
+- "SwampMessage"
+- "WelcomeSwampMessage"
+- "String"
+- !private "SwampMessages"
 depends-member:
 - !private ["Ps9AnyObject", "SwampMessages"]
 - !private ["Ps9AnyObject", "details"]

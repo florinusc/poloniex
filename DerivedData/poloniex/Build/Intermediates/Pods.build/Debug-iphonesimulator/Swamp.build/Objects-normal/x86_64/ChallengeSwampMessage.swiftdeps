@@ -7,14 +7,14 @@ provides-member:
 - ["C5Swamp21ChallengeSwampMessage", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ChallengeSwampMessage"
-- !private "SwampMessages"
-- "String"
-- "SwampMessage"
-- "CastingPrecedence"
-- "AssignmentPrecedence"
 - !private "FloatLiteralType"
+- "ChallengeSwampMessage"
 - !private "IntegerLiteralType"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- !private "SwampMessages"
+- "SwampMessage"
+- "String"
 depends-member:
 - !private ["Ps9AnyObject", "SwampMessages"]
 - !private ["Ps9AnyObject", "authMethod"]

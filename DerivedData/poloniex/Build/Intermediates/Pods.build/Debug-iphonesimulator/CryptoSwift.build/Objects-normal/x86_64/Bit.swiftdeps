@@ -9,12 +9,12 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Bit"
-- "IntegerLiteralType"
-- "TernaryPrecedence"
-- "FloatLiteralType"
-- "Int"
 - !private "~="
 - "=="
+- "IntegerLiteralType"
+- "TernaryPrecedence"
+- "Int"
+- "FloatLiteralType"
 depends-member:
 - ["O11CryptoSwift3Bit", "Bit"]
 - ["O11CryptoSwift3Bit", "RawValue"]

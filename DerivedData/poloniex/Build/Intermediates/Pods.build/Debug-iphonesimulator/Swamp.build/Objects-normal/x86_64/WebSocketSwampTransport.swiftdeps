@@ -10,22 +10,22 @@ provides-member:
 - ["OC5Swamp23WebSocketSwampTransport13WebsocketMode", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "JSONSwampSerializer"
-- "SwampTransport"
-- !private "StringLiteralType"
-- "WebSocketSwampTransport"
+- !private "Array"
+- !private "FloatLiteralType"
+- "WebSocketDelegate"
+- "Data"
+- "SwampTransportDelegate"
+- !private "IntegerLiteralType"
 - "String"
 - "=="
 - "AssignmentPrecedence"
-- "WebSocketDelegate"
-- "Data"
-- "NSError"
-- "SwampTransportDelegate"
-- !private "FloatLiteralType"
 - "URL"
-- !private "IntegerLiteralType"
-- !private "Array"
 - "WebSocket"
+- !private "JSONSwampSerializer"
+- "NSError"
+- !private "StringLiteralType"
+- "WebSocketSwampTransport"
+- "SwampTransport"
 depends-member:
 - !private ["Ps9AnyObject", "Encoding"]
 - !private ["Ps9AnyObject", "JSONSwampSerializer"]

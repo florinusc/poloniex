@@ -8,9 +8,9 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "String"
-- !private "~="
-- "=="
 - "StringLiteralType"
+- "=="
+- !private "~="
 - "SwampRole"
 depends-member:
 - ["Ps9AnyObject", "init"]

@@ -7,17 +7,17 @@ provides-member:
 - ["C5Swamp16CallSwampMessage", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Array"
-- "String"
-- "SwampMessage"
-- !private "SwampMessages"
-- "CallSwampMessage"
-- !private "IntegerLiteralType"
 - !private "FloatLiteralType"
 - "Int"
+- !private "IntegerLiteralType"
+- "SwampMessage"
 - "AssignmentPrecedence"
-- !private "AnyObject"
 - "CastingPrecedence"
+- "String"
+- !private "AnyObject"
+- "CallSwampMessage"
+- !private "Array"
+- !private "SwampMessages"
 depends-member:
 - !private ["Ps9AnyObject", "SwampMessages"]
 - !private ["Ps9AnyObject", "args"]
