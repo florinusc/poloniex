@@ -8,14 +8,14 @@ provides-member:
 - ["V11CryptoSwift6Digest", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "SHA1"
-- "SHA2"
+- "Digest"
 - "Array"
 - "Hash"
 - "UInt8"
 - !private "MD5"
-- "Digest"
 - "SHA3"
+- "SHA2"
+- !private "SHA1"
 depends-member:
 - ["Ps9AnyObject", "Variant"]
 - !private ["Ps9AnyObject", "calculate"]

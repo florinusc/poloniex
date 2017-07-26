@@ -7,8 +7,8 @@ provides-member:
 - ["V8poloniex8CoinPair", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
 - "UIImage"
+- "String"
 - "CoinPair"
 depends-member:
 - ["Ps9AnyObject", "init"]
@@ -42,6 +42,7 @@ depends-member:
 - ["PSo14NSSecureCoding", "init"]
 - ["SS", "deinit"]
 - ["SS", "init"]
+- ["P11SwiftCharts10StringType", "init"]
 - ["Ps16TextOutputStream", "init"]
 - ["Ps20TextOutputStreamable", "init"]
 - ["PSo29UIAccessibilityIdentification", "init"]
@@ -76,6 +77,7 @@ depends-nominal:
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
 - "SS"
+- "P11SwiftCharts10StringType"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
 - "PSo29UIAccessibilityIdentification"
@@ -99,4 +101,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Modules/SwiftCharts.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Modules/module.modulemap"
 interface-hash: "124ea35fb6a478bb1dc48a99e233c8eb"

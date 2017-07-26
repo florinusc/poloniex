@@ -32,16 +32,36 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coinData.count
+        return coinData.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
         
-        cell.textLabel?.text = coinData.allKeys[indexPath.row] as? String
-        cell.detailTextLabel?.text = coinData.allValues[indexPath.row] as? String
+        var cell = UITableViewCell()
+        
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "chartCell", for: indexPath) as! ChartCell
+            
+            
+            
+        } else if indexPath.row == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "periodChartCell", for: indexPath) as! PeriodChartCell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+            
+            cell.textLabel?.text = coinData.allKeys[indexPath.row - 2] as? String
+            cell.detailTextLabel?.text = coinData.allValues[indexPath.row - 2] as? String
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 200
+        }
+        
+        return 44
     }
 
 }

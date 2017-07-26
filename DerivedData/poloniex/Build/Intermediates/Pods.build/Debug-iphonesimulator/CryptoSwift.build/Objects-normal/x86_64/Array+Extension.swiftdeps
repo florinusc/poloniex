@@ -8,22 +8,22 @@ provides-member:
 - ["Sa", "init"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "-"
-- !private "StringLiteralType"
-- !private "%"
-- !private "!"
-- "Integer"
-- !private "..<"
-- !private "stride"
+- "AssignmentPrecedence"
 - "CastingPrecedence"
 - "Array"
 - "UInt8"
-- "AssignmentPrecedence"
-- !private "/"
+- !private "..<"
+- !private "%"
+- "Integer"
 - "String"
+- "Int"
+- !private "stride"
 - "TernaryPrecedence"
 - !private "UnicodeScalar"
-- "Int"
+- !private "/"
+- !private "-"
+- !private "!"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "hasPrefix"]
 - !private ["Ps9AnyObject", "init"]

@@ -8,8 +8,8 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "BooleanLiteralType"
-- "String"
 - "Rabbit"
+- "String"
 depends-member:
 - !private ["Ps9AnyObject", "Encoding"]
 - !private ["Ps9AnyObject", "Error"]

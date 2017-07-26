@@ -9,9 +9,9 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "JSON"
 - "JSONSwampSerializer"
-- "SwampSerializer"
 - "Data"
 - "CastingPrecedence"
+- "SwampSerializer"
 depends-member:
 - !private ["Ps9AnyObject", "JSON"]
 - ["Ps9AnyObject", "pack"]

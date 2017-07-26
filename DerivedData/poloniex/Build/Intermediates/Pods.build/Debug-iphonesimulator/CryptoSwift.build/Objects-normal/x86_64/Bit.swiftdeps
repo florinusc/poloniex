@@ -8,13 +8,13 @@ provides-member:
 - ["O11CryptoSwift3Bit", "inverted"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bit"
-- !private "~="
+- "Int"
 - "=="
+- !private "~="
+- "FloatLiteralType"
+- "Bit"
 - "IntegerLiteralType"
 - "TernaryPrecedence"
-- "Int"
-- "FloatLiteralType"
 depends-member:
 - ["O11CryptoSwift3Bit", "Bit"]
 - ["O11CryptoSwift3Bit", "RawValue"]

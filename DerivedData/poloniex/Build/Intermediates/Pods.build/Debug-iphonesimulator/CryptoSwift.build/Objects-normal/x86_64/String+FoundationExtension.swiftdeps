@@ -7,12 +7,12 @@ provides-member:
 - ["SS", "decryptBase64"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Data"
+- "String"
 - "Array"
 - "UInt8"
-- "String"
-- !private "CipherError"
 - "Cipher"
+- !private "Data"
+- !private "CipherError"
 depends-member:
 - !private ["Ps9AnyObject", "Encoding"]
 - ["Sa", "deinit"]

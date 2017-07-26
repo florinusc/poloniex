@@ -13,12 +13,12 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "BooleanLiteralType"
-- "Void"
-- "Collection"
-- "Updatable"
 - "Bool"
-- "UInt8"
+- "Updatable"
+- "Collection"
 - "Array"
+- "UInt8"
+- "Void"
 - !private "!"
 depends-member:
 - !private ["Sa", "Element"]

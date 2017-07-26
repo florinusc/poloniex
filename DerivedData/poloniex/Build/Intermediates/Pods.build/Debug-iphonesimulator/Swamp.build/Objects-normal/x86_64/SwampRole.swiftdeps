@@ -7,11 +7,11 @@ provides-member:
 - ["O5Swamp9SwampRole", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
-- "StringLiteralType"
-- "=="
-- !private "~="
 - "SwampRole"
+- !private "~="
+- "=="
+- "StringLiteralType"
+- "String"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - !private ["P11CryptoSwift22BitshiftOperationsType", "hashValue"]

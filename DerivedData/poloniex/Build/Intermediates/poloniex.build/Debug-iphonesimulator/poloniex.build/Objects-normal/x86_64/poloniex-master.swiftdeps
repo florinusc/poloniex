@@ -1,18 +1,12 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
-options: "2cbe530dbf1128a2877c079d379df580"
-build_time: [549362363, 26267000]
+options: "4452e57c79bc526df1e8778445581ca3"
+build_time: [551690602, 617697000]
 inputs:
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/KLineDataSet.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerDetail.swift": !dirty [549295134, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/StockChartBase.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/TimeLineEntity.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerListVC.swift": !dirty [549301913, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/TimeLineStockChartView.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/KLineStockChartViewBase.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/CoinPairs.swift": !dirty [547903662, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/KLineEntity.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/AppDelegate.swift": !dirty [549294689, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/JSUExtension.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/TimeDataset.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/JSUStockChart/KLineStockChartView.swift": !dirty [542062784, 0]
-  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerCell.swift": !dirty [547904790, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerDetail.swift": [549458340, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerListVC.swift": [549301913, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/ChartCell.swift": [549458589, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/CoinPairs.swift": [547903662, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/ExampleDefaults.swift": [549458624, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/AppDelegate.swift": [549294689, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/TickerCell.swift": [547904790, 0]
+  "/Users/florin-alexandru/Documents/ioscourse/poloniex/poloniex/Env.swift": [549458198, 0]

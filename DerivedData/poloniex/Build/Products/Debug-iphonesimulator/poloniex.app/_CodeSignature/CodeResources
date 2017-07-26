@@ -26,67 +26,79 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/Oj5-3g-iu9-view-JIj-7G-Wug.nib</key>
 		<data>
-		jl4/iNKDTX6BsnCnQ7P666YJngU=
+		IgVzRQ3L8VaCOfSe6umOo69fu+k=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-l7G-nw-dEk.nib</key>
 		<data>
-		Vs9ZPAFVytD0DzqLvNTtP4EyPac=
+		x09FUZaLLNmy+6HjUi3nMu2ApwY=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-vNj-xO-s4Z.nib</key>
 		<data>
-		+r+BYW/ZweYvf8Sb57FGJNKu6RA=
+		ibScOZSYEPA3dFl7bMbnMEzmm6Q=
 		</data>
 		<key>Base.lproj/Main.storyboardc/vNj-xO-s4Z-view-htx-3H-eVy.nib</key>
 		<data>
-		Jck2fyXJjv5CCl6eR6qhIgl0GAM=
+		4ucYk/xQdRMatIH0jZj7mUTRYZ0=
 		</data>
 		<key>Frameworks/CryptoSwift.framework/CryptoSwift</key>
 		<data>
-		iAOT9a6di2jKOMPZGD7wbzSJ1CA=
+		ipM+ImAoKa4o8RND8grP3pXO4xg=
 		</data>
 		<key>Frameworks/CryptoSwift.framework/Info.plist</key>
 		<data>
-		E3INHOzSxm6voPzTuB15+b02YAE=
+		o55A4VEWwRhNt86cyn3qYGXZmo8=
 		</data>
 		<key>Frameworks/CryptoSwift.framework/_CodeSignature/CodeResources</key>
 		<data>
-		ukEg6mtVw1cJPLUhOCKHJOsPY9Y=
+		UNf3FYESebw630fQa369X6K6vko=
 		</data>
 		<key>Frameworks/Starscream.framework/Info.plist</key>
 		<data>
-		5iWAsptvh0UubBiO5hO+DDIewqE=
+		WTMMYRFScanwn+WDo17rzNEeZgs=
 		</data>
 		<key>Frameworks/Starscream.framework/Starscream</key>
 		<data>
-		PESdB6fbNrZYUpX6Vhblxkjaap4=
+		MtzPoMx4wRXg3VfR5TKn8j0/jp4=
 		</data>
 		<key>Frameworks/Starscream.framework/_CodeSignature/CodeResources</key>
 		<data>
-		kfkoY29VYJKh0WcgSIIqDvmx9xw=
+		hxAkjMwjHjXylBBLHTueBEcDdHo=
 		</data>
 		<key>Frameworks/Swamp.framework/Info.plist</key>
 		<data>
-		MF2BvcDz8y4hslUuAjduvpIhfVc=
+		Ch8HdTIJ6gpvnFE8MACmQd90r9c=
 		</data>
 		<key>Frameworks/Swamp.framework/Swamp</key>
 		<data>
-		Q4QC1NNjOfAoXdBJsdQP0dtyZOw=
+		Dneza4wawchAIVneSt+fItOWuLY=
 		</data>
 		<key>Frameworks/Swamp.framework/_CodeSignature/CodeResources</key>
 		<data>
-		0YWagFq9leQnJAzdNMUgfQVKqK8=
+		EnzlzxRfKVYGjNtFIukllrcM4JU=
+		</data>
+		<key>Frameworks/SwiftCharts.framework/Info.plist</key>
+		<data>
+		Ea3hjDDmcIiONekQFO03X1Wo6k4=
+		</data>
+		<key>Frameworks/SwiftCharts.framework/SwiftCharts</key>
+		<data>
+		DZDqa5yGmWTU2dH9RZDNDRokOGU=
+		</data>
+		<key>Frameworks/SwiftCharts.framework/_CodeSignature/CodeResources</key>
+		<data>
+		i5lkEXyR8LIhDzFe2zKThjg6VeY=
 		</data>
 		<key>Frameworks/SwiftyJSON.framework/Info.plist</key>
 		<data>
-		xOhrXyz6z+ZlQq3B7izGWRe6vlM=
+		fSmeMwSAsK8LVx0dmI7siW5iwdg=
 		</data>
 		<key>Frameworks/SwiftyJSON.framework/SwiftyJSON</key>
 		<data>
-		ehlCbcFopT3XRPTemJCGQmism7k=
+		GEguexGoF7T1WlpJoGBY6TeMgW8=
 		</data>
 		<key>Frameworks/SwiftyJSON.framework/_CodeSignature/CodeResources</key>
 		<data>
-		OJeIGop+aOIFBt/yhKomzwEYX78=
+		66x9WwXzkecjJFNXEiZrs7SaEps=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -130,7 +142,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		s8eix2f4/vt7zAZJjUXEa2RH1Og=
+		Z9hgJiUbQUuGUIAE0P0e16NOVnE=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -202,176 +214,209 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jl4/iNKDTX6BsnCnQ7P666YJngU=
+			IgVzRQ3L8VaCOfSe6umOo69fu+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			eGzO8E7unznJv32UcJ6/iTdZWIqpd8jSH7S1lsfrmE4=
+			eBnjMmZEY93ys0ka2sDmMETQc6Ch4ROoq7ynxaDDfns=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-l7G-nw-dEk.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Vs9ZPAFVytD0DzqLvNTtP4EyPac=
+			x09FUZaLLNmy+6HjUi3nMu2ApwY=
 			</data>
 			<key>hash2</key>
 			<data>
-			6AEUoFilmsCFKvQEtTw0VTiW2oV1rXd26/1eq1+2nhs=
+			Jl9AHYzjO0nxdZmLRyCqY/ncx+wtUMwzBkxjDAYkbds=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UIViewController-vNj-xO-s4Z.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+r+BYW/ZweYvf8Sb57FGJNKu6RA=
+			ibScOZSYEPA3dFl7bMbnMEzmm6Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			M+ss9WnRqaoRZGnjWFBKLBovJM09jyB48QALwqb+RXE=
+			03ftTiPJmuUp897X+bAG7k6qP6Ni5DKQq1w3IhDtX/c=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/vNj-xO-s4Z-view-htx-3H-eVy.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Jck2fyXJjv5CCl6eR6qhIgl0GAM=
+			4ucYk/xQdRMatIH0jZj7mUTRYZ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			xDxQroK1yssmq03pH2TGjKJ2UbmZ3tlyNYhC449EES8=
+			5loB5UCXRW7I3bC8NB7KTeI6B4LLNEp8TUXuLHwhHIM=
 			</data>
 		</dict>
 		<key>Frameworks/CryptoSwift.framework/CryptoSwift</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iAOT9a6di2jKOMPZGD7wbzSJ1CA=
+			ipM+ImAoKa4o8RND8grP3pXO4xg=
 			</data>
 			<key>hash2</key>
 			<data>
-			vTaeZ3tiDyffjFWNRnPJBuEbHwIYnEoi9GFz19oY2p8=
+			F3/sF7UkiOHfiJZQaHHKoTUydLQHqADBrWJCG9l5pJI=
 			</data>
 		</dict>
 		<key>Frameworks/CryptoSwift.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			E3INHOzSxm6voPzTuB15+b02YAE=
+			o55A4VEWwRhNt86cyn3qYGXZmo8=
 			</data>
 			<key>hash2</key>
 			<data>
-			PI7J5eWtbbxF/0ximTMs1dsBWFiUdNr5HXf0Kfk41y8=
+			VKwOp963nUJ+os9YlHGI+o9bD8wtl5WImGExMOhKEOU=
 			</data>
 		</dict>
 		<key>Frameworks/CryptoSwift.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ukEg6mtVw1cJPLUhOCKHJOsPY9Y=
+			UNf3FYESebw630fQa369X6K6vko=
 			</data>
 			<key>hash2</key>
 			<data>
-			LOj9zcDdm6reyTcU9qU9TcdxxnZOH/Yu8Vm8nwmnoms=
+			iQ4dKvil9/t/SnsNohCFFr1RcZMJqbhIWvGOr9tN35I=
 			</data>
 		</dict>
 		<key>Frameworks/Starscream.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5iWAsptvh0UubBiO5hO+DDIewqE=
+			WTMMYRFScanwn+WDo17rzNEeZgs=
 			</data>
 			<key>hash2</key>
 			<data>
-			DZMaCFx9E0Q3eeubqLgo3QZ2JQSveaZSGjaniBHcMWY=
+			q+l/Td1PFMXE2rmfQtNb7enobtj+WH+37JPxwJUrjF0=
 			</data>
 		</dict>
 		<key>Frameworks/Starscream.framework/Starscream</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PESdB6fbNrZYUpX6Vhblxkjaap4=
+			MtzPoMx4wRXg3VfR5TKn8j0/jp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			dHlpFtFjrWMqTHWZl0kka9OTnQhV5dFKST6d2gdGXq4=
+			r0fF2NIu5jTbUOuHcwqYlFWdJRU9j3ai6XsPehnKz+o=
 			</data>
 		</dict>
 		<key>Frameworks/Starscream.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kfkoY29VYJKh0WcgSIIqDvmx9xw=
+			hxAkjMwjHjXylBBLHTueBEcDdHo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Uyk5LDFuQlxUvGx7fkzwgzaGvx1Od8twvh4+ZgBWdZU=
+			arXAr+Qzx/L50DDt2TOlrdOwmrTjtFR5Ie8qLtPKZvw=
 			</data>
 		</dict>
 		<key>Frameworks/Swamp.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MF2BvcDz8y4hslUuAjduvpIhfVc=
+			Ch8HdTIJ6gpvnFE8MACmQd90r9c=
 			</data>
 			<key>hash2</key>
 			<data>
-			8+V7m4EMr0EvDjsgaTwnbjmk724gt/7zE3bGDLcBcjI=
+			pCfTBFdh7p2L4O/b7x3FEVAwLruj6Z9ffU3w6OmST7Q=
 			</data>
 		</dict>
 		<key>Frameworks/Swamp.framework/Swamp</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Q4QC1NNjOfAoXdBJsdQP0dtyZOw=
+			Dneza4wawchAIVneSt+fItOWuLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			zdjygz1MjtEXJKEpfaF9Zc7NE2UZUMULXKB3R5OAXlk=
+			PscUXWHUKRG3e2N1rzyQ8gAu+jm0sfgYFvgEdQuK1EU=
 			</data>
 		</dict>
 		<key>Frameworks/Swamp.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0YWagFq9leQnJAzdNMUgfQVKqK8=
+			EnzlzxRfKVYGjNtFIukllrcM4JU=
 			</data>
 			<key>hash2</key>
 			<data>
-			EZ+85oKAbw82E6LDpn77tIC1I1tyS4bJel0ykr2V/xo=
+			BSGpyayCka6KQEVzoX0l86R3DhpPc41MxUBu6JlVPpw=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftCharts.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ea3hjDDmcIiONekQFO03X1Wo6k4=
+			</data>
+			<key>hash2</key>
+			<data>
+			lo4kkD2Gta5YJUOt3/QgW7xkX3EYd1/I5FAB/1KnAbM=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftCharts.framework/SwiftCharts</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DZDqa5yGmWTU2dH9RZDNDRokOGU=
+			</data>
+			<key>hash2</key>
+			<data>
+			LTVHkRAAvK+WXoczvQD4wE02M2wYJ10KWwmlXHSYKuI=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftCharts.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			i5lkEXyR8LIhDzFe2zKThjg6VeY=
+			</data>
+			<key>hash2</key>
+			<data>
+			AI5TtbzCaifiE/iwqGds23AmYZCczO9IJudRrCmQJFg=
 			</data>
 		</dict>
 		<key>Frameworks/SwiftyJSON.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xOhrXyz6z+ZlQq3B7izGWRe6vlM=
+			fSmeMwSAsK8LVx0dmI7siW5iwdg=
 			</data>
 			<key>hash2</key>
 			<data>
-			2w16O8rRBgfXN0UEQnS4gJVpM1RBFKegeEeuYLIMUxg=
+			TGuFOJFajcW/IHNmjaFqSnTr41QlaDmOZIwcoY5LMW0=
 			</data>
 		</dict>
 		<key>Frameworks/SwiftyJSON.framework/SwiftyJSON</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ehlCbcFopT3XRPTemJCGQmism7k=
+			GEguexGoF7T1WlpJoGBY6TeMgW8=
 			</data>
 			<key>hash2</key>
 			<data>
-			5Xhh5SSsvonCp114kLBnZn6IG4THWdZsSbWmMoR/zbg=
+			hjB0VzPbAeagYicRNm7Zdmv/iEagOoRTyHB5w2I3FQM=
 			</data>
 		</dict>
 		<key>Frameworks/SwiftyJSON.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OJeIGop+aOIFBt/yhKomzwEYX78=
+			66x9WwXzkecjJFNXEiZrs7SaEps=
 			</data>
 			<key>hash2</key>
 			<data>
-			jjliX006MuuTJHE/TD5zqix8A8a73UTolN7O/PR3FCU=
+			+L1+klNPvZZ4GSZ6OoTxl/Gz+n2RG9WE1IzIolHlwoA=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>

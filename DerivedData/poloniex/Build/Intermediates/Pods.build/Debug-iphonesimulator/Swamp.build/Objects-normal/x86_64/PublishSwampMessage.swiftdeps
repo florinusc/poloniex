@@ -7,16 +7,16 @@ provides-member:
 - ["C5Swamp19PublishSwampMessage", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "SwampMessages"
+- "SwampMessage"
 - !private "FloatLiteralType"
-- !private "Array"
+- "Int"
+- "String"
 - !private "IntegerLiteralType"
 - "AssignmentPrecedence"
 - "CastingPrecedence"
-- "String"
-- "SwampMessage"
+- !private "Array"
 - "PublishSwampMessage"
-- "Int"
-- !private "SwampMessages"
 depends-member:
 - !private ["Ps9AnyObject", "SwampMessages"]
 - !private ["Ps9AnyObject", "args"]

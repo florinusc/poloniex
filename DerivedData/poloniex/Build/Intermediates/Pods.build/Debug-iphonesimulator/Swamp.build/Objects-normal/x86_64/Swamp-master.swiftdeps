@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
-options: "28bd85245da61b5ca24acd5c4140b6c5"
-build_time: [549294105, 365468000]
+options: "f88b81885c2263d146f11684061ed171"
+build_time: [549393077, 392816000]
 inputs:
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Swamp/Swamp/Messages/Session/AbortSwampMessage.swift": [544638010, 0]
   "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Swamp/Swamp/Messages/Auth/AuthenticateSwampMessage.swift": [544638010, 0]

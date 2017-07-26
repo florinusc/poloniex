@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C8poloniex11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidBecomeActive"
-- "application"
 - "applicationWillTerminate"
-- "applicationDidEnterBackground"
 - "applicationWillResignActive"
-- "applicationWillEnterForeground"
 - "window"
+- "applicationDidBecomeActive"
+- "applicationWillEnterForeground"
+- "applicationDidEnterBackground"
+- "application"
 depends-top-level:
+- !private "BooleanLiteralType"
+- "Bool"
+- "UIApplicationDelegate"
+- "UIApplicationLaunchOptionsKey"
+- "AppDelegate"
 - "UIApplication"
 - "AssignmentPrecedence"
 - "UIResponder"
-- "Bool"
-- "UIApplicationLaunchOptionsKey"
-- "AppDelegate"
-- "UIApplicationDelegate"
 - "UIWindow"
-- !private "BooleanLiteralType"
 depends-member:
 - ["Ps9AnyObject", "application"]
 - ["Ps9AnyObject", "applicationDidBecomeActive"]
@@ -282,4 +282,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Modules/SwiftCharts.swiftmodule/x86_64.swiftmodule"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-Swift.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-umbrella.h"
+- "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Modules/module.modulemap"
 interface-hash: "7e85a999868267b7cde0941f4dd635ac"

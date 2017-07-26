@@ -7,9 +7,9 @@ provides-member:
 - ["P11CryptoSwift10DigestType", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "DigestType"
-- "UInt8"
 - "Array"
+- "UInt8"
+- "DigestType"
 depends-member:
 - ["P11CryptoSwift10DigestType", "Array"]
 - ["P11CryptoSwift10DigestType", "UInt8"]

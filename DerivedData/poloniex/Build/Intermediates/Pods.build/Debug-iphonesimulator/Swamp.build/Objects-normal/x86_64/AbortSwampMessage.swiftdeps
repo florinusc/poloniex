@@ -9,13 +9,13 @@ provides-dynamic-lookup:
 depends-top-level:
 - "AbortSwampMessage"
 - !private "FloatLiteralType"
+- "AnyObject"
 - !private "IntegerLiteralType"
 - "AssignmentPrecedence"
 - "CastingPrecedence"
 - "String"
-- !private "SwampMessages"
 - "SwampMessage"
-- "AnyObject"
+- !private "SwampMessages"
 depends-member:
 - ["C5Swamp17AbortSwampMessage", "AnyObject"]
 - ["C5Swamp17AbortSwampMessage", "String"]

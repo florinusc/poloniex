@@ -7,16 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C018F081EDC15B900070B35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C018EFD1EDC15B900070B35 /* Info.plist */; };
-		6C018F091EDC15B900070B35 /* JSUExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018EFE1EDC15B900070B35 /* JSUExtension.swift */; };
-		6C018F0A1EDC15B900070B35 /* KLineDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F001EDC15B900070B35 /* KLineDataSet.swift */; };
-		6C018F0B1EDC15B900070B35 /* KLineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F011EDC15B900070B35 /* KLineEntity.swift */; };
-		6C018F0C1EDC15B900070B35 /* KLineStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F021EDC15B900070B35 /* KLineStockChartView.swift */; };
-		6C018F0D1EDC15B900070B35 /* KLineStockChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F031EDC15B900070B35 /* KLineStockChartViewBase.swift */; };
-		6C018F0E1EDC15B900070B35 /* StockChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F041EDC15B900070B35 /* StockChartBase.swift */; };
-		6C018F0F1EDC15B900070B35 /* TimeDataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F051EDC15B900070B35 /* TimeDataset.swift */; };
-		6C018F101EDC15B900070B35 /* TimeLineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F061EDC15B900070B35 /* TimeLineEntity.swift */; };
-		6C018F111EDC15B900070B35 /* TimeLineStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F071EDC15B900070B35 /* TimeLineStockChartView.swift */; };
+		6C018F131EDC177A00070B35 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C018F121EDC177A00070B35 /* ChartCell.swift */; };
 		6C85B5D21E93FED8004F1C66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C85B5D11E93FED8004F1C66 /* AppDelegate.swift */; };
 		6C85B5D41E93FED8004F1C66 /* TickerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C85B5D31E93FED8004F1C66 /* TickerListVC.swift */; };
 		6C85B5D71E93FED8004F1C66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C85B5D51E93FED8004F1C66 /* Main.storyboard */; };
@@ -27,6 +18,8 @@
 		6CDCC8F81E95216D00B56503 /* TickerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDCC8F71E95216D00B56503 /* TickerDetail.swift */; };
 		6CDCC8FA1E96689500B56503 /* CoinPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDCC8F91E96689500B56503 /* CoinPairs.swift */; };
 		6CDCC8FC1EAA8D8B00B56503 /* TickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDCC8FB1EAA8D8B00B56503 /* TickerCell.swift */; };
+		9F7D772A1F251A0600CFCA23 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7D77291F251A0600CFCA23 /* GraphView.swift */; };
+		9F7D77301F253FBB00CFCA23 /* PeriodChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7D772F1F253FBB00CFCA23 /* PeriodChartCell.swift */; };
 		B603BDFDC127F1A90671E14F /* Pods_poloniex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B101021FAC8C57738EBBBB /* Pods_poloniex.framework */; };
 		D74F37FB7817691695DADD30 /* Pods_poloniexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BE03AC9DC6400440023041 /* Pods_poloniexTests.framework */; };
 		DD700643754214A4A53E48E5 /* Pods_poloniexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8048656611A31A8DBEA86F /* Pods_poloniexUITests.framework */; };
@@ -57,17 +50,7 @@
 		297EABA35D97069E58580F62 /* Pods-poloniexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poloniexTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-poloniexTests/Pods-poloniexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		36BE03AC9DC6400440023041 /* Pods_poloniexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_poloniexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		581D3C291A92E4FDB35BD62F /* Pods-poloniex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poloniex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-poloniex/Pods-poloniex.debug.xcconfig"; sourceTree = "<group>"; };
-		6C018EFD1EDC15B900070B35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C018EFE1EDC15B900070B35 /* JSUExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUExtension.swift; sourceTree = "<group>"; };
-		6C018EFF1EDC15B900070B35 /* JSUStockChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSUStockChart.h; sourceTree = "<group>"; };
-		6C018F001EDC15B900070B35 /* KLineDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLineDataSet.swift; sourceTree = "<group>"; };
-		6C018F011EDC15B900070B35 /* KLineEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLineEntity.swift; sourceTree = "<group>"; };
-		6C018F021EDC15B900070B35 /* KLineStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLineStockChartView.swift; sourceTree = "<group>"; };
-		6C018F031EDC15B900070B35 /* KLineStockChartViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLineStockChartViewBase.swift; sourceTree = "<group>"; };
-		6C018F041EDC15B900070B35 /* StockChartBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockChartBase.swift; sourceTree = "<group>"; };
-		6C018F051EDC15B900070B35 /* TimeDataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDataset.swift; sourceTree = "<group>"; };
-		6C018F061EDC15B900070B35 /* TimeLineEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineEntity.swift; sourceTree = "<group>"; };
-		6C018F071EDC15B900070B35 /* TimeLineStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineStockChartView.swift; sourceTree = "<group>"; };
+		6C018F121EDC177A00070B35 /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		6C85B5CE1E93FED8004F1C66 /* poloniex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = poloniex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C85B5D11E93FED8004F1C66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C85B5D31E93FED8004F1C66 /* TickerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerListVC.swift; sourceTree = "<group>"; };
@@ -85,6 +68,8 @@
 		6CDCC8F91E96689500B56503 /* CoinPairs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinPairs.swift; sourceTree = "<group>"; };
 		6CDCC8FB1EAA8D8B00B56503 /* TickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerCell.swift; sourceTree = "<group>"; };
 		938CB3587598E04BCFE6418E /* Pods-poloniexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poloniexTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-poloniexTests/Pods-poloniexTests.release.xcconfig"; sourceTree = "<group>"; };
+		9F7D77291F251A0600CFCA23 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9F7D772F1F253FBB00CFCA23 /* PeriodChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodChartCell.swift; sourceTree = "<group>"; };
 		AD8048656611A31A8DBEA86F /* Pods_poloniexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_poloniexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,24 +101,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C018EFC1EDC15B900070B35 /* JSUStockChart */ = {
-			isa = PBXGroup;
-			children = (
-				6C018EFD1EDC15B900070B35 /* Info.plist */,
-				6C018EFE1EDC15B900070B35 /* JSUExtension.swift */,
-				6C018EFF1EDC15B900070B35 /* JSUStockChart.h */,
-				6C018F001EDC15B900070B35 /* KLineDataSet.swift */,
-				6C018F011EDC15B900070B35 /* KLineEntity.swift */,
-				6C018F021EDC15B900070B35 /* KLineStockChartView.swift */,
-				6C018F031EDC15B900070B35 /* KLineStockChartViewBase.swift */,
-				6C018F041EDC15B900070B35 /* StockChartBase.swift */,
-				6C018F051EDC15B900070B35 /* TimeDataset.swift */,
-				6C018F061EDC15B900070B35 /* TimeLineEntity.swift */,
-				6C018F071EDC15B900070B35 /* TimeLineStockChartView.swift */,
-			);
-			path = JSUStockChart;
-			sourceTree = "<group>";
-		};
 		6C85B5C51E93FED8004F1C66 = {
 			isa = PBXGroup;
 			children = (
@@ -160,14 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				6C85B5D11E93FED8004F1C66 /* AppDelegate.swift */,
-				6C85B5D31E93FED8004F1C66 /* TickerListVC.swift */,
-				6CDCC8F91E96689500B56503 /* CoinPairs.swift */,
-				6CDCC8F71E95216D00B56503 /* TickerDetail.swift */,
-				6C85B5D51E93FED8004F1C66 /* Main.storyboard */,
-				6CDCC8FB1EAA8D8B00B56503 /* TickerCell.swift */,
-				6C018EFC1EDC15B900070B35 /* JSUStockChart */,
+				9F7D772E1F251AA400CFCA23 /* Model */,
+				9F7D772B1F251A2F00CFCA23 /* Storyboards */,
+				9F7D772C1F251A5000CFCA23 /* ViewControllers */,
 				6C85B5D81E93FED9004F1C66 /* Assets.xcassets */,
-				6C85B5DA1E93FED9004F1C66 /* LaunchScreen.storyboard */,
 				6C85B5DD1E93FED9004F1C66 /* Info.plist */,
 			);
 			path = poloniex;
@@ -189,6 +152,44 @@
 				6C85B5F31E93FED9004F1C66 /* Info.plist */,
 			);
 			path = poloniexUITests;
+			sourceTree = "<group>";
+		};
+		9F7D772B1F251A2F00CFCA23 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6C85B5D51E93FED8004F1C66 /* Main.storyboard */,
+				6C85B5DA1E93FED9004F1C66 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		9F7D772C1F251A5000CFCA23 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9F7D772D1F251A7100CFCA23 /* Cells */,
+				6C85B5D31E93FED8004F1C66 /* TickerListVC.swift */,
+				6CDCC8F71E95216D00B56503 /* TickerDetail.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9F7D772D1F251A7100CFCA23 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9F7D772F1F253FBB00CFCA23 /* PeriodChartCell.swift */,
+				6C018F121EDC177A00070B35 /* ChartCell.swift */,
+				6CDCC8FB1EAA8D8B00B56503 /* TickerCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		9F7D772E1F251AA400CFCA23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6CDCC8F91E96689500B56503 /* CoinPairs.swift */,
+				9F7D77291F251A0600CFCA23 /* GraphView.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		D20D5F92AEE84719FA82ACA4 /* Pods */ = {
@@ -330,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C018F081EDC15B900070B35 /* Info.plist in Resources */,
 				6C85B5DC1E93FED9004F1C66 /* LaunchScreen.storyboard in Resources */,
 				6C85B5D91E93FED9004F1C66 /* Assets.xcassets in Resources */,
 				6C85B5D71E93FED8004F1C66 /* Main.storyboard in Resources */,
@@ -396,7 +396,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7ECA1AFA75EFD1D2174BFAEA /* [CP] Copy Pods Resources */ = {
@@ -426,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B792932E7631E602F028DE41 /* [CP] Copy Pods Resources */ = {
@@ -486,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -496,19 +496,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C018F0A1EDC15B900070B35 /* KLineDataSet.swift in Sources */,
 				6CDCC8F81E95216D00B56503 /* TickerDetail.swift in Sources */,
-				6C018F0E1EDC15B900070B35 /* StockChartBase.swift in Sources */,
-				6C018F101EDC15B900070B35 /* TimeLineEntity.swift in Sources */,
 				6C85B5D41E93FED8004F1C66 /* TickerListVC.swift in Sources */,
-				6C018F111EDC15B900070B35 /* TimeLineStockChartView.swift in Sources */,
-				6C018F0D1EDC15B900070B35 /* KLineStockChartViewBase.swift in Sources */,
+				9F7D772A1F251A0600CFCA23 /* GraphView.swift in Sources */,
+				6C018F131EDC177A00070B35 /* ChartCell.swift in Sources */,
 				6CDCC8FA1E96689500B56503 /* CoinPairs.swift in Sources */,
-				6C018F0B1EDC15B900070B35 /* KLineEntity.swift in Sources */,
+				9F7D77301F253FBB00CFCA23 /* PeriodChartCell.swift in Sources */,
 				6C85B5D21E93FED8004F1C66 /* AppDelegate.swift in Sources */,
-				6C018F091EDC15B900070B35 /* JSUExtension.swift in Sources */,
-				6C018F0F1EDC15B900070B35 /* TimeDataset.swift in Sources */,
-				6C018F0C1EDC15B900070B35 /* KLineStockChartView.swift in Sources */,
 				6CDCC8FC1EAA8D8B00B56503 /* TickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,11 @@ provides-member:
 - ["V11CryptoSwift9NoPadding", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "Padding"
 - "Array"
 - "UInt8"
-- "NoPadding"
 - "Int"
-- "Padding"
+- "NoPadding"
 depends-member:
 - ["Sa", "deinit"]
 - ["V11CryptoSwift9NoPadding", "Array"]

@@ -9,20 +9,20 @@ provides-member:
 - ["O11CryptoSwift9BlockMode", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "CTRModeWorker"
-- !private "CFBModeWorker"
 - "BlockModeWorker"
-- !private "CBCModeWorker"
-- !private "PCBCModeWorker"
-- "CipherOperationOnBlock"
-- !private "ECBModeWorker"
-- "BlockModeOptions"
-- "BlockMode"
-- "=="
-- !private "OFBModeWorker"
+- !private "CFBModeWorker"
 - !private "??"
+- !private "ECBModeWorker"
+- !private "CBCModeWorker"
 - "Array"
 - "UInt8"
+- "CipherOperationOnBlock"
+- !private "CTRModeWorker"
+- !private "PCBCModeWorker"
+- "=="
+- "BlockModeOptions"
+- !private "OFBModeWorker"
+- "BlockMode"
 depends-member:
 - !private ["Sa", "Element"]
 - ["Sa", "deinit"]

@@ -7,10 +7,10 @@ provides-member:
 - ["P11CryptoSwift15BlockModeWorker", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "CipherOperationOnBlock"
 - "BlockModeWorker"
-- "UInt8"
+- "CipherOperationOnBlock"
 - "Array"
+- "UInt8"
 depends-member:
 - ["P11CryptoSwift15BlockModeWorker", "Array"]
 - ["P11CryptoSwift15BlockModeWorker", "CipherOperationOnBlock"]

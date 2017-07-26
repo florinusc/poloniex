@@ -112,6 +112,33 @@
     },
     {
       'type': 'directory',
+      'name': "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwiftCharts-Swift.h",
+          'external-contents': "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwiftCharts-umbrella.h",
+          'external-contents': "/Users/florin-alexandru/Documents/ioscourse/poloniex/Pods/Target Support Files/SwiftCharts/SwiftCharts-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftCharts/SwiftCharts.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftCharts.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
       'name': "/Users/florin-alexandru/Documents/ioscourse/poloniex/DerivedData/poloniex/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers",
       'contents': [
         {

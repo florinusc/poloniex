@@ -7,9 +7,9 @@ provides-member:
 - ["P11CryptoSwift19RandomAccessCryptor", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "RandomAccessCryptor"
-- "Int"
 - "Bool"
+- "Int"
+- "RandomAccessCryptor"
 - "Updatable"
 depends-member:
 - ["P11CryptoSwift19RandomAccessCryptor", "Bool"]

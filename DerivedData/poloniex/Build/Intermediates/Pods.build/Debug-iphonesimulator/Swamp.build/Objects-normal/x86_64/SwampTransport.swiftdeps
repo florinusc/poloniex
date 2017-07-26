@@ -10,12 +10,12 @@ provides-member:
 - ["P5Swamp14SwampTransport", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Data"
-- "SwampSerializer"
 - "String"
 - "SwampTransportDelegate"
-- "SwampTransport"
 - "NSError"
+- "SwampTransport"
+- "SwampSerializer"
+- "Data"
 depends-member:
 - ["P5Swamp14SwampTransport", "Data"]
 - ["P5Swamp14SwampTransport", "String"]

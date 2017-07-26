@@ -9,12 +9,12 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "FloatLiteralType"
 - !private "IntegerLiteralType"
-- "AssignmentPrecedence"
-- "SwampMessage"
-- "CastingPrecedence"
 - !private "SwampMessages"
-- "Int"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "SwampMessage"
 - "UnregisterSwampMessage"
+- "Int"
 depends-member:
 - !private ["Ps9AnyObject", "SwampMessages"]
 - ["Ps9AnyObject", "init"]

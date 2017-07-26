@@ -10,10 +10,10 @@ depends-top-level:
 - !private "FloatLiteralType"
 - !private "SwampMessages"
 - !private "IntegerLiteralType"
+- "SwampMessage"
 - "AssignmentPrecedence"
 - "CastingPrecedence"
 - "String"
-- "SwampMessage"
 - "HelloSwampMessage"
 depends-member:
 - !private ["Ps9AnyObject", "SwampMessages"]

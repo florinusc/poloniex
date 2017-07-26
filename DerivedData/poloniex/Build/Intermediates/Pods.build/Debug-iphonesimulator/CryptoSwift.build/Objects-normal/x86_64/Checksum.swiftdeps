@@ -10,23 +10,23 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "BooleanLiteralType"
-- !private "&"
-- "UInt32"
-- !private ">>"
-- !private "reversed"
-- "UInt8"
-- "Array"
 - !private "Int"
-- !private "^"
-- "Bool"
-- !private "!="
 - !private "BytesSequence"
+- !private "!="
 - "UInt16"
+- "Bool"
+- "Checksum"
+- !private "&"
+- !private ">>"
+- "Array"
+- "UInt8"
 - "AssignmentPrecedence"
 - "IntegerLiteralType"
+- !private "reversed"
 - "TernaryPrecedence"
+- !private "^"
 - "FloatLiteralType"
-- "Checksum"
+- "UInt32"
 depends-member:
 - !private ["Vs11AnyIterator", "Element"]
 - !private ["Ps9AnyObject", "BytesSequence"]

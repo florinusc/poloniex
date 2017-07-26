@@ -7,15 +7,15 @@ provides-member:
 - ["Si", "bytes"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "arrayOfBytes"
+- !private "UInt"
 - "Bit"
-- "CastingPrecedence"
-- "Int"
 - "Array"
 - "UInt8"
-- !private "UInt"
-- !private "MemoryLayout"
 - !private "integerFrom"
+- !private "arrayOfBytes"
+- "Int"
+- "CastingPrecedence"
+- !private "MemoryLayout"
 depends-member:
 - ["Sa", "deinit"]
 - !private ["P11CryptoSwift22BitshiftOperationsType", "MemoryLayout"]

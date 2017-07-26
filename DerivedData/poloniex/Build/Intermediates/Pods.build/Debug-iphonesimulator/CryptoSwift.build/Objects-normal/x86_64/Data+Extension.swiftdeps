@@ -20,23 +20,23 @@ provides-member:
 - ["V10Foundation4Data", "toHexString"]
 provides-dynamic-lookup:
 depends-top-level:
-- "BooleanLiteralType"
-- "SHA3"
-- "Data"
-- !private "%"
 - "Authenticator"
-- !private "Checksum"
+- "BooleanLiteralType"
+- "UInt16"
 - "UInt32"
-- "Bool"
-- "String"
 - !private "+"
+- "String"
+- "Data"
+- !private "Digest"
+- "Cipher"
+- "UInt8"
+- "Array"
 - "AssignmentPrecedence"
 - !private "..<"
-- "UInt16"
-- "Cipher"
-- "Array"
-- "UInt8"
-- !private "Digest"
+- !private "%"
+- "SHA3"
+- "Bool"
+- !private "Checksum"
 depends-member:
 - ["Ps9AnyObject", "Variant"]
 - !private ["Ps9AnyObject", "crc16"]

@@ -6,8 +6,8 @@ provides-member:
 - ["C11CryptoSwift8Blowfish", "init"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "BooleanLiteralType"
 - "Padding"
+- !private "BooleanLiteralType"
 - !private "PKCS7"
 - "String"
 - "BlockMode"

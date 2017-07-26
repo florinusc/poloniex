@@ -11,16 +11,16 @@ provides-member:
 - ["P11CryptoSwift6Cipher", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Cipher"
-- "Collection"
 - "Error"
-- "Int"
-- "UInt8"
-- "Array"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
-- "=="
+- "Collection"
 - "CipherError"
+- "Int"
+- "Array"
+- "UInt8"
+- "Cipher"
+- "=="
+- !private "IntegerLiteralType"
+- !private "FloatLiteralType"
 depends-member:
 - !private ["P11CryptoSwift22BitshiftOperationsType", "hashValue"]
 - !private ["Ps17BitwiseOperations", "hashValue"]

@@ -19,13 +19,13 @@ depends-top-level:
 - "BooleanLiteralType"
 - "SHA3"
 - "Authenticator"
-- "UInt32"
-- "Bool"
 - "String"
+- "Bool"
 - !private "CastingPrecedence"
+- !private "UInt8"
+- "UInt32"
 - "UInt16"
 - "Cipher"
-- !private "UInt8"
 depends-member:
 - ["Ps9AnyObject", "Variant"]
 - !private ["Ps9AnyObject", "utf8"]

@@ -7,8 +7,8 @@ provides-member:
 - ["P11CryptoSwift11BlockCipher", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "BlockCipher"
 - "Int"
+- "BlockCipher"
 depends-member:
 - ["P11CryptoSwift11BlockCipher", "Int"]
 - ["P11CryptoSwift11BlockCipher", "blockSize"]

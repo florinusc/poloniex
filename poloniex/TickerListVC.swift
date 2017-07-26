@@ -181,8 +181,10 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 DispatchQueue.main.async {
                     if (response as? HTTPURLResponse) != nil {
                         if let imageData = data {
-                            let image = UIImage(data: imageData)
-                            self.coinPairs[index].image = image!
+                            //let image = UIImage(data: imageData)
+                            if let image = UIImage(data: imageData) {
+                                self.coinPairs[index].image = image
+                            }
                         } else {
                             print("couldn't get image")
                         }
