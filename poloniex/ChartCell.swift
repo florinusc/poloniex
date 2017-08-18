@@ -10,16 +10,12 @@ import UIKit
 
 class ChartCell: UITableViewCell {
     
-    var graph: GraphView?
+    //var graph: GraphView?
+    public var graphPoints: Array<Double> = []
     
     override func awakeFromNib() {
-        
-        graph = GraphView(frame: CGRect(x: 2.5, y: 2.5, width: (self.bounds.width - 5), height: (self.bounds.height - 5)))
-        
-        graph?.graphPoints = [25, 34, 12, 54, 12, 42]
-        
-        self.addSubview(graph!)
-        
+//        graph = GraphView(frame: CGRect(x: 2.5, y: 2.5, width: (self.bounds.width - 5), height: (self.bounds.height - 5)))
+//        graph?.graphPoints = graphPoints
+//        self.addSubview(graph!)
     }
-    
 }

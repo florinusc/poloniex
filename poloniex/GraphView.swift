@@ -17,6 +17,12 @@ import UIKit
     
     var averageValueLabel = UILabel()
     
+    var denomination: String? = "" {
+        didSet {
+            drawGraph()
+        }
+    }
+    
     var graphPoints:[Double] = [] {
         didSet {
             drawGraph()
@@ -32,32 +38,33 @@ import UIKit
     
     var maxValue: Double {
         get {
-            if graphPoints.max()! > 40.0 {
-                let currentMax = ceil(graphPoints.max()! / 100.0)
-                print("current max is: \(currentMax * 100.0)")
-                return currentMax * 100.0
-            } else {
-                let currentMax = ceil(graphPoints.max()! / 10.0)
-                print("current max is: \(currentMax * 10.0)")
-                return currentMax * 10.0
-            }
+            let currentMax = (graphPoints.max()!)
+            return currentMax
+        }
+    }
+    
+    var minValue: Double {
+        get {
+            let currentMin = (graphPoints.min()!)
+            return currentMin
         }
     }
     
     var valueLabels: Array<Double> {
         get {
             var tempArray = [Double]()
-            if maxValue > 40.0 {
-                let numberOfLines = Int(maxValue/100.0)
-                for i in 0...numberOfLines {
-                    tempArray.append(Double(i)*100.0)
-                }
-            } else {
-                let numberOfLines = Int(maxValue/10.0)
-                for i in 0...numberOfLines {
-                    tempArray.append(Double(i)*10.0)
-                }
+            
+            tempArray.append(maxValue)
+            tempArray.append(minValue)
+            
+            for i in 1...5 {
+                let difference = maxValue - minValue
+                
+                let newLevel = minValue + Double(i)*(difference/5)
+                
+                tempArray.append(newLevel)
             }
+            
             return tempArray
         }
     }
@@ -94,51 +101,45 @@ import UIKit
         if graphPoints.count > 3 {
             
             let yPadding = CGFloat(40)
-            let xPadding = CGFloat(20)
+            let xPadding = CGFloat(15)
             
             descriptionLabel.frame = CGRect(x: xPadding, y: CGFloat(5), width: CGFloat(100), height: CGFloat(15))
             descriptionLabel.font = UIFont(name: "Helvetica", size: 12)
             descriptionLabel.textColor = UIColor.black
             self.addSubview(descriptionLabel)
             
-            let averageValue:Double = (graphPoints as NSArray).value(forKeyPath: "@avg.self") as! Double
-            if graphPoints.max()! > 40.0 {
-                averageValueLabel.text = "Average value: \(Int(averageValue)) mg/dl"
-            } else {
-                averageValueLabel.text = "Average value: \(averageValue) mmol/l"
-            }
-            averageValueLabel.frame = CGRect(x: xPadding, y: CGFloat(20), width: CGFloat(200), height: CGFloat(15))
+            averageValueLabel.text = "Last price: \(graphPoints.last!) \(denomination!)"
+            averageValueLabel.frame = CGRect(x: xPadding, y: CGFloat(20), width: self.bounds.width, height: CGFloat(15))
             averageValueLabel.font = UIFont(name: "Helvetica", size: 12)
             averageValueLabel.textColor = UIColor.black
             self.addSubview(averageValueLabel)
             
             let gridLinePath = UIBezierPath()
             
-            let ySegments = (frame.bounds.height - yPadding) / CGFloat(maxValue)
+            let ySegments = (frame.bounds.height - yPadding*2) / CGFloat(maxValue - minValue)
             
-            for (i, value) in valueLabels.enumerated() {
+            for value in valueLabels {
                 
                 let yPosition = ySegments * (CGFloat(maxValue) - CGFloat(value)) + yPadding
                 
-                if i != 0 {
-                    let valueLabel = UILabel(frame: CGRect(x: frame.bounds.width - CGFloat(17), y: yPosition - 10, width: 15, height: 20))
-                    valueLabel.font = UIFont(name: "Helvetica", size: 8)
-                    valueLabel.text = "\(Int(value))"
-                    valueLabel.textColor = UIColor.black
-                    self.addSubview(valueLabel)
-                    
-                    gridLinePath.move(to: CGPoint(x: xPadding, y: yPosition))
-                    gridLinePath.addLine(to: CGPoint(x: frame.bounds.width-xPadding, y: yPosition))
-                }
+                let valueLabel = UILabel(frame: CGRect(x: frame.bounds.width - CGFloat(40), y: yPosition - 10, width: 40, height: 20))
+                valueLabel.font = UIFont(name: "Helvetica", size: 5)
+                valueLabel.text = "\(value)"
+                valueLabel.textColor = UIColor.black
+                self.addSubview(valueLabel)
+                
+                gridLinePath.move(to: CGPoint(x: xPadding, y: yPosition))
+                gridLinePath.addLine(to: CGPoint(x: frame.bounds.width-xPadding-30, y: yPosition))
+                
                 
             }
             
             for (i, _) in graphPoints.enumerated() {
-                let xPosition = ((frame.bounds.width - 2*xPadding)/CGFloat(graphPoints.count - 1)) * CGFloat(i) + xPadding - 5
+                let xPosition = ((frame.bounds.width - 2*xPadding - 30)/CGFloat(graphPoints.count - 1)) * CGFloat(i) + xPadding - 5
                 let countingLabel = UILabel(frame: CGRect(x: xPosition, y: frame.bounds.height - 20, width: 10, height: 20))
                 countingLabel.text = "\(i + 1)"
                 countingLabel.textAlignment = .center
-                countingLabel.font = UIFont(name: "Helvetica", size: 8)
+                countingLabel.font = UIFont(name: "Helvetica", size: 5)
                 countingLabel.textColor = UIColor.black
                 self.addSubview(countingLabel)
             }
@@ -151,7 +152,7 @@ import UIKit
             
             let graphLine = UIBezierPath()
             
-            let ySegmentsPoints = (frame.bounds.height - yPadding) / CGFloat(maxValue)
+            let ySegmentsPoints = (frame.bounds.height - yPadding*2) / CGFloat(maxValue - minValue)
             let yPositionPoints = ySegmentsPoints * CGFloat(maxValue - graphPoints[0]) + yPadding
             
             let pointsPath = UIBezierPath()
@@ -164,12 +165,14 @@ import UIKit
             
             for point in 1...(graphPoints.count - 1) {
                 let yPositionPoint = ySegmentsPoints * CGFloat(maxValue - graphPoints[point]) + yPadding
-                graphLine.addLine(to: CGPoint(x: ((frame.bounds.width - 2*xPadding)/CGFloat(graphPoints.count - 1))*CGFloat(point)+xPadding,
-                                              y: yPositionPoint ))
-                pointsPath.move(to: CGPoint(x: ((frame.bounds.width - 2*xPadding)/CGFloat(graphPoints.count - 1))*CGFloat(point)+xPadding, y: yPositionPoint))
-                pointsPath.addArc(withCenter: CGPoint(x: ((frame.bounds.width - 2*xPadding)/CGFloat(graphPoints.count - 1))*CGFloat(point)+xPadding, y: yPositionPoint),
-                                  radius: CGFloat(2), startAngle: CGFloat(0), endAngle: CGFloat(90), clockwise: true)
-                print("point: \(graphPoints[point]) was graphed")
+                let xPositionPoint = ((frame.bounds.width - 2*xPadding - 30)/CGFloat(graphPoints.count - 1))*CGFloat(point)+xPadding
+                graphLine.addLine(to: CGPoint(x: xPositionPoint, y: yPositionPoint ))
+                pointsPath.move(to: CGPoint(x: xPositionPoint, y: yPositionPoint))
+                pointsPath.addArc(withCenter: CGPoint(x: xPositionPoint, y: yPositionPoint),
+                                  radius: CGFloat(2),
+                                  startAngle: CGFloat(0),
+                                  endAngle: CGFloat(90),
+                                  clockwise: true)
             }
             
             graphLineLayer.path = graphLine.cgPath

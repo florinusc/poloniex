@@ -10,15 +10,15 @@ import UIKit
 
 class PeriodChartCell: UITableViewCell {
 
+    @IBOutlet weak var periodSegmentedView: UISegmentedControl!
+    
+    @IBAction func periodSegmentedViewAction(_ sender: Any) {
+    
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

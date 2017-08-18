@@ -126,7 +126,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodChartCell" id="2u5-c5-cbl" customClass="PeriodChartCell" customModule="poloniex" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="periodChartCell" id="2u5-c5-cbl" customClass="PeriodChartCell" customModule="poloniex" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2u5-c5-cbl" id="KKF-ZN-gSw">
@@ -141,6 +141,11 @@
                                                         <segment title="4 hours"/>
                                                         <segment title="1 day"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.1442103236913681" green="0.21952734887599945" blue="0.22756130993366241" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <connections>
+                                                        <action selector="periodSegmentControlAction:" destination="vNj-xO-s4Z" eventType="valueChanged" id="jJ6-Cd-PFE"/>
+                                                        <action selector="periodSegmentedViewAction:" destination="2u5-c5-cbl" eventType="valueChanged" id="p3B-MC-Qes"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -149,6 +154,9 @@
                                                 <constraint firstItem="BZF-F8-iq9" firstAttribute="centerY" secondItem="KKF-ZN-gSw" secondAttribute="centerY" id="sup-Ap-uli"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="periodSegmentedView" destination="BZF-F8-iq9" id="bhY-tO-Bvj"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailCell" textLabel="Ymp-BX-CwZ" detailTextLabel="LLj-PS-pab" style="IBUITableViewCellStyleValue1" id="cA7-gq-hJo">
                                         <rect key="frame" x="0.0" y="272" width="375" height="44"/>
