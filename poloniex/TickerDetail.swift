@@ -14,10 +14,9 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
     var coinData = NSDictionary()
     var coinPair = String()
     
-    var graphPoints: Array<Double> = []
+    var chartDataArray: Array<ChartData> = []
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBAction func periodSegmentControlAction(_ sender: UISegmentedControl) {
         
         let segValue = sender.selectedSegmentIndex
@@ -35,8 +34,6 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
             break
         }
         
-        print("segment control works: \(chartPeriod)")
-        
         loadAPI()
         tableView.reloadData()
         
@@ -52,11 +49,7 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
     func takeApartCoinPair() -> String {
         
         var coinPairArr = coinPair.components(separatedBy: "_")
-        
         let firstCoin:String = coinPairArr[0]
-        let secondCoin:String = coinPairArr[1]
-        
-        print("I split the coin pair!")
         
         return firstCoin
     }
@@ -91,14 +84,19 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
                             
                             print("json data is: \(json)")
                             
-                            self.graphPoints.removeAll()
+                            self.chartDataArray.removeAll()
                             
                             for item in json {
-                                let lastPrice = item.value(forKey: "close")
+                                let close: Double = item.value(forKey: "close") as! Double
+                                let open: Double = item.value(forKey: "open") as! Double
+                                let volume: Double = item.value(forKey: "volume") as! Double
+                                let high: Double = item.value(forKey: "high") as! Double
+                                let low: Double = item.value(forKey: "low") as! Double
+                                let date: Int = item.value(forKey: "date") as! Int
+                                let quoteVolume: Double = item.value(forKey: "quoteVolume") as! Double
+                                let weightedAverage: Double = item.value(forKeyPath: "weightedAverage") as! Double
                                 
-                                print("last price is \(lastPrice as! Double)")
-                                
-                                self.graphPoints.append(lastPrice as! Double)
+                                self.chartDataArray.append(ChartData(date: date, high: high, low: low, open: open, close: close, volume: volume, quoteVolume: quoteVolume, weightedAverage: weightedAverage))
                                 
                             }
                             
@@ -151,8 +149,10 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             var graph = GraphView()
             graph = GraphView(frame: CGRect(x: 2.5, y: 2.5, width: (chartCell.bounds.width - 5), height: (chartCell.bounds.height - 5)))
-            graph.graphPoints = graphPoints
+            graph.chartPeriod = chartPeriod
             graph.denomination = takeApartCoinPair()
+            graph.graphData = chartDataArray
+            
             chartCell.addSubview(graph)
             
             return chartCell

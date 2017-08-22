@@ -23,7 +23,23 @@ import UIKit
         }
     }
     
-    var graphPoints:[Double] = [] {
+    var graphData:[ChartData] = [] {
+        didSet {
+            for data in graphData {
+                let tempDate = transformDate(unixDate: data.date)
+                dateStrings.append(tempDate)
+            }
+            drawGraph()
+        }
+    }
+    
+    var dateStrings:[String] = [] {
+        didSet {
+            drawGraph()
+        }
+    }
+    
+    var chartPeriod:Int? {
         didSet {
             drawGraph()
         }
@@ -31,21 +47,33 @@ import UIKit
     
     let graphBackground = CAShapeLayer()
     let graphGridLineLayer = CAShapeLayer()
-    let graphPointsLayer = CAShapeLayer()
-    let graphLineLayer = CAShapeLayer()
     let whiteHaze = CALayer()
     let gl = CAGradientLayer()
     
     var maxValue: Double {
         get {
-            let currentMax = (graphPoints.max()!)
+            
+            var points = [Double]()
+            
+            for point in graphData {
+                points.append(point.high)
+            }
+            
+            let currentMax = (points.max()!)
             return currentMax
         }
     }
     
     var minValue: Double {
         get {
-            let currentMin = (graphPoints.min()!)
+            
+            var points = [Double]()
+            
+            for point in graphData {
+                points.append(point.low)
+            }
+            
+            let currentMin = (points.min()!)
             return currentMin
         }
     }
@@ -73,6 +101,50 @@ import UIKit
         draw(bounds)
     }
     
+    func transformDate(unixDate: Int) -> String {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(unixDate))
+        let dateFormatter = DateFormatter()
+        if chartPeriod == 86400 {
+            dateFormatter.dateFormat = "dd/MM"
+        } else {
+            dateFormatter.dateFormat = "HH:mm"
+        }
+        let dateString = dateFormatter.string(from: date as Date)
+        
+        return dateString
+    }
+    
+    func createCandleLine(yPadding: CGFloat, ySegmentsPoints: CGFloat, xPosition: CGFloat, yPosition: CGFloat, openPrice: Double, closePrice: Double, highestPrice: Double, lowestPrice: Double) -> UIBezierPath {
+        
+        let candlePath = UIBezierPath()
+        
+        let extremeTop = ySegmentsPoints * CGFloat(maxValue - highestPrice) + yPadding
+        let extremeBottom = ySegmentsPoints * CGFloat(maxValue - lowestPrice) + yPadding
+
+        candlePath.move(to: CGPoint(x: xPosition, y: extremeTop))
+        candlePath.addLine(to: CGPoint(x: xPosition, y: extremeBottom))
+        
+        return candlePath
+        
+    }
+    
+    func createCandleBody(yPadding: CGFloat, ySegmentsPoints: CGFloat, xPosition: CGFloat, yPosition: CGFloat, openPrice: Double, closePrice: Double, highestPrice: Double, lowestPrice: Double) -> UIBezierPath {
+        
+        let candlePath = UIBezierPath()
+        
+        let topOfCandle = ySegmentsPoints * CGFloat(maxValue - openPrice) + yPadding
+        let bottomOfCandle = ySegmentsPoints * CGFloat(maxValue - closePrice) + yPadding
+        
+        candlePath.move(to: CGPoint(x: xPosition - 2.5, y: topOfCandle))
+        candlePath.addLine(to: CGPoint(x: xPosition + 2.5, y: topOfCandle))
+        candlePath.addLine(to: CGPoint(x: xPosition + 2.5, y: bottomOfCandle))
+        candlePath.addLine(to: CGPoint(x: xPosition - 2.5, y: bottomOfCandle))
+        candlePath.close()
+        
+        return candlePath
+        
+    }
+    
     func drawGraph() {
         backgroundColor = UIColor.clear
         
@@ -98,7 +170,7 @@ import UIKit
         
         layer.mask = graphBackground
         
-        if graphPoints.count > 3 {
+        if graphData.count > 3 {
             
             let yPadding = CGFloat(40)
             let xPadding = CGFloat(15)
@@ -108,7 +180,7 @@ import UIKit
             descriptionLabel.textColor = UIColor.black
             self.addSubview(descriptionLabel)
             
-            averageValueLabel.text = "Last price: \(graphPoints.last!) \(denomination!)"
+            averageValueLabel.text = "Last price: \((graphData.last?.close)!) \(denomination!)"
             averageValueLabel.frame = CGRect(x: xPadding, y: CGFloat(20), width: self.bounds.width, height: CGFloat(15))
             averageValueLabel.font = UIFont(name: "Helvetica", size: 12)
             averageValueLabel.textColor = UIColor.black
@@ -134,10 +206,10 @@ import UIKit
                 
             }
             
-            for (i, _) in graphPoints.enumerated() {
-                let xPosition = ((frame.bounds.width - 2*xPadding - 30)/CGFloat(graphPoints.count - 1)) * CGFloat(i) + xPadding - 5
-                let countingLabel = UILabel(frame: CGRect(x: xPosition, y: frame.bounds.height - 20, width: 10, height: 20))
-                countingLabel.text = "\(i + 1)"
+            for (i, dateString) in dateStrings.enumerated() {
+                let xPosition = ((frame.bounds.width - 2*xPadding - 30)/CGFloat(graphData.count - 1)) * CGFloat(i) + xPadding - 5
+                let countingLabel = UILabel(frame: CGRect(x: xPosition, y: frame.bounds.height - 20, width: 20, height: 20))
+                countingLabel.text = "\(dateString)"
                 countingLabel.textAlignment = .center
                 countingLabel.font = UIFont(name: "Helvetica", size: 5)
                 countingLabel.textColor = UIColor.black
@@ -153,39 +225,54 @@ import UIKit
             let graphLine = UIBezierPath()
             
             let ySegmentsPoints = (frame.bounds.height - yPadding*2) / CGFloat(maxValue - minValue)
-            let yPositionPoints = ySegmentsPoints * CGFloat(maxValue - graphPoints[0]) + yPadding
+            let yPositionPoints = ySegmentsPoints * CGFloat(maxValue - graphData[0].close) + yPadding
             
             let pointsPath = UIBezierPath()
             
-            pointsPath.addArc(withCenter: CGPoint(x: xPadding, y: yPositionPoints),
-                              radius: CGFloat(2), startAngle: CGFloat(0), endAngle: CGFloat(90), clockwise: true)
+            graphLine.move(to: CGPoint(x: xPadding, y: yPositionPoints ))
             
-            graphLine.move(to: CGPoint(x: xPadding,
-                                       y: yPositionPoints ))
+            let candleLineLayerPath = createCandleLine(yPadding: yPadding, ySegmentsPoints: ySegmentsPoints, xPosition: xPadding, yPosition: yPositionPoints, openPrice: graphData[0].open, closePrice: graphData[0].close, highestPrice: graphData[0].high, lowestPrice: graphData[0].low)
             
-            for point in 1...(graphPoints.count - 1) {
-                let yPositionPoint = ySegmentsPoints * CGFloat(maxValue - graphPoints[point]) + yPadding
-                let xPositionPoint = ((frame.bounds.width - 2*xPadding - 30)/CGFloat(graphPoints.count - 1))*CGFloat(point)+xPadding
+            let candleBodyLayerPath = createCandleBody(yPadding: yPadding, ySegmentsPoints: ySegmentsPoints, xPosition: xPadding, yPosition: yPositionPoints, openPrice: graphData[0].open, closePrice: graphData[0].close, highestPrice: graphData[0].high, lowestPrice: graphData[0].low)
+            
+            for point in 1...(graphData.count - 1) {
+                let yPositionPoint = ySegmentsPoints * CGFloat(maxValue - graphData[point].close) + yPadding
+                let xPositionPoint = ((frame.bounds.width - 2*xPadding - 30)/CGFloat(graphData.count - 1))*CGFloat(point)+xPadding
                 graphLine.addLine(to: CGPoint(x: xPositionPoint, y: yPositionPoint ))
                 pointsPath.move(to: CGPoint(x: xPositionPoint, y: yPositionPoint))
-                pointsPath.addArc(withCenter: CGPoint(x: xPositionPoint, y: yPositionPoint),
-                                  radius: CGFloat(2),
-                                  startAngle: CGFloat(0),
-                                  endAngle: CGFloat(90),
-                                  clockwise: true)
+                
+                let disposableGraphCandleLineLayerPath = createCandleLine(yPadding: yPadding, ySegmentsPoints: ySegmentsPoints, xPosition: xPositionPoint, yPosition: yPositionPoint, openPrice: graphData[point].open, closePrice: graphData[point].close, highestPrice: graphData[point].high, lowestPrice: graphData[point].low)
+                
+                let disposableGraphCandleLineLayer = CAShapeLayer()
+                disposableGraphCandleLineLayer.strokeColor = UIColor.black.cgColor
+                disposableGraphCandleLineLayer.path = disposableGraphCandleLineLayerPath.cgPath
+                layer.addSublayer(disposableGraphCandleLineLayer)
+                
+                let disposableGraphCandleBodyLayerPath = createCandleBody(yPadding: yPadding, ySegmentsPoints: ySegmentsPoints, xPosition: xPositionPoint, yPosition: yPositionPoint, openPrice: graphData[point].open, closePrice: graphData[point].close, highestPrice: graphData[point].high, lowestPrice: graphData[point].low)
+                
+                let disposableGraphCandleBodyLayer = CAShapeLayer()
+                if graphData[point].close < graphData[point].open {
+                    disposableGraphCandleBodyLayer.fillColor = UIColor.red.cgColor
+                } else {
+                    disposableGraphCandleBodyLayer.fillColor = UIColor.green.cgColor
+                }
+                disposableGraphCandleBodyLayer.path = disposableGraphCandleBodyLayerPath.cgPath
+                layer.addSublayer(disposableGraphCandleBodyLayer)
             }
             
-            graphLineLayer.path = graphLine.cgPath
-            graphLineLayer.fillColor = UIColor.clear.cgColor
-            graphLineLayer.strokeColor = UIColor.black.cgColor
+            let graphCandleLineLayer = CAShapeLayer()
+            graphCandleLineLayer.strokeColor = UIColor.black.cgColor
+            graphCandleLineLayer.path = candleLineLayerPath.cgPath
+            layer.addSublayer(graphCandleLineLayer)
             
-            layer.addSublayer(graphLineLayer)
-            
-            graphPointsLayer.path = pointsPath.cgPath
-            graphPointsLayer.fillColor = UIColor.black.cgColor
-            graphPointsLayer.strokeColor = UIColor.black.cgColor
-            
-            layer.addSublayer(graphPointsLayer)
+            let graphCandleBodyLayer = CAShapeLayer()
+            if graphData[0].close < graphData[0].open {
+                graphCandleBodyLayer.fillColor = UIColor.red.cgColor
+            } else {
+                graphCandleBodyLayer.fillColor = UIColor.green.cgColor
+            }
+            graphCandleBodyLayer.path = candleBodyLayerPath.cgPath
+            layer.addSublayer(graphCandleBodyLayer)
             
         } else {
             
