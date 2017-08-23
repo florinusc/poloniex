@@ -13,6 +13,7 @@ struct CoinPair {
     var firstCurrency = String()
     var secondCurrency = String()
     var name = String()
-    var imageURL = String()
-    var image = UIImage()
+    var volume = Double()
+    var change = Double()
+    var lastPrice = Double()
 }

@@ -8,13 +8,19 @@
 
 import UIKit
 
-class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
 
     var chartPeriod = 300
     var coinData = NSDictionary()
     var coinPair = String()
     
     var chartDataArray: Array<ChartData> = []
+    
+    @IBOutlet weak var tabBar: UITabBar!
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+    }
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func periodSegmentControlAction(_ sender: UISegmentedControl) {
@@ -126,6 +132,10 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         self.title = coinPair
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        tabBar.selectedItem = tabBar.items?[0]
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -175,5 +185,4 @@ class TickerDetail: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return 44
     }
-
 }

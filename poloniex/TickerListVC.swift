@@ -58,8 +58,131 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    var mainCoin = "BTC"
+    
+    var tickerSortState = false
+    var priceSortState = false
+    var changeSortState = false
+    var volumeSortState = false
+    var nameSortState = false
+    
+    @IBAction func sortByTicker(_ sender: UIButton) {
+        if !tickerSortState {
+            coinPairs.sort {$0.secondCurrency < $1.secondCurrency}
+            filteredTickers.sort {$0.secondCurrency < $1.secondCurrency}
+            
+            self.tableView.reloadData()
+            
+            tickerSortState = true
+        } else {
+            coinPairs.sort {$0.secondCurrency > $1.secondCurrency}
+            filteredTickers.sort {$0.secondCurrency > $1.secondCurrency}
+            
+            self.tableView.reloadData()
+            
+            tickerSortState = false
+        }
+    }
+    
+    @IBAction func sortByPrice(_ sender: UIButton) {
+        if !priceSortState {
+            coinPairs.sort {$0.lastPrice < $1.lastPrice}
+            filteredTickers.sort {$0.lastPrice < $1.lastPrice}
+            
+            self.tableView.reloadData()
+            
+            priceSortState = true
+        } else {
+            coinPairs.sort {$0.lastPrice > $1.lastPrice}
+            filteredTickers.sort {$0.lastPrice > $1.lastPrice}
+            
+            self.tableView.reloadData()
+            
+            priceSortState = false
+        }
+    }
+    
+    @IBAction func sortByVolume(_ sender: UIButton) {
+        if !volumeSortState {
+            coinPairs.sort {$0.volume < $1.volume}
+            filteredTickers.sort {$0.volume < $1.volume}
+            
+            self.tableView.reloadData()
+            
+            volumeSortState = true
+        } else {
+            coinPairs.sort {$0.volume > $1.volume}
+            filteredTickers.sort {$0.volume > $1.volume}
+            
+            self.tableView.reloadData()
+            
+            volumeSortState = false
+        }
+    }
+    
+    @IBAction func sortByChange(_ sender: UIButton) {
+        if !changeSortState {
+            coinPairs.sort {$0.change < $1.change}
+            filteredTickers.sort {$0.change < $1.change}
+            
+            self.tableView.reloadData()
+            
+            changeSortState = true
+        } else {
+            coinPairs.sort {$0.change > $1.change}
+            filteredTickers.sort {$0.change > $1.change}
+            
+            self.tableView.reloadData()
+            
+            changeSortState = false
+        }
+    }
+    
+    @IBAction func sortByName(_ sender: UIButton) {
+        if !nameSortState {
+            coinPairs.sort {$0.name < $1.name}
+            filteredTickers.sort {$0.name < $1.name}
+            
+            self.tableView.reloadData()
+            
+            nameSortState = true
+        } else {
+            coinPairs.sort {$0.name > $1.name}
+            filteredTickers.sort {$0.name > $1.name}
+            
+            self.tableView.reloadData()
+            
+            nameSortState = false
+        }
+    }
+    
+    @IBOutlet weak var segmentedControlOutlet: UISegmentedControl!
+    
+    
+    @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mainCoin = "BTC"
+        case 1:
+            mainCoin = "ETH"
+        case 2:
+            mainCoin = "XMR"
+        case 3:
+            mainCoin = "USDT"
+        default:
+            break
+        }
+        
+        requestData()
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         let logInBttn = UIBarButtonItem(title: "Log In", style: .plain, target: self, action: nil)
         
@@ -79,8 +202,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-        searchController.searchBar.scopeButtonTitles = ["All", "BTC", "ETH", "XMR", "USDT"]
+    
         let poloColor = UIColor.gray
         searchController.searchBar.tintColor = poloColor
         searchController.searchBar.barTintColor = UIColor.white
@@ -93,6 +215,8 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let request: NSMutableURLRequest = NSMutableURLRequest()
         request.url = url
         request.httpMethod = "GET"
+        
+        self.coinPairs.removeAll()
         
         let session = URLSession.shared
         
@@ -113,10 +237,42 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                             for item in json {
                                 let pair = item.key as! String
                                 
+                                let pairData = item.value as! NSDictionary
+                                
+                                var volume = Double(0.0)
+                                var change = Double(0.0)
+                                var lastPrice = Double(0.0)
+                                
+                                if let tempvolume = pairData.value(forKey: "quoteVolume") as? String {
+                                    if let temptempvolume = Double(tempvolume) {
+                                        volume = round(temptempvolume * 1000) / 1000
+                                    }
+                                }
+                                
+                                if let tempchange = pairData.value(forKey: "percentChange") as? String {
+                                    if let temptempchange = Double(tempchange) {
+                                        change = round(temptempchange * 10000) / 100
+                                    }
+                                }
+                                
+                                if let templastPrice = pairData.value(forKey: "last") as? String {
+                                    if let temptemplastPrice = Double(templastPrice) {
+                                        lastPrice = temptemplastPrice
+                                    }
+                                }
+                                
                                 let pairArr = pair.characters.split(separator: "_").map(String.init)
                                 
                                 if !self.coinPairs.contains(where: {$0.pair == pair}) {
-                                    self.coinPairs.append(CoinPair(pair: pair, firstCurrency: pairArr[0], secondCurrency: pairArr[1], name: "", imageURL: "", image: UIImage()))
+                                    
+                                    if self.mainCoin == pairArr[0] {
+                                        
+                                    
+                                    self.coinPairs.append(CoinPair(pair: pair, firstCurrency: pairArr[0], secondCurrency: pairArr[1], name: "", volume: volume, change: change, lastPrice: lastPrice))
+                                        
+                                    
+                                        
+                                    }
                                 }
                             }
                             self.requestCoinInfo()
@@ -128,76 +284,31 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
         }).resume()
     }
-    
+
     func requestCoinInfo() {
-        let url = URL(string: "https://www.cryptocompare.com/api/data/coinlist/")
-        let request: NSMutableURLRequest = NSMutableURLRequest()
-        request.url = url
-        request.httpMethod = "GET"
         
-        let session = URLSession.shared
-        
-        session.dataTask(with: url!, completionHandler: {
-            (data, response, error) -> Void in
-            if error == nil {
-                DispatchQueue.main.async {
+        for (index, coin) in coinPairs.enumerated() {
+            
+            if let path = Bundle.main.path(forResource: "coinnames", ofType: "json") {
+                do {
+                    let jsonData = try NSData(contentsOfFile: path, options: .mappedIfSafe)
                     do {
+                        let jsonResult = try JSONSerialization.jsonObject(with: jsonData as Data, options: .mutableContainers) as! NSDictionary
                         
-                        if let jsonData = data {
-                            let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! [String: Any]
-                            
-                            let coins = json["Data"]! as? [String:[String:Any]]
-                            
-                            for (i, coinner) in self.coinPairs.enumerated() {
-                                if let coin = coins?[coinner.secondCurrency] {
-                                    if let name = coin["CoinName"] {
-                                        self.coinPairs[i].name = name as! String
-                                        print(name)
-                                    }
-                                    if let url = coin["ImageUrl"] {
-                                        self.coinPairs[i].imageURL = url as! String
-                                        self.requestCoinLogo(coinURL: ("https://www.cryptocompare.com" + (url as! String)), index: i)
-                                    }
-                                }
-                            }
-                        }
-                    } catch let err {
-                        print(err)
-                    }
-                }
-            }
-        }).resume()
-    }
-    
-    func requestCoinLogo(coinURL: String, index: Int) {
-        
-        let coinLogoURL = URL(string: coinURL)
-        let session = URLSession(configuration: .default)
-        
-        let dlLogoTask = session.dataTask(with: coinLogoURL!) { (data, response, error) in
-            if let e = error {
-                print(e)
-            } else {
-                DispatchQueue.main.async {
-                    if (response as? HTTPURLResponse) != nil {
-                        if let imageData = data {
-                            //let image = UIImage(data: imageData)
-                            if let image = UIImage(data: imageData) {
-                                self.coinPairs[index].image = image
-                            }
+                        let ticker = coin.secondCurrency
+                        
+                        if let coinName = jsonResult.value(forKey: ticker) {
+                            self.coinPairs[index].name = coinName as! String
                         } else {
-                            print("couldn't get image")
+                            print("there is no name for \(ticker)")
                         }
-                    } else {
-                        print("couldn't get response")
-                    }
-                }
+                        self.hideLoadingView()
+                    } catch {}
+                } catch {}
+            } else {
+                print("we have a problem")
             }
-            self.hideLoadingView()
         }
-        
-        dlLogoTask.resume()
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -220,17 +331,19 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if searchController.isActive && searchController.searchBar.text != "" {
             
-            print("cell for row got called")
-            
-            cell.coinImage.image = filteredTickers[indexPath.row].image
-            cell.tickerLabel.text = filteredTickers[indexPath.row].pair
+            cell.tickerLabel.text = filteredTickers[indexPath.row].secondCurrency
             cell.detailLabel.text = filteredTickers[indexPath.row].name
+            cell.lastPriceLabel.text = String(filteredTickers[indexPath.row].lastPrice)
+            cell.volumeLabel.text = String(filteredTickers[indexPath.row].volume)
+            cell.changeLabel.text = String(filteredTickers[indexPath.row].change) + "%"
             
         } else {
             
-            cell.coinImage.image = coinPairs[indexPath.row].image
-            cell.tickerLabel.text = coinPairs[indexPath.row].pair
+            cell.tickerLabel.text = coinPairs[indexPath.row].secondCurrency
             cell.detailLabel.text = coinPairs[indexPath.row].name
+            cell.lastPriceLabel.text = String(coinPairs[indexPath.row].lastPrice)
+            cell.volumeLabel.text = String(coinPairs[indexPath.row].volume)
+            cell.changeLabel.text = String(coinPairs[indexPath.row].change) + "%"
         }
         
         return cell
@@ -248,42 +361,37 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        var heightToReturn = 0
-        
-        if searchController.isActive {
-            heightToReturn = 44
-        }
-        
-        return CGFloat(heightToReturn)
+        return 44
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+    func filterContentForSearchText(searchText: String) {
         filteredTickers = coinPairs.filter { ticker in
-            let categoryMatch = (scope == "All") || (ticker.firstCurrency == scope || ticker.name == scope || ticker.secondCurrency == scope)
-            return categoryMatch && (ticker.secondCurrency.lowercased().contains(searchText.lowercased()) || ticker.name.lowercased().contains(searchText.lowercased()))
+            return (ticker.secondCurrency.lowercased().contains(searchText.lowercased()) || ticker.name.lowercased().contains(searchText.lowercased()))
         }
-        print("new search")
         for i in filteredTickers {
             
             print(i.pair)
         }
-        print("finished searching")
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderCell
+        
+        return headerCell
     }
     
 }
 
 extension TickerListVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterContentForSearchText(searchText: searchController.searchBar.text!, scope: scope)
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }
 
 extension TickerListVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+        filterContentForSearchText(searchText: searchBar.text!)
     }
 }
 

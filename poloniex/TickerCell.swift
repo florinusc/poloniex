@@ -10,15 +10,18 @@ import UIKit
 
 class TickerCell: UITableViewCell {
     
-    @IBOutlet weak var coinImage: UIImageView!
     @IBOutlet weak var tickerLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
+    @IBOutlet weak var changeLabel: UILabel!
+    @IBOutlet weak var volumeLabel: UILabel!
+    @IBOutlet weak var lastPriceLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        coinImage.contentMode = .scaleAspectFit
+        //coinImage.contentMode = .scaleAspectFit
         
     }
 
