@@ -55,6 +55,10 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let destinationVC = segue.destination as! TickerDetail
             destinationVC.coinPair = selectedCoinPair
             destinationVC.coinData = coinData.value(forKey: selectedCoinPair) as! NSDictionary
+            
+            let chartsVC = storyboard?.instantiateViewController(withIdentifier: "ChartsViewController") as! ChartsViewController
+            chartsVC.coinPair = selectedCoinPair
+            chartsVC.coinData = coinData.value(forKey: selectedCoinPair) as! NSDictionary
         }
     }
     
