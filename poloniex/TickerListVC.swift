@@ -247,7 +247,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                                 var change = Double(0.0)
                                 var lastPrice = Double(0.0)
                                 
-                                if let tempvolume = pairData.value(forKey: "quoteVolume") as? String {
+                                if let tempvolume = pairData.value(forKey: "baseVolume") as? String {
                                     if let temptempvolume = Double(tempvolume) {
                                         volume = round(temptempvolume * 1000) / 1000
                                     }
@@ -341,6 +341,12 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             cell.volumeLabel.text = String(filteredTickers[indexPath.row].volume)
             cell.changeLabel.text = String(filteredTickers[indexPath.row].change) + "%"
             
+            if filteredTickers[indexPath.row].change < 0.0 {
+                cell.changeLabel.textColor = UIColor.red
+            } else {
+                cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
+            }
+            
         } else {
             
             cell.tickerLabel.text = coinPairs[indexPath.row].secondCurrency
@@ -348,6 +354,13 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             cell.lastPriceLabel.text = String(coinPairs[indexPath.row].lastPrice)
             cell.volumeLabel.text = String(coinPairs[indexPath.row].volume)
             cell.changeLabel.text = String(coinPairs[indexPath.row].change) + "%"
+            
+            if coinPairs[indexPath.row].change < 0.0 {
+                cell.changeLabel.textColor = UIColor.red
+            } else {
+                cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
+            }
+            
         }
         
         return cell

@@ -14,18 +14,25 @@ class TickerDetail: UIViewController, UITabBarDelegate {
     var coinPair = String()
     var chartDataArray: Array<ChartData> = []
     
+    var selectedPage = 0
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "containerSegue" {
             let pageViewController = segue.destination as! PageViewController
             pageViewController.coinPair = coinPair
             pageViewController.coinData = coinData
-            
+            pageViewController.selectedPage = selectedPage
         }
     }
     
     @IBOutlet weak var tabBar: UITabBar!
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        selectedPage = item.tag
+        
+        let containerView = self.childViewControllers[0] as! PageViewController
+        containerView.loadSelectedPage(funcSelectedPage: selectedPage)
         
     }
     
@@ -36,7 +43,9 @@ class TickerDetail: UIViewController, UITabBarDelegate {
         self.title = coinPair
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        tabBar.selectedItem = tabBar.items?[0]
+        tabBar.selectedItem = tabBar.items?[selectedPage]
+        
+        tabBar.delegate = self
         
         
     }
