@@ -20,6 +20,15 @@
 		6CDCC8FC1EAA8D8B00B56503 /* TickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDCC8FB1EAA8D8B00B56503 /* TickerCell.swift */; };
 		9F1D18141F52D6DC00BCAE32 /* OrderBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18131F52D6DC00BCAE32 /* OrderBookCell.swift */; };
 		9F1D18161F52F27D00BCAE32 /* OrderBookEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18151F52F27D00BCAE32 /* OrderBookEntry.swift */; };
+		9F1D18181F545CCD00BCAE32 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18171F545CCD00BCAE32 /* LoginPageViewController.swift */; };
+		9F1D181C1F54968F00BCAE32 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D181B1F54968F00BCAE32 /* LoginTableViewController.swift */; };
+		9F1D181E1F553F8E00BCAE32 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D181D1F553F8E00BCAE32 /* LoginCell.swift */; };
+		9F1D18201F5AECF100BCAE32 /* LoginContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D181F1F5AECF100BCAE32 /* LoginContainerViewController.swift */; };
+		9F1D18221F5B093C00BCAE32 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18211F5B093C00BCAE32 /* TabBarViewController.swift */; };
+		9F1D18261F5C717800BCAE32 /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18251F5C717800BCAE32 /* AccountMenuViewController.swift */; };
+		9F1D18301F5D465F00BCAE32 /* AccountBalancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D182F1F5D465F00BCAE32 /* AccountBalancesViewController.swift */; };
+		9F1D18351F5E784C00BCAE32 /* SweetHMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18341F5E784C00BCAE32 /* SweetHMAC.swift */; };
+		9F1D18371F5E7BD800BCAE32 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18361F5E7BD800BCAE32 /* BalanceCell.swift */; };
 		9F45FC681F4CBD200094C0B0 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45FC671F4CBD200094C0B0 /* HeaderCell.swift */; };
 		9F45FC6D1F4D62E00094C0B0 /* coinnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F45FC6C1F4D62E00094C0B0 /* coinnames.json */; };
 		9F45FC6F1F4EE5030094C0B0 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45FC6E1F4EE5030094C0B0 /* ChartsViewController.swift */; };
@@ -80,6 +89,16 @@
 		938CB3587598E04BCFE6418E /* Pods-poloniexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poloniexTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-poloniexTests/Pods-poloniexTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F1D18131F52D6DC00BCAE32 /* OrderBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBookCell.swift; sourceTree = "<group>"; };
 		9F1D18151F52F27D00BCAE32 /* OrderBookEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBookEntry.swift; sourceTree = "<group>"; };
+		9F1D18171F545CCD00BCAE32 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		9F1D181B1F54968F00BCAE32 /* LoginTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
+		9F1D181D1F553F8E00BCAE32 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
+		9F1D181F1F5AECF100BCAE32 /* LoginContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContainerViewController.swift; sourceTree = "<group>"; };
+		9F1D18211F5B093C00BCAE32 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		9F1D18251F5C717800BCAE32 /* AccountMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
+		9F1D182F1F5D465F00BCAE32 /* AccountBalancesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBalancesViewController.swift; sourceTree = "<group>"; };
+		9F1D18311F5D713200BCAE32 /* poloniex-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "poloniex-Bridging-Header.h"; path = "poloniex/poloniex-Bridging-Header.h"; sourceTree = "<group>"; };
+		9F1D18341F5E784C00BCAE32 /* SweetHMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetHMAC.swift; sourceTree = "<group>"; };
+		9F1D18361F5E7BD800BCAE32 /* BalanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceCell.swift; sourceTree = "<group>"; };
 		9F45FC671F4CBD200094C0B0 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		9F45FC6C1F4D62E00094C0B0 /* coinnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coinnames.json; sourceTree = "<group>"; };
 		9F45FC6E1F4EE5030094C0B0 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +143,7 @@
 		6C85B5C51E93FED8004F1C66 = {
 			isa = PBXGroup;
 			children = (
+				9F1D18311F5D713200BCAE32 /* poloniex-Bridging-Header.h */,
 				6C85B5D01E93FED8004F1C66 /* poloniex */,
 				6C85B5E51E93FED9004F1C66 /* poloniexTests */,
 				6C85B5F01E93FED9004F1C66 /* poloniexUITests */,
@@ -187,12 +207,18 @@
 		9F7D772C1F251A5000CFCA23 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9F1D18251F5C717800BCAE32 /* AccountMenuViewController.swift */,
+				9F1D182F1F5D465F00BCAE32 /* AccountBalancesViewController.swift */,
 				9F7D772D1F251A7100CFCA23 /* Cells */,
+				9F1D18211F5B093C00BCAE32 /* TabBarViewController.swift */,
 				6C85B5D31E93FED8004F1C66 /* TickerListVC.swift */,
 				6CDCC8F71E95216D00B56503 /* TickerDetail.swift */,
+				9F1D18171F545CCD00BCAE32 /* LoginPageViewController.swift */,
 				9F45FC701F4EE9710094C0B0 /* PageViewController.swift */,
 				9F45FC6E1F4EE5030094C0B0 /* ChartsViewController.swift */,
 				9F45FC721F4F38760094C0B0 /* OrderBookViewController.swift */,
+				9F1D181B1F54968F00BCAE32 /* LoginTableViewController.swift */,
+				9F1D181F1F5AECF100BCAE32 /* LoginContainerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +226,8 @@
 		9F7D772D1F251A7100CFCA23 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9F1D18361F5E7BD800BCAE32 /* BalanceCell.swift */,
+				9F1D181D1F553F8E00BCAE32 /* LoginCell.swift */,
 				9F1D18131F52D6DC00BCAE32 /* OrderBookCell.swift */,
 				9F45FC761F4F46480094C0B0 /* PriceLineCell.swift */,
 				9F45FC671F4CBD200094C0B0 /* HeaderCell.swift */,
@@ -213,6 +241,7 @@
 		9F7D772E1F251AA400CFCA23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F1D18341F5E784C00BCAE32 /* SweetHMAC.swift */,
 				6CDCC8F91E96689500B56503 /* CoinPairs.swift */,
 				9F5666721F4778A00010CAE3 /* ChartData.swift */,
 				9F7D77291F251A0600CFCA23 /* GraphView.swift */,
@@ -529,10 +558,19 @@
 			files = (
 				9F45FC751F4F453C0094C0B0 /* PriceLineView.swift in Sources */,
 				6CDCC8F81E95216D00B56503 /* TickerDetail.swift in Sources */,
+				9F1D18351F5E784C00BCAE32 /* SweetHMAC.swift in Sources */,
+				9F1D18221F5B093C00BCAE32 /* TabBarViewController.swift in Sources */,
+				9F1D18201F5AECF100BCAE32 /* LoginContainerViewController.swift in Sources */,
+				9F1D181C1F54968F00BCAE32 /* LoginTableViewController.swift in Sources */,
 				9F45FC6F1F4EE5030094C0B0 /* ChartsViewController.swift in Sources */,
+				9F1D18181F545CCD00BCAE32 /* LoginPageViewController.swift in Sources */,
+				9F1D18371F5E7BD800BCAE32 /* BalanceCell.swift in Sources */,
 				6C85B5D41E93FED8004F1C66 /* TickerListVC.swift in Sources */,
 				9F45FC711F4EE9710094C0B0 /* PageViewController.swift in Sources */,
+				9F1D181E1F553F8E00BCAE32 /* LoginCell.swift in Sources */,
 				9F1D18141F52D6DC00BCAE32 /* OrderBookCell.swift in Sources */,
+				9F1D18301F5D465F00BCAE32 /* AccountBalancesViewController.swift in Sources */,
+				9F1D18261F5C717800BCAE32 /* AccountMenuViewController.swift in Sources */,
 				9F1D18161F52F27D00BCAE32 /* OrderBookEntry.swift in Sources */,
 				9F7D772A1F251A0600CFCA23 /* GraphView.swift in Sources */,
 				6C018F131EDC177A00070B35 /* ChartCell.swift in Sources */,
@@ -701,6 +739,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.approcket.poloniex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/florinuscatu/Documents/xcodeProjects/poloniex/poloniex/poloniex-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -715,6 +754,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.approcket.poloniex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/florinuscatu/Documents/xcodeProjects/poloniex/poloniex/poloniex-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

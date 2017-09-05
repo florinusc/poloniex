@@ -11,7 +11,7 @@ import UIKit
 
 class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let searchController = UISearchController(searchResultsController: nil)
+    //let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -186,14 +186,8 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
         
-        
-        let logInBttn = UIBarButtonItem(title: "Log In", style: .plain, target: self, action: nil)
-        
-        self.navigationItem.leftBarButtonItem = logInBttn
-        
-        let logoImage = UIImage(named: "poloniex")
-        self.navigationItem.titleView = UIImageView(image: logoImage)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -202,15 +196,15 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         requestData()
         
         //search
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        tableView.tableHeaderView = searchController.searchBar
     
-        let poloColor = UIColor.gray
-        searchController.searchBar.tintColor = poloColor
-        searchController.searchBar.barTintColor = UIColor.white
-        searchController.searchBar.delegate = self
+//        let poloColor = UIColor.gray
+//        searchController.searchBar.tintColor = poloColor
+//        searchController.searchBar.barTintColor = UIColor.white
+//        searchController.searchBar.delegate = self
         
     }
     
@@ -321,10 +315,10 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if searchController.isActive && searchController.searchBar.text != "" {
-            print("number of rows is: \(filteredTickers.count)")
-            return filteredTickers.count
-        }
+//        if searchController.isActive && searchController.searchBar.text != "" {
+//            print("number of rows is: \(filteredTickers.count)")
+//            return filteredTickers.count
+//        }
         
         return coinPairs.count
         
@@ -333,22 +327,22 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TickerCell
         
-        if searchController.isActive && searchController.searchBar.text != "" {
-            
-            cell.tickerLabel.text = filteredTickers[indexPath.row].secondCurrency
-            cell.detailLabel.text = filteredTickers[indexPath.row].name
-            cell.lastPriceLabel.text = String(filteredTickers[indexPath.row].lastPrice)
-            cell.volumeLabel.text = String(filteredTickers[indexPath.row].volume)
-            cell.changeLabel.text = String(filteredTickers[indexPath.row].change) + "%"
-            
-            if filteredTickers[indexPath.row].change < 0.0 {
-                cell.changeLabel.textColor = UIColor.red
-            } else {
-                cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
-            }
-            
-        } else {
-            
+//        if searchController.isActive && searchController.searchBar.text != "" {
+//            
+//            cell.tickerLabel.text = filteredTickers[indexPath.row].secondCurrency
+//            cell.detailLabel.text = filteredTickers[indexPath.row].name
+//            cell.lastPriceLabel.text = String(filteredTickers[indexPath.row].lastPrice)
+//            cell.volumeLabel.text = String(filteredTickers[indexPath.row].volume)
+//            cell.changeLabel.text = String(filteredTickers[indexPath.row].change) + "%"
+//            
+//            if filteredTickers[indexPath.row].change < 0.0 {
+//                cell.changeLabel.textColor = UIColor.red
+//            } else {
+//                cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
+//            }
+//            
+//        } else {
+        
             cell.tickerLabel.text = coinPairs[indexPath.row].secondCurrency
             cell.detailLabel.text = coinPairs[indexPath.row].name
             cell.lastPriceLabel.text = String(coinPairs[indexPath.row].lastPrice)
@@ -361,18 +355,18 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
             }
             
-        }
+        //}
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if searchController.isActive && searchController.searchBar.text != "" {
-            selectedCoinPair = filteredTickers[indexPath.row].pair
-        } else {
+//        if searchController.isActive && searchController.searchBar.text != "" {
+//            selectedCoinPair = filteredTickers[indexPath.row].pair
+//        } else {
             selectedCoinPair = coinPairs[indexPath.row].pair
-        }
+        //}
         performSegue(withIdentifier: "tickerSegue", sender: self)
     }
     
@@ -381,16 +375,16 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return 44
     }
     
-    func filterContentForSearchText(searchText: String) {
-        filteredTickers = coinPairs.filter { ticker in
-            return (ticker.secondCurrency.lowercased().contains(searchText.lowercased()) || ticker.name.lowercased().contains(searchText.lowercased()))
-        }
-        for i in filteredTickers {
-            
-            print(i.pair)
-        }
-        tableView.reloadData()
-    }
+//    func filterContentForSearchText(searchText: String) {
+//        filteredTickers = coinPairs.filter { ticker in
+//            return (ticker.secondCurrency.lowercased().contains(searchText.lowercased()) || ticker.name.lowercased().contains(searchText.lowercased()))
+//        }
+//        for i in filteredTickers {
+//            
+//            print(i.pair)
+//        }
+//        tableView.reloadData()
+//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderCell
@@ -400,15 +394,15 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
 }
 
-extension TickerListVC: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
-    }
-}
-
-extension TickerListVC: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterContentForSearchText(searchText: searchBar.text!)
-    }
-}
+//extension TickerListVC: UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        filterContentForSearchText(searchText: searchController.searchBar.text!)
+//    }
+//}
+//
+//extension TickerListVC: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        filterContentForSearchText(searchText: searchBar.text!)
+//    }
+//}
 
