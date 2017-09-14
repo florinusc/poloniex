@@ -13,4 +13,6 @@ class BalanceCell: UITableViewCell {
     
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var btcValueLabel: UILabel!
+    
 }

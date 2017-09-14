@@ -9,6 +9,7 @@
 import UIKit
 
 struct CoinPair {
+    var id = Int()
     var pair = String()
     var firstCurrency = String()
     var secondCurrency = String()

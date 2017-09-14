@@ -1,27 +1,41 @@
 PODS:
+  - ActionCableClient (0.2.3):
+    - Starscream (~> 2.0.0)
   - Alamofire (4.5.0)
   - CryptoSwift (0.6.9)
+  - Gloss (1.2.4)
   - PageMenu (2.0.0)
+  - SCLAlertView (0.7.0)
   - Starscream (2.0.4)
   - Swamp (0.2.0):
     - CryptoSwift (~> 0.6.0)
     - Starscream (~> 2.0.0)
     - SwiftyJSON (~> 3.1.0)
+  - SwiftWebSocket (2.6.5)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - ActionCableClient
   - Alamofire (~> 4.4)
+  - Gloss (~> 1.2)
   - PageMenu
+  - SCLAlertView
+  - Starscream (~> 2.0.3)
   - Swamp (~> 0.2.0)
+  - SwiftWebSocket
 
 SPEC CHECKSUMS:
+  ActionCableClient: c8a466410d31bfa14e7a9c209b539c1e2d026a5f
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
+  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
   Swamp: c702bf2d26f3e4d379321a481fcd807037e173fc
+  SwiftWebSocket: 1ef8a0efb023544643bdf480c1ec4a62b204f293
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 1ade975f265969128b745d0c1f21ebe30930dc17
+PODFILE CHECKSUM: 744ad04f3024b6f51721d5af141974144ee2c87f
 
 COCOAPODS: 1.2.1

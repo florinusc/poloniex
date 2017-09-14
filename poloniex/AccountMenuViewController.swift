@@ -52,8 +52,4 @@ import PageMenu
         self.view.addSubview(pageMenu!.view)
         
     }
-    
-    
-
-
 }

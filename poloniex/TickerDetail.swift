@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TickerDetail: UIViewController, UITabBarDelegate {
+class TickerDetail: UIViewController {
 
     var coinData = NSDictionary()
     var coinPair = String()
@@ -18,35 +18,16 @@ class TickerDetail: UIViewController, UITabBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "containerSegue" {
-            let pageViewController = segue.destination as! PageViewController
+            let pageViewController = segue.destination as! TickerDetailMenuViewController
             pageViewController.coinPair = coinPair
             pageViewController.coinData = coinData
-            pageViewController.selectedPage = selectedPage
         }
     }
-    
-    @IBOutlet weak var tabBar: UITabBar!
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        selectedPage = item.tag
-        
-        let containerView = self.childViewControllers[0] as! PageViewController
-        containerView.loadSelectedPage(funcSelectedPage: selectedPage)
-        
-    }
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = coinPair
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
-        tabBar.selectedItem = tabBar.items?[selectedPage]
-        
-        tabBar.delegate = self
-        
-        
+
     }
 }

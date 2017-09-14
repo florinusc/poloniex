@@ -11,8 +11,6 @@ import UIKit
 
 class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //let searchController = UISearchController(searchResultsController: nil)
-    
     @IBOutlet weak var tableView: UITableView!
     
     var coinData = NSDictionary()
@@ -21,6 +19,8 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var selectedCoinPair = String()
     
     let loadingView = UIView()
+    
+    let refreshControl = UIRefreshControl()
     
     func createLoadingView() {
         
@@ -195,17 +195,13 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         requestData()
         
-        //search
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        definesPresentationContext = true
-//        tableView.tableHeaderView = searchController.searchBar
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(AccountTradesViewController.refresh), for: .allEvents)
+        tableView.refreshControl = refreshControl
+    }
     
-//        let poloColor = UIColor.gray
-//        searchController.searchBar.tintColor = poloColor
-//        searchController.searchBar.barTintColor = UIColor.white
-//        searchController.searchBar.delegate = self
-        
+    func refresh() {
+        requestData()
     }
     
     func requestData() {
@@ -213,8 +209,6 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let request: NSMutableURLRequest = NSMutableURLRequest()
         request.url = url
         request.httpMethod = "GET"
-        
-        self.coinPairs.removeAll()
         
         let session = URLSession.shared
         
@@ -226,7 +220,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                         
                         if let jsonData = data {
                             
-                            print(jsonData)
+                            self.coinPairs.removeAll()
                             
                             let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
                             
@@ -266,14 +260,12 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                                     if self.mainCoin == pairArr[0] {
                                         
                                     
-                                    self.coinPairs.append(CoinPair(pair: pair, firstCurrency: pairArr[0], secondCurrency: pairArr[1], name: "", volume: volume, change: change, lastPrice: lastPrice))
-                                        
-                                    
-                                        
+                                        self.coinPairs.append(CoinPair(id: 0, pair: pair, firstCurrency: pairArr[0], secondCurrency: pairArr[1], name: "", volume: volume, change: change, lastPrice: lastPrice))
+ 
                                     }
                                 }
                             }
-                            self.requestCoinInfo()
+                            self.requestCoinName()
                         }
                     } catch let err {
                         print(err)
@@ -283,7 +275,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }).resume()
     }
 
-    func requestCoinInfo() {
+    func requestCoinName() {
         
         for (index, coin) in coinPairs.enumerated() {
             
@@ -300,13 +292,45 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                         } else {
                             print("there is no name for \(ticker)")
                         }
-                        self.hideLoadingView()
+
                     } catch {}
                 } catch {}
             } else {
                 print("we have a problem")
             }
         }
+        requestCoinID()
+    }
+    
+    func requestCoinID() {
+        for (index, coin) in coinPairs.enumerated() {
+            if let path = Bundle.main.path(forResource: "coinIDs", ofType: "json") {
+                do {
+                    let jsonData = try NSData(contentsOfFile: path, options: .mappedIfSafe)
+                    do {
+                        let jsonResult = try JSONSerialization.jsonObject(with: jsonData as Data, options: .mutableContainers) as! NSDictionary
+                        
+                        let pair = coin.pair
+                        
+                        print(pair)
+                        
+                        if let coinDetail = jsonResult.value(forKey: pair) as? NSDictionary {
+                            if let id = coinDetail.value(forKey: "id") as? Int {
+                                self.coinPairs[index].id = id
+                                
+                                print("coin pair \(self.coinPairs[index].pair) has following id: \(id)")
+                            } else {
+                                print("id could not be attributed")
+                            }
+                        } else {
+                            print("problem with finding coin pair")
+                        }
+                    }
+                } catch let err { print(err) }
+            }
+        }
+        self.hideLoadingView()
+        refreshControl.endRefreshing()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -314,34 +338,11 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        if searchController.isActive && searchController.searchBar.text != "" {
-//            print("number of rows is: \(filteredTickers.count)")
-//            return filteredTickers.count
-//        }
-        
         return coinPairs.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TickerCell
-        
-//        if searchController.isActive && searchController.searchBar.text != "" {
-//            
-//            cell.tickerLabel.text = filteredTickers[indexPath.row].secondCurrency
-//            cell.detailLabel.text = filteredTickers[indexPath.row].name
-//            cell.lastPriceLabel.text = String(filteredTickers[indexPath.row].lastPrice)
-//            cell.volumeLabel.text = String(filteredTickers[indexPath.row].volume)
-//            cell.changeLabel.text = String(filteredTickers[indexPath.row].change) + "%"
-//            
-//            if filteredTickers[indexPath.row].change < 0.0 {
-//                cell.changeLabel.textColor = UIColor.red
-//            } else {
-//                cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
-//            }
-//            
-//        } else {
         
             cell.tickerLabel.text = coinPairs[indexPath.row].secondCurrency
             cell.detailLabel.text = coinPairs[indexPath.row].name
@@ -354,19 +355,14 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             } else {
                 cell.changeLabel.textColor = UIColor.init(red: 0, green: 204, blue: 0, alpha: 1)
             }
-            
-        //}
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        selectedCoinPair = coinPairs[indexPath.row].pair
         
-//        if searchController.isActive && searchController.searchBar.text != "" {
-//            selectedCoinPair = filteredTickers[indexPath.row].pair
-//        } else {
-            selectedCoinPair = coinPairs[indexPath.row].pair
-        //}
         performSegue(withIdentifier: "tickerSegue", sender: self)
     }
     
@@ -374,17 +370,6 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return 44
     }
-    
-//    func filterContentForSearchText(searchText: String) {
-//        filteredTickers = coinPairs.filter { ticker in
-//            return (ticker.secondCurrency.lowercased().contains(searchText.lowercased()) || ticker.name.lowercased().contains(searchText.lowercased()))
-//        }
-//        for i in filteredTickers {
-//            
-//            print(i.pair)
-//        }
-//        tableView.reloadData()
-//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderCell
@@ -394,15 +379,4 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
 }
 
-//extension TickerListVC: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        filterContentForSearchText(searchText: searchController.searchBar.text!)
-//    }
-//}
-//
-//extension TickerListVC: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        filterContentForSearchText(searchText: searchBar.text!)
-//    }
-//}
 

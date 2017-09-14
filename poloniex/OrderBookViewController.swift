@@ -23,10 +23,11 @@ class OrderBookViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let parentVC = self.parent as! PageViewController
-        coinPair = parentVC.coinPair
-        
-        getAPIData(selectedCoinPair: coinPair)
+        if let parentVC = self.parent as? TickerDetailMenuViewController {
+            coinPair = parentVC.coinPair
+            
+            getAPIData(selectedCoinPair: coinPair)
+        }
         
     }
     
@@ -35,10 +36,11 @@ class OrderBookViewController: UITableViewController {
     }
     
     func loadAPIData() {
-        let parentVC = self.parent as! PageViewController
-        coinPair = parentVC.coinPair
-        
-        getAPIData(selectedCoinPair: coinPair)
+        if let parentVC = self.parent as? TickerDetailMenuViewController {
+            coinPair = parentVC.coinPair
+            
+            getAPIData(selectedCoinPair: coinPair)
+        }
     }
 
     func getAPIData(selectedCoinPair: String) {
@@ -187,6 +189,14 @@ class OrderBookViewController: UITableViewController {
         default:
             return ""
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
 
     override func viewDidDisappear(_ animated: Bool) {

@@ -112,16 +112,14 @@ class ChartsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("coin pair is: \(coinPair)")
-        
-        let parentVC = self.parent as! PageViewController
-        
-        coinData = parentVC.coinData
-        coinPair = parentVC.coinPair
-        chartDataArray = parentVC.chartDataArray
-        
-        loadAPI()
-        tableView.reloadData()
+        if let parentVC = self.parent as? TickerDetailMenuViewController {
+            coinData = parentVC.coinData
+            coinPair = parentVC.coinPair
+            chartDataArray = parentVC.chartDataArray
+            
+            loadAPI()
+            tableView.reloadData()
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -198,4 +196,8 @@ class ChartsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return heightToReturn
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
