@@ -71,11 +71,11 @@ class OrderBookViewController: UITableViewController {
                                 
                                 let tempArray = item as! NSArray
                                 
-                                var price = String()
+                                var price = Double()
                                 var amount = Double()
                                 
                                 for itemIn in tempArray {
-                                    if let tempString = itemIn as? String {
+                                    if let tempString = itemIn as? Double {
                                         price = tempString
                                     } else if let tempNumb = itemIn as? Double {
                                         amount = tempNumb
@@ -96,11 +96,11 @@ class OrderBookViewController: UITableViewController {
                                 
                                 let tempArray = item as! NSArray
                                 
-                                var price = String()
+                                var price = Double()
                                 var amount = Double()
                                 
                                 for itemIn in tempArray {
-                                    if let tempString = itemIn as? String {
+                                    if let tempString = itemIn as? Double {
                                         price = tempString
                                     } else if let tempNumb = itemIn as? Double {
                                         amount = tempNumb

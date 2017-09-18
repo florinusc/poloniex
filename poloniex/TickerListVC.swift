@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Starscream
 
 class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,6 +22,13 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let loadingView = UIView()
     
     let refreshControl = UIRefreshControl()
+    
+    var socket = WebSocket(url: URL(string: "wss://api2.poloniex.com")!)
+    
+    deinit {
+        socket.disconnect(forceTimeout: 0)
+        socket.delegate = nil
+    }
     
     func createLoadingView() {
         
@@ -191,6 +199,8 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        socket.delegate = self
+        
         createLoadingView()
         
         requestData()
@@ -221,6 +231,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                         if let jsonData = data {
                             
                             self.coinPairs.removeAll()
+                            self.socket.disconnect()
                             
                             let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
                             
@@ -331,6 +342,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         self.hideLoadingView()
         refreshControl.endRefreshing()
+        socket.connect()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -372,11 +384,83 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let viewToReturn = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
+        
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderCell
         
-        return headerCell
+        viewToReturn.addSubview(headerCell)
+        
+        return viewToReturn
     }
     
+}
+
+extension TickerListVC : WebSocketDelegate {
+    public func websocketDidConnect(socket: Starscream.WebSocket) {
+        print("connected")
+        let msg = "{\"command\":\"subscribe\",\"channel\":1002}"
+        socket.write(string: msg)
+    }
+    
+    public func websocketDidDisconnect(socket: Starscream.WebSocket, error: NSError?) {
+        print("disconnected")
+    }
+    
+    public func websocketDidReceiveMessage(socket: Starscream.WebSocket, text: String) {
+        //print(text)
+        
+        guard let data = text.data(using: .utf16),
+            let jsonData = try? JSONSerialization.jsonObject(with: data),
+            let jsonDict = jsonData as? NSArray else {
+                return
+        }
+        
+        let arrayCount = jsonDict.count
+        
+        if arrayCount == 3 {
+            if let coinArray = jsonDict[2] as? NSArray {
+                
+                
+                for (index, coin) in coinPairs.enumerated() {
+                    if coinArray[0] as? Int == coin.id {
+                        
+                        if let templastPrice = coinArray[1] as? String {
+                            if let temptemplastPrice = Double(templastPrice) {
+                                coinPairs[index].lastPrice = temptemplastPrice
+                            }
+                        }
+                        
+                        if let tempVolume = coinArray[5] as? String {
+                            if let temptempVolume = Double(tempVolume) {
+                                coinPairs[index].volume = round(temptempVolume * 1000) / 1000
+                            }
+                        }
+                        
+                        if let tempChange = coinArray[4] as? String {
+                            if let temptempChange = Double(tempChange) {
+                                coinPairs[index].change = round(temptempChange * 10000) / 100
+                            }
+                        }
+                        
+                        let indexPath = NSIndexPath(row: index, section: 0)
+                        tableView.reloadRows(at: [indexPath as IndexPath], with: .none)
+                        
+                    }
+                }
+                
+            } else {
+                print("coinArray cannot be an array")
+            }
+        } else {
+            print("array is missing an item")
+        }
+        
+    }
+    
+    public func websocketDidReceiveData(socket: Starscream.WebSocket, data: Data) {
+        print("received data is \(data)")
+    }
 }
 
 

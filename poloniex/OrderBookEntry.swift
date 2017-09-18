@@ -10,6 +10,6 @@ import Foundation
 
 
 struct OrderBookEntry {
-    var price = String()
+    var price = Double()
     var amount = Double()
 }
