@@ -187,8 +187,6 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         requestData()
-        
-        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -340,6 +338,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 } catch let err { print(err) }
             }
         }
+        self.tableView.reloadData()
         self.hideLoadingView()
         refreshControl.endRefreshing()
         socket.connect()

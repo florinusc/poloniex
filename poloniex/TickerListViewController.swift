@@ -79,11 +79,11 @@ class TickerListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
         
         if indexPath.section == 0 {
-            if !bids.isEmpty {
+            if !asks.isEmpty {
                 cell.textLabel?.text = "\(asks[indexPath.row].price) - \(asks[indexPath.row].amount)"
             }
         } else {
-            if !asks.isEmpty {
+            if !bids.isEmpty {
                 cell.textLabel?.text = "\(bids[indexPath.row].price) - \(bids[indexPath.row].amount)"
             }
         }

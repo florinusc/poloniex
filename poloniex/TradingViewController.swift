@@ -8,12 +8,10 @@
 
 import UIKit
 import Alamofire
-
+import JSSAlertView
 
 
 class TradingViewController: UITableViewController {
-
-    var alert = UIAlertController()
     
     var key: String {
         if UserDefaults.standard.value(forKey: "key") != nil {
@@ -38,7 +36,6 @@ class TradingViewController: UITableViewController {
     
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
-    
     @IBOutlet weak var placeOrderBttnOutlet: UIButton!
     
     override func viewDidLoad() {
@@ -83,6 +80,7 @@ class TradingViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    
     @IBAction func placeOrderBttnAction(_ sender: UIButton) {
     
         let mainCoin = self.coinPair.components(separatedBy: "_")
@@ -92,9 +90,13 @@ class TradingViewController: UITableViewController {
         
         print("the order type is: \(orderType) price: \(rate) amount \(amount)")
         
-        SCLAlertView().showNotice("New Trade", subTitle: "You are \(orderType)ing \(amount) of \(mainCoin[1]) at a price of \(rate)")
+        let alertView = JSSAlertView().show(self, title: "New Order", text: "Are you sure you want to place this order?", noButtons: false, buttonText: "Yes", cancelButtonText: "Cancel", color: .gray, iconImage: UIImage())
+        alertView.addAction(confirmOrder)
     }
     
+    func confirmOrder(){
+        print("order is confirmed")
+    }
     
     func postOrder(type: String, price: String, amount: String) {
     
@@ -128,9 +130,11 @@ class TradingViewController: UITableViewController {
         } else {
             print("can't show balances because the key and secret are nil")
             
-            self.alert = UIAlertController(title: "Log in", message: "Please log in to access account information", preferredStyle: .alert)
-            self.alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            JSSAlertView().show(self, title: "Log in", text: "Please log in before trying to place an order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .gray)
+            
+            //self.alert = UIAlertController(title: "Log in", message: "Please log in to access account information", preferredStyle: .alert)
+            //self.alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            //UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
         
     }

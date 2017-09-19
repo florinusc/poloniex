@@ -36,9 +36,6 @@
 		9F1D18431F6283A000BCAE32 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18421F6283A000BCAE32 /* OrderCell.swift */; };
 		9F1D18451F62C02000BCAE32 /* TickerDetailMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18441F62C02000BCAE32 /* TickerDetailMenuViewController.swift */; };
 		9F1D18471F62FEA400BCAE32 /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18461F62FEA400BCAE32 /* TradingViewController.swift */; };
-		9F1D18491F647F4900BCAE32 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1D18481F647F4900BCAE32 /* SCLAlertView.framework */; };
-		9F1D184C1F647FA900BCAE32 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D184A1F647FA900BCAE32 /* SCLAlertView.swift */; };
-		9F1D184D1F647FA900BCAE32 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D184B1F647FA900BCAE32 /* SCLExtensions.swift */; };
 		9F1D184F1F64FDDF00BCAE32 /* TickerOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D184E1F64FDDF00BCAE32 /* TickerOrdersViewController.swift */; };
 		9F1D18551F66CBC700BCAE32 /* TickerTrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18541F66CBC700BCAE32 /* TickerTrades.swift */; };
 		9F1D18571F67D63F00BCAE32 /* TickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18561F67D63F00BCAE32 /* TickerListViewController.swift */; };
@@ -118,9 +115,6 @@
 		9F1D18421F6283A000BCAE32 /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		9F1D18441F62C02000BCAE32 /* TickerDetailMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerDetailMenuViewController.swift; sourceTree = "<group>"; };
 		9F1D18461F62FEA400BCAE32 /* TradingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradingViewController.swift; sourceTree = "<group>"; };
-		9F1D18481F647F4900BCAE32 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/poloniex-blmozcwzfwewsxfajohasqbyahuy/Build/Products/Debug-iphonesimulator/SCLAlertView/SCLAlertView.framework"; sourceTree = "<group>"; };
-		9F1D184A1F647FA900BCAE32 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
-		9F1D184B1F647FA900BCAE32 /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 		9F1D184E1F64FDDF00BCAE32 /* TickerOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerOrdersViewController.swift; sourceTree = "<group>"; };
 		9F1D18541F66CBC700BCAE32 /* TickerTrades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerTrades.swift; sourceTree = "<group>"; };
 		9F1D18561F67D63F00BCAE32 /* TickerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerListViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +135,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1D18491F647F4900BCAE32 /* SCLAlertView.framework in Frameworks */,
 				B603BDFDC127F1A90671E14F /* Pods_poloniex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,8 +300,6 @@
 		9F7D772E1F251AA400CFCA23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F1D184A1F647FA900BCAE32 /* SCLAlertView.swift */,
-				9F1D184B1F647FA900BCAE32 /* SCLExtensions.swift */,
 				9F1D18341F5E784C00BCAE32 /* SweetHMAC.swift */,
 				6CDCC8F91E96689500B56503 /* CoinPairs.swift */,
 				9F5666721F4778A00010CAE3 /* ChartData.swift */,
@@ -335,7 +326,6 @@
 		D32FD05CF9FA3736C367683F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9F1D18481F647F4900BCAE32 /* SCLAlertView.framework */,
 				13B101021FAC8C57738EBBBB /* Pods_poloniex.framework */,
 				36BE03AC9DC6400440023041 /* Pods_poloniexTests.framework */,
 				AD8048656611A31A8DBEA86F /* Pods_poloniexUITests.framework */,
@@ -491,9 +481,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-poloniex/Pods-poloniex-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/JSSAlertView/JSSAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSSAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -521,13 +522,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-poloniexUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7ECA1AFA75EFD1D2174BFAEA /* [CP] Copy Pods Resources */ = {
@@ -551,13 +555,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-poloniex-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B792932E7631E602F028DE41 /* [CP] Copy Pods Resources */ = {
@@ -611,13 +618,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-poloniexTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -627,11 +637,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1D184D1F647FA900BCAE32 /* SCLExtensions.swift in Sources */,
 				9F45FC751F4F453C0094C0B0 /* PriceLineView.swift in Sources */,
 				9F1D18571F67D63F00BCAE32 /* TickerListViewController.swift in Sources */,
 				6CDCC8F81E95216D00B56503 /* TickerDetail.swift in Sources */,
-				9F1D184C1F647FA900BCAE32 /* SCLAlertView.swift in Sources */,
 				9F1D18351F5E784C00BCAE32 /* SweetHMAC.swift in Sources */,
 				9F1D18221F5B093C00BCAE32 /* TabBarViewController.swift in Sources */,
 				9F1D18201F5AECF100BCAE32 /* LoginContainerViewController.swift in Sources */,
