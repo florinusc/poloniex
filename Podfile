@@ -8,9 +8,9 @@ target 'poloniex' do
 
   # Pods for poloniex
 
+
   pod 'PageMenu'
   pod 'Alamofire', '~> 4.4'
-  pod 'Gloss', '~> 1.2'
   pod 'Starscream', '~> 2.0.3'
   pod 'JSSAlertView'
 

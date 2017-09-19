@@ -411,6 +411,7 @@
 					6C85B5CD1E93FED8004F1C66 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8CEQW7LX82;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					6C85B5E11E93FED9004F1C66 = {
@@ -483,7 +484,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-poloniex/Pods-poloniex-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/JSSAlertView/JSSAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -491,7 +491,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSSAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -830,7 +829,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.approcket.poloniex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/florinuscatu/Documents/xcodeProjects/poloniex/poloniex/poloniex-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -846,7 +846,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.approcket.poloniex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/florinuscatu/Documents/xcodeProjects/poloniex/poloniex/poloniex-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

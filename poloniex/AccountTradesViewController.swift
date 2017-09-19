@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Gloss
 
 struct Trades {
     let coinPair: String?
@@ -211,7 +210,7 @@ class AccountTradesViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
-    func refresh() {
+    @objc func refresh() {
     
         retrieveData()
     }

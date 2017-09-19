@@ -177,7 +177,7 @@ class TickerTrades: UITableViewController {
         return cell
     }
     
-    func refresh() {
+    @objc func refresh() {
         
         retrieveData()
     }

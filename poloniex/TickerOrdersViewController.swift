@@ -56,7 +56,7 @@ class TickerOrdersViewController: UITableViewController {
         
     }
     
-    func refresh() {
+    @objc func refresh() {
         requestData()
     }
     

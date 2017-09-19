@@ -27,7 +27,7 @@ class TickerDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = coinPair
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 
     }
 }
