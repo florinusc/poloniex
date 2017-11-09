@@ -13,3 +13,8 @@ struct OrderBookEntry {
     var price = Double()
     var amount = Double()
 }
+
+struct PersonalOrder {
+    var price = Double()
+    var amount = Double()
+}

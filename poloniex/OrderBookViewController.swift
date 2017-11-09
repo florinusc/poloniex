@@ -20,6 +20,7 @@ class OrderBookViewController: UITableViewController {
             bids.sort(by: {$0.price > $1.price})
         }
     }
+    
     var asks: [OrderBookEntry] = [] {
         didSet {
             asks.sort(by: {$0.price < $1.price})
@@ -37,6 +38,7 @@ class OrderBookViewController: UITableViewController {
             }
         }
     }
+    
     var tempAsks : NSDictionary = [:] {
         didSet {
             for order in tempAsks {
@@ -97,30 +99,31 @@ class OrderBookViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "orderBookCell", for: indexPath) as! OrderBookCell
-            
-            if !asks.isEmpty {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "orderBookCell", for: indexPath) as! OrderBookCell
+        
+        if !bids.isEmpty && !asks.isEmpty {
+            if indexPath.section == 0 {
+                
                 cell.priceLabel.text = String(asks[indexPath.row].price)
                 cell.amountLabel.text = String(format: "%.8f", asks[indexPath.row].amount)
                 
                 cell.priceLabel.textColor = UIColor.red
-            }
-            return cell
-            
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "orderBookCell", for: indexPath) as! OrderBookCell
-
-            if !bids.isEmpty {
+                
+                return cell
+                
+            } else {
+                
                 cell.priceLabel.text = String(bids[indexPath.row].price)
                 cell.amountLabel.text = String(format: "%.8f", bids[indexPath.row].amount)
                 
                 cell.priceLabel.textColor = UIColor.green
+                
+                return cell
             }
-            
+        } else {
             return cell
         }
-        
         
     }
 
@@ -160,117 +163,106 @@ extension OrderBookViewController : WebSocketDelegate {
     }
     
     public func websocketDidReceiveMessage(socket: Starscream.WebSocket, text: String) {
-        //print(text)
         
-        guard let data = text.data(using: .utf16),
-            let jsonData = try? JSONSerialization.jsonObject(with: data),
-            let jsonDict = jsonData as? NSArray else {
-                return
-        }
-        
-        let arrayCount = jsonDict.count as Int
-        
-        if arrayCount == 3 {
-            
-            if let entryDict = jsonDict[2] as? NSArray {
-                
-                for actualEntry in entryDict {
-                    
-                    if let entry = actualEntry as? NSArray {
-                        
-                        guard let marketChannel = entry[0] as? String else {return}
-                        
-                        switch marketChannel {
-                        case "i":
-                            asks.removeAll()
-                            bids.removeAll()
-                            
-                            guard let previousEntries = entry[1] as? NSDictionary else {return}
-                            guard let orderBook = previousEntries.value(forKey: "orderBook") as? NSArray else {return}
-                            
-                            guard let sellOrders = orderBook[0] as? NSDictionary else {return}
-                            guard let buyOrders = orderBook[1] as? NSDictionary else {return}
-                            
-                            tempBids = buyOrders
-                            tempAsks = sellOrders
-                            
-                            print(bids)
-                            
-                        case "o":
-                            
-                            guard let entryType = entry[1] as? Int else {return}
-                            guard let priceRef = entry[2] as? String else {return}
-                            guard let newAmount = entry[3] as? String else {return}
-                            
-                            if entryType == 1 {
-                                
-                                print("bid, price: \(entry[2]), amount: \(entry[3])")
-                                
-                                let orderBookEntry = OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!)
-                                
-                                if let index = bids.index(where: {$0.price == orderBookEntry.price}) {
-                                    print("found a match here: \(index)")
-                                    
-                                    if Double(newAmount) == 0.0 {
-                                        print("deleted entry")
-                                        bids.remove(at: index)
-                                    } else {
-                                        print("modified entry")
-                                        bids[index].amount = Double(newAmount)!
-                                    }
-                                    
-                                } else {
-                                    print("cannot find this entry in the array")
-                                    bids.append(OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!))
-                                    
-                                    
-                                }
-                                
-                            } else if entryType == 0 {
-                                print("ask, price: \(entry[2]), amount: \(entry[3])")
-                                
-                                let orderBookEntry = OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!)
-                                
-                                if let index = asks.index(where: {$0.price == orderBookEntry.price}) {
-                                    print("found a match here: \(index)")
-                                    
-                                    if Double(newAmount) == 0.0 {
-                                        print("deleted entry")
-                                        asks.remove(at: index)
-                                    } else {
-                                        print("modified entry")
-                                        asks[index].amount = Double(newAmount)!
-                                    }
-                                    
-                                } else {
-                                    print("cannot find this entry in the array")
-                                    asks.append(OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!))
-                                    
-                                    
-                                }
-                            }
-                        case "t":
-                            guard let priceRef = entry[2] as? String else {return}
-                            guard let newAmount = entry[3] as? String else {return}
-                            print("cannot find this entry in the array")
-                            bids.append(OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!))
-                            bids.sort(by: {$0.price > $1.price})
-                        default:
-                            break
-                        }
-                        
-                    }
-                }
-                
-            } else {
-                print("could not cast to array")
+        DispatchQueue.global().async {
+            guard let data = text.data(using: .utf16),
+                let jsonData = try? JSONSerialization.jsonObject(with: data),
+                let jsonDict = jsonData as? NSArray else {
+                    return
             }
+            
+            let arrayCount = jsonDict.count as Int
+            
+            if arrayCount == 3 {
+                
+                if let entryDict = jsonDict[2] as? NSArray {
+                    
+                    for actualEntry in entryDict {
+                        
+                        if let entry = actualEntry as? NSArray {
+                            
+                            guard let marketChannel = entry[0] as? String else {return}
+                            
+                            switch marketChannel {
+                            case "i":
+                                self.asks.removeAll()
+                                self.bids.removeAll()
+                                
+                                guard let previousEntries = entry[1] as? NSDictionary else {return}
+                                guard let orderBook = previousEntries.value(forKey: "orderBook") as? NSArray else {return}
+                                
+                                guard let sellOrders = orderBook[0] as? NSDictionary else {return}
+                                guard let buyOrders = orderBook[1] as? NSDictionary else {return}
+                                
+                                self.tempBids = buyOrders
+                                self.tempAsks = sellOrders
+                                
+                            case "o":
+                                
+                                guard let entryType = entry[1] as? Int else {return}
+                                guard let priceRef = entry[2] as? String else {return}
+                                guard let newAmount = entry[3] as? String else {return}
+                                
+                                if entryType == 1 {
+                                    
+                                    let orderBookEntry = OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!)
+                                    
+                                    if let index = self.bids.index(where: {$0.price == orderBookEntry.price}) {
+                                        
+                                        if Double(newAmount) == 0.0 {
+                                            self.bids.remove(at: index)
+                                        } else {
+                                            self.bids[index].amount = Double(newAmount)!
+                                        }
+                                        
+                                    } else {
+                                        self.bids.append(OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!))
+                                        
+                                        
+                                    }
+                                    
+                                } else if entryType == 0 {
+                                    let orderBookEntry = OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!)
+                                    
+                                    if let index = self.asks.index(where: {$0.price == orderBookEntry.price}) {
+                                        
+                                        if Double(newAmount) == 0.0 {
+                                            self.asks.remove(at: index)
+                                        } else {
+                                            self.asks[index].amount = Double(newAmount)!
+                                        }
+                                        
+                                    } else {
+                                        self.asks.append(OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!))
+                                        
+                                        
+                                    }
+                                }
+                            case "t":
+                                guard let priceRef = entry[2] as? String else {return}
+                                guard let newAmount = entry[3] as? String else {return}
+                                self.bids.append(OrderBookEntry(price: Double(priceRef)!, amount: Double(newAmount)!))
+                                self.bids.sort(by: {$0.price > $1.price})
+                            default:
+                                break
+                            }
+                            
+                        }
+                    }
+                    
+                } else {
+                    print("could not cast to array")
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
         
-        tableView.reloadData()
     }
     
     public func websocketDidReceiveData(socket: Starscream.WebSocket, data: Data) {
-        //print("received data is \(data)")
     }
 }

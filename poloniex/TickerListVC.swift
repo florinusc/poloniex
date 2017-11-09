@@ -14,6 +14,8 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var headerView: UIView!
+    
     var coinData = NSDictionary()
     var coinPairs = [CoinPair]()
     var filteredTickers = [CoinPair]()
@@ -208,7 +210,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         tableView.refreshControl = refreshControl
     }
     
-    func refresh() {
+    @objc func refresh() {
         requestData()
     }
     
@@ -321,13 +323,9 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                         
                         let pair = coin.pair
                         
-                        print(pair)
-                        
                         if let coinDetail = jsonResult.value(forKey: pair) as? NSDictionary {
                             if let id = coinDetail.value(forKey: "id") as? Int {
                                 self.coinPairs[index].id = id
-                                
-                                print("coin pair \(self.coinPairs[index].pair) has following id: \(id)")
                             } else {
                                 print("id could not be attributed")
                             }
@@ -357,7 +355,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
             cell.tickerLabel.text = coinPairs[indexPath.row].secondCurrency
             cell.detailLabel.text = coinPairs[indexPath.row].name
-            cell.lastPriceLabel.text = String(coinPairs[indexPath.row].lastPrice)
+            cell.lastPriceLabel.text = String(format: "%.8f", coinPairs[indexPath.row].lastPrice)
             cell.volumeLabel.text = String(coinPairs[indexPath.row].volume)
             cell.changeLabel.text = String(coinPairs[indexPath.row].change) + "%"
             
@@ -383,14 +381,7 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let viewToReturn = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
-        
-        let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderCell
-        
-        viewToReturn.addSubview(headerCell)
-        
-        return viewToReturn
+        return headerView
     }
     
 }
@@ -407,8 +398,7 @@ extension TickerListVC : WebSocketDelegate {
     }
     
     public func websocketDidReceiveMessage(socket: Starscream.WebSocket, text: String) {
-        //print(text)
-        
+
         guard let data = text.data(using: .utf16),
             let jsonData = try? JSONSerialization.jsonObject(with: data),
             let jsonDict = jsonData as? NSArray else {
@@ -451,10 +441,7 @@ extension TickerListVC : WebSocketDelegate {
             } else {
                 print("coinArray cannot be an array")
             }
-        } else {
-            print("array is missing an item")
         }
-        
     }
     
     public func websocketDidReceiveData(socket: Starscream.WebSocket, data: Data) {

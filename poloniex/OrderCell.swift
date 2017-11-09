@@ -10,6 +10,8 @@ import UIKit
 
 class OrderCell: UITableViewCell {
     
+    @IBOutlet weak var cancelBttn: UIButton!
+    
     @IBOutlet weak var totalCell: UILabel!
     @IBOutlet weak var amountCell: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

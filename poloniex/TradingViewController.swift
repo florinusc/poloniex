@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import JSSAlertView
+import CryptoSwift
 
 
 class TradingViewController: UITableViewController {
@@ -41,6 +42,10 @@ class TradingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Text Field Delegate
+        priceTextField.delegate = self
+        amountTextField.delegate = self
+        
         if let parentVC = self.parent as? TickerDetailMenuViewController {
             coinPair = parentVC.coinPair
             
@@ -53,12 +58,7 @@ class TradingViewController: UITableViewController {
             } else {
                 print("problem with order type")
             }
-            
-            
-            print("coin pair is: \(coinPair)")
         }
-        
-        print("coin balance is \(currentBalance)")
         
         placeOrderBttnOutlet.layer.cornerRadius = 8.0
         
@@ -90,12 +90,23 @@ class TradingViewController: UITableViewController {
         
         print("the order type is: \(orderType) price: \(rate) amount \(amount)")
         
-        let alertView = JSSAlertView().show(self, title: "New Order", text: "Are you sure you want to place this order?", noButtons: false, buttonText: "Yes", cancelButtonText: "Cancel", color: .gray, iconImage: UIImage())
-        alertView.addAction(confirmOrder)
+        if currentBalance == "Not logged in" {
+            JSSAlertView().show(self, title: "Warning", text: "Please log in before trying to place an order", noButtons: false, buttonText: "Ok", color: .red, iconImage: UIImage())
+        } else {
+            if rate != "" && amount != "" {
+                let alertView = JSSAlertView().show(self, title: "New Order", text: "Are you sure you want to \(orderType.lowercased()) \(amount) \(mainCoin[1]) at \(rate) \(mainCoin[0])", noButtons: false, buttonText: "Yes", cancelButtonText: "Cancel", color: UIColor.white, iconImage: UIImage())
+                alertView.addAction(confirmOrder)
+            } else {
+                JSSAlertView().show(self, title: "Warning", text: "Please fill in price and amount", noButtons: false, buttonText: "Ok", color: .red, iconImage: UIImage())
+            }
+        }
     }
     
-    func confirmOrder(){
-        print("order is confirmed")
+    func confirmOrder() {
+        guard let rate: String = priceTextField.text else {return}
+        guard let amount: String = amountTextField.text else {return}
+        postOrder(type: orderType.lowercased(), price: rate, amount: amount)
+        
     }
     
     func postOrder(type: String, price: String, amount: String) {
@@ -106,35 +117,88 @@ class TradingViewController: UITableViewController {
         if key != "" && secret != "" {
             guard let url = URL(string: "https://poloniex.com/tradingApi") else {return}
             
-            let sign = "command=\(orderType)&currencyPair=\(coinPair)&rate=\(price)&amount=\(amount)&nonce=\(timeNow)"
-            
+            let sign = "nonce=\(timeNow)&command=\(orderType.lowercased())&currencyPair=\(coinPair)&rate=\(price)&amount=\(amount)"
+            let parameters: Parameters = ["nonce" : timeNow, "command" : orderType.lowercased(), "currencyPair" : coinPair, "rate" : price, "amount" : amount]
             let hmacSign: String = SweetHMAC(message: sign, secret: secret).HMAC(algorithm: .sha512)
             
-            let headers: HTTPHeaders = ["key" : key, "sign" : hmacSign]
-            let parameters: Parameters = ["command" : orderType, "currencyPair" : coinPair, "rate" : price , "amount" : amount , "nonce" : timeNow]
+            var components = URLComponents()
+            let queryItems: [URLQueryItem] = [URLQueryItem(name: "amount", value: amount),
+                                              URLQueryItem(name: "command", value: orderType.lowercased()),
+                                              URLQueryItem(name: "nonce", value: timeNow),
+                                              URLQueryItem(name: "currencyPair", value: coinPair),
+                                              URLQueryItem(name: "rate", value: price),
+                                              ]
             
+            components.queryItems = queryItems
+            guard let query = components.query else {return}
             
-            request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
-                response in
+            guard let httpBody = query.data(using: .utf8) else {return}
+            
+            let signature = try? HMAC(key: secret, variant: .sha512)
+                .authenticate(Array(httpBody))
+                .map { String(format: "%02X", $0) }
+                .joined()
+
+            let headers: HTTPHeaders = ["Key" : key, "Sign" : signature!]
+            
+            print(parameters)
+            print(signature!)
+            print(hmacSign)
+            
+            var request = URLRequest(url: URL(string: "https://poloniex.com/tradingApi")!)
+            request.httpMethod = "POST"
+            request.httpBody = httpBody
+            
+            request.setValue(key, forHTTPHeaderField: "Key")
+            request.setValue(signature, forHTTPHeaderField: "Sign")
+            
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) -> Void in
                 
-                if let jsonResponse = response.result.value as? NSDictionary {
+                if error == nil {
                     
-                    print (jsonResponse)
-                    
+                    print(data)
+                    print(response)
                 } else {
-                    print("json is not readable")
+                    print(error)
                 }
                 
-            })
+            }
             
+            task.resume()
+            
+//            request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
+//                response in
+//
+//                print("the response is \(response)")
+//
+//                if let jsonResponse = response.result.value as? NSDictionary {
+//
+//                    print(jsonResponse)
+//
+//                    if let orderNumber = jsonResponse["orderNumber"] as? String {
+//
+//                        print("placed order with id: " + orderNumber)
+//
+//                        JSSAlertView().show(self, title: "Success", text: "The order has been placed", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .white)
+//
+//                        self.priceTextField.text = ""
+//                        self.amountTextField.text = ""
+//
+//                    } else {
+//                        JSSAlertView().show(self, title: "Failure", text: "Not able to place order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .red)
+//                    }
+//                } else {
+//                    print("json is not readable")
+//                    JSSAlertView().show(self, title: "Failure", text: "Not able to place order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .red)
+//                }
+//
+//            })
+//
         } else {
             print("can't show balances because the key and secret are nil")
-            
+
             JSSAlertView().show(self, title: "Log in", text: "Please log in before trying to place an order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .gray)
-            
-            //self.alert = UIAlertController(title: "Log in", message: "Please log in to access account information", preferredStyle: .alert)
-            //self.alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            //UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
         
     }
@@ -197,4 +261,37 @@ class TradingViewController: UITableViewController {
         }
     }
     
+}
+
+extension TradingViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let allowedCharacters = "0123456789."
+        return allowedCharacters.contains(string) || range.length == 1
+    }
+    
+}
+
+extension MutableCollection {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+        
+        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = index(firstUnshuffled, offsetBy: d)
+            swapAt(firstUnshuffled, i)
+        }
+    }
+}
+
+extension Sequence {
+    /// Returns an array with the contents of this sequence, shuffled.
+    func shuffled() -> [Element] {
+        var result = Array(self)
+        result.shuffle()
+        return result
+    }
 }

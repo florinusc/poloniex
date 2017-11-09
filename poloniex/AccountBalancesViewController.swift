@@ -220,7 +220,7 @@ class AccountBalancesViewController: UIViewController, UITableViewDelegate, UITa
  
     }
     
-    func refresh() {
+    @objc func refresh() {
         retrieveBalances()
     }
     

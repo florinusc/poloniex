@@ -18,8 +18,6 @@ import PageMenu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
         

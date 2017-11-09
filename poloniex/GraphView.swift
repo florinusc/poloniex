@@ -13,6 +13,8 @@ import UIKit
     @IBInspectable var startColor = UIColor.white.cgColor
     @IBInspectable var endColor = UIColor.gray.cgColor
     
+    let errorLabel = UILabel()
+    
     var descriptionLabel = UILabel()
     
     var averageValueLabel = UILabel()
@@ -47,8 +49,8 @@ import UIKit
     
     let graphBackground = CAShapeLayer()
     let graphGridLineLayer = CAShapeLayer()
-    let whiteHaze = CALayer()
-    let gl = CAGradientLayer()
+//    let whiteHaze = CALayer()
+//    let gl = CAGradientLayer()
     
     var maxValue: Double {
         get {
@@ -147,12 +149,12 @@ import UIKit
     
     func drawGraph() {
         backgroundColor = UIColor.clear
-        
-        gl.frame = bounds
-        gl.colors = [startColor, endColor]
-        gl.locations = [0.0, 1.0]
-        
-        layer.addSublayer(gl)
+//
+//        gl.frame = bounds
+//        gl.colors = [startColor, endColor]
+//        gl.locations = [0.0, 1.0]
+//
+//        layer.addSublayer(gl)
         
         let frame = UIBezierPath(roundedRect: bounds, cornerRadius: 8.0)
         
@@ -163,14 +165,16 @@ import UIKit
         
         layer.mask = graphBackground
         
-        whiteHaze.frame = bounds
-        whiteHaze.backgroundColor = UIColor(white: 1.0, alpha: 0.3).cgColor
-        
-        layer.addSublayer(whiteHaze)
+//        whiteHaze.frame = bounds
+//        whiteHaze.backgroundColor = UIColor(white: 1.0, alpha: 0.3).cgColor
+//
+//        layer.addSublayer(whiteHaze)
         
         layer.mask = graphBackground
         
         if graphData.count > 3 {
+            
+            errorLabel.removeFromSuperview()
             
             let yPadding = CGFloat(40)
             let xPadding = CGFloat(15)
@@ -277,8 +281,6 @@ import UIKit
         } else {
             
             print("showing error label")
-            
-            let errorLabel = UILabel()
             
             errorLabel.frame = CGRect(x: self.bounds.width/2 - 125, y: self.bounds.height/2 - 10 , width: 250, height: 20)
             errorLabel.font = UIFont(name: "Helvetica", size: 12)

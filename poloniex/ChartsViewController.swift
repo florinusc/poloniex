@@ -75,8 +75,6 @@ class ChartsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         if let jsonData = data {
                             let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! [NSDictionary]
                             
-                            print("json data is: \(json)")
-                            
                             self.chartDataArray.removeAll()
                             
                             for item in json {
@@ -188,7 +186,7 @@ class ChartsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if indexPath.row == 0 {
             heightToReturn = 100
         } else if indexPath.row == 1 {
-            heightToReturn = 200
+            heightToReturn = 300
         } else {
             heightToReturn = 44
         }

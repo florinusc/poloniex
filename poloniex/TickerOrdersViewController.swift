@@ -8,10 +8,10 @@
 
 import UIKit
 import Alamofire
+import JSSAlertView
 
 class TickerOrdersViewController: UITableViewController {
     
-
     var coinPair: String = ""
     
     var ordersArray: [OrderDetail] = []
@@ -93,7 +93,7 @@ class TickerOrdersViewController: UITableViewController {
                                 
                         if let orderDic = item as? NSDictionary {
                             
-                            let newOrderDetail = OrderDetail(rate: (orderDic.value(forKey: "rate") as? String), amount: orderDic.value(forKey: "amount") as? String, total: orderDic.value(forKey: "total") as? String, orderNumber: orderDic.value(forKey: "orderNumber") as? String, type: "type" as String?)
+                            let newOrderDetail = OrderDetail(rate: (orderDic.value(forKey: "rate") as? String), amount: orderDic.value(forKey: "amount") as? String, total: orderDic.value(forKey: "total") as? String, orderNumber: orderDic.value(forKey: "orderNumber") as? String, type: orderDic.value(forKey: "type") as! String?)
                             
                             self.ordersArray.append(newOrderDetail)
                         }
@@ -110,6 +110,69 @@ class TickerOrdersViewController: UITableViewController {
             
         } else {
             print("can't show balances because the key and secret are nil")
+            
+            self.alert = UIAlertController(title: "Log in", message: "Please log in to access account information", preferredStyle: .alert)
+            self.alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            self.newRefreshControl.endRefreshing()
+        }
+    }
+
+    @IBAction func cancelBttn(_ sender: UIButton) {
+        if let cell = sender.superview?.superview as? OrderCell {
+            
+            guard let indexPathRow = tableView.indexPath(for: cell)?.row else {return}
+            guard let orderNumber = ordersArray[indexPathRow].orderNumber else {return}
+            
+            print("cancelling order with id:" + orderNumber)
+            
+            cancelOrder(orderNumber: orderNumber)
+            
+        }
+    }
+    
+    func cancelOrder(orderNumber: String) {
+        
+        let timeNowInt = Int((NSDate().timeIntervalSince1970)*500000)
+        let timeNow = String(timeNowInt)
+        
+        if key != "" && secret != "" {
+            guard let url = URL(string: "https://poloniex.com/tradingApi") else {return}
+            
+            let sign = "command=cancelOrder&nonce=\(timeNow)&orderNumber=\(orderNumber)"
+            
+            let hmacSign: String = SweetHMAC(message: sign, secret: secret).HMAC(algorithm: .sha512)
+            
+            let headers: HTTPHeaders = ["key" : key, "sign" : hmacSign]
+            let parameters: Parameters = ["command" : "cancelOrder", "nonce" : timeNow, "orderNumber" : orderNumber]
+            
+            request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
+                response in
+                
+                if let jsonResponse = response.result.value as? NSDictionary {
+                    
+                    guard let outcome = jsonResponse.value(forKey: "success") as? Int else {return}
+                    
+                    if outcome == 1 {
+                        
+                        JSSAlertView().show(self, title: "Success", text: "The order has been cancelled", noButtons: false, buttonText: "Ok", color: .white, iconImage: UIImage())
+                        
+                    } else {
+                        
+                        JSSAlertView().show(self, title: "Warning", text: "The order has not been cancelled, there was an error, please check website", noButtons: false, buttonText: "Ok", color: .red, iconImage: UIImage())
+                    }
+                    
+                    self.newRefreshControl.endRefreshing()
+                    self.requestData()
+                    self.tableView.reloadData()
+                    
+                } else {
+                    JSSAlertView().show(self, title: "Warning", text: "The order has not been cancelled, there was an error, please check website", noButtons: false, buttonText: "Ok", color: .red, iconImage: UIImage())
+                }
+                
+            })
+            
+        } else {
             
             self.alert = UIAlertController(title: "Log in", message: "Please log in to access account information", preferredStyle: .alert)
             self.alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

@@ -51,9 +51,6 @@ class TickerTrades: UITableViewController {
         if let parent = self.parent as? TickerDetailMenuViewController {
             coinPair = parent.coinPair
             retrieveData()
-            print("the coin pair is: \(coinPair)")
-        } else {
-            print("fuck you")
         }
         
         newRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -82,8 +79,10 @@ class TickerTrades: UITableViewController {
             let hmacSign: String = SweetHMAC(message: sign, secret: secret).HMAC(algorithm: .sha512)
             
             let headers: HTTPHeaders = ["key" : key, "sign" : hmacSign]
-            let parameters: Parameters = ["command" : "returnTradeHistory", "currencyPair" : coinPair, "limit" : "10000", "nonce" : timeNow, "start" : aYearAgoUNIXTime]
+            let parameters: Parameters = ["currencyPair" : coinPair, "limit" : "10000", "start" : aYearAgoUNIXTime, "nonce" : timeNow, "command" : "returnTradeHistory"]
             
+            print(parameters)
+            print(sign)
             
             request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
                 response in

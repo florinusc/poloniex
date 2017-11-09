@@ -78,8 +78,10 @@ class AccountTradesViewController: UIViewController, UITableViewDelegate, UITabl
             let headers: HTTPHeaders = ["key" : key, "sign" : hmacSign]
             let parameters: Parameters = ["command" : "returnTradeHistory", "currencyPair" : "all", "limit" : "10000", "nonce" : timeNow, "start" : aYearAgoUNIXTime]
             
+            print(sign)
+            print(parameters)
             
-            request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
+            let tradesRequest = request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
                 response in
                 
                 if let jsonResponse = response.result.value as? NSDictionary {
@@ -118,8 +120,8 @@ class AccountTradesViewController: UIViewController, UITableViewDelegate, UITabl
                     print("json is not readable")
                 }
                 
+                
             })
-            
         } else {
             print("can't show balances because the key and secret are nil")
             
@@ -129,6 +131,8 @@ class AccountTradesViewController: UIViewController, UITableViewDelegate, UITabl
             UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
             self.refreshControl.endRefreshing()
         }
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
