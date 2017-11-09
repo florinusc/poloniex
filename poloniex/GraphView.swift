@@ -49,8 +49,6 @@ import UIKit
     
     let graphBackground = CAShapeLayer()
     let graphGridLineLayer = CAShapeLayer()
-//    let whiteHaze = CALayer()
-//    let gl = CAGradientLayer()
     
     var maxValue: Double {
         get {
@@ -149,12 +147,6 @@ import UIKit
     
     func drawGraph() {
         backgroundColor = UIColor.clear
-//
-//        gl.frame = bounds
-//        gl.colors = [startColor, endColor]
-//        gl.locations = [0.0, 1.0]
-//
-//        layer.addSublayer(gl)
         
         let frame = UIBezierPath(roundedRect: bounds, cornerRadius: 8.0)
         
@@ -162,13 +154,6 @@ import UIKit
         
         graphBackground.strokeColor = UIColor.clear.cgColor
         graphBackground.fillColor = UIColor.black.cgColor
-        
-        layer.mask = graphBackground
-        
-//        whiteHaze.frame = bounds
-//        whiteHaze.backgroundColor = UIColor(white: 1.0, alpha: 0.3).cgColor
-//
-//        layer.addSublayer(whiteHaze)
         
         layer.mask = graphBackground
         
@@ -199,8 +184,8 @@ import UIKit
                 let yPosition = ySegments * (CGFloat(maxValue) - CGFloat(value)) + yPadding
                 
                 let valueLabel = UILabel(frame: CGRect(x: frame.bounds.width - CGFloat(40), y: yPosition - 10, width: 40, height: 20))
-                valueLabel.font = UIFont(name: "Helvetica", size: 5)
-                valueLabel.text = "\(value)"
+                valueLabel.font = UIFont.systemFont(ofSize: 6)
+                valueLabel.text = String(format: "%.8f", value)
                 valueLabel.textColor = UIColor.black
                 self.addSubview(valueLabel)
                 
@@ -215,7 +200,7 @@ import UIKit
                 let countingLabel = UILabel(frame: CGRect(x: xPosition, y: frame.bounds.height - 20, width: 20, height: 20))
                 countingLabel.text = "\(dateString)"
                 countingLabel.textAlignment = .center
-                countingLabel.font = UIFont(name: "Helvetica", size: 5)
+                countingLabel.font = UIFont.systemFont(ofSize: 6)
                 countingLabel.textColor = UIColor.black
                 self.addSubview(countingLabel)
             }

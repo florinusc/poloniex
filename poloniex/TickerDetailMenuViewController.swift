@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PageMenu
+import Parchment
 
 @IBDesignable class TickerDetailMenuViewController: UIViewController {
 
@@ -17,64 +17,121 @@ import PageMenu
     var coinPair = String()
     var chartDataArray: Array<ChartData> = []
     
-    var pageMenu : CAPSPageMenu?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
         
-        let chartsViewController : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChartsViewController")
+        let chartsViewController : ChartsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChartsViewController") as! ChartsViewController
         chartsViewController.title = "Charts"
+        chartsViewController.coinPair = coinPair
+        chartsViewController.coinData = coinData
+        chartsViewController.chartDataArray = chartDataArray
         controllerArray.append(chartsViewController)
         
-        let orderBookViewController : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderBookViewController")
+        let orderBookViewController : OrderBookViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderBookViewController") as!OrderBookViewController
         orderBookViewController.title = "Order Book"
+        orderBookViewController.coinPair = coinPair
         controllerArray.append(orderBookViewController)
         
-        let tradingViewController : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TradingVC")
+        let tradingViewController : TradingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TradingVC") as! TradingViewController
         tradingViewController.title = "New Trade"
+        tradingViewController.coinPair = coinPair
         controllerArray.append(tradingViewController)
         
-        let ordersViewController : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TickerOrders")
+        let ordersViewController : TickerOrdersViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TickerOrders") as! TickerOrdersViewController
         ordersViewController.title = "Orders"
+        ordersViewController.coinPair = coinPair
         controllerArray.append(ordersViewController)
         
-        let tickerTradesViewController : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TickerTrades")
+        let tickerTradesViewController : TickerTrades = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TickerTrades") as! TickerTrades
         tickerTradesViewController.title = "Trades"
+        tickerTradesViewController.coinPair = coinPair
         controllerArray.append(tickerTradesViewController)
         
+        let pagingViewController = CustomPagingController(viewControllers: controllerArray, options: PageMenuOptions())
         
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
-        
-        guard let fontForMenu:UIFont = UIFont(name: "Helvetica", size: 12) else {return}
-        
-        let parameters: [CAPSPageMenuOption] = [
-            .menuItemSeparatorWidth(0.0),
-            .useMenuLikeSegmentedControl(true),
-            .menuItemSeparatorPercentageHeight(0.1),
-            .scrollMenuBackgroundColor(menuBackgroundColor),
-            .titleTextSizeBasedOnMenuItemWidth(true),
-            .menuItemFont(fontForMenu)
-        ]
-        
-        self.addChildViewController(chartsViewController)
-        self.addChildViewController(orderBookViewController)
-        self.addChildViewController(tradingViewController)
-        self.addChildViewController(ordersViewController)
-        self.addChildViewController(tickerTradesViewController)
-        
-        // Initialize page menu with controller array, frame, and optional parameters
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
-        
-
-        
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        self.view.addSubview(pageMenu!.view)
+        // Make sure you add the PagingViewController as a child view
+        // controller and contrain it to the edges of the view.
+        addChildViewController(pagingViewController)
+        view.addSubview(pagingViewController.view)
+        view.constrainToEdges(pagingViewController.view)
+        pagingViewController.didMove(toParentViewController: self)
         
     }
 
 }
+
+class CustomPagingController: FixedPagingViewController {
+    var coinData = NSDictionary()
+    var coinPair = String()
+    var chartDataArray: Array<ChartData> = []
+}
+
+// The options used for both paging view controllers
+struct PageMenuTheme: PagingTheme {
+    let indicatorColor: UIColor = UIColor.white
+    let selectedTextColor: UIColor = UIColor.white
+    let textColor: UIColor = UIColor.lightText
+    let backgroundColor: UIColor = UIColor(red: 47/255, green: 70/255, blue: 73/255, alpha: 1)
+    let headerBackgroundColor: UIColor = UIColor(red: 47/255, green: 70/255, blue: 73/255, alpha: 1)
+}
+
+struct PageMenuOptions: PagingOptions {
+    let theme: PagingTheme = PageMenuTheme()
+}
+
+extension UIView {
+    
+    func constrainToEdges(_ subview: UIView) {
+        
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        
+        var topConstraint = NSLayoutConstraint()
+        
+        topConstraint = NSLayoutConstraint(
+            item: subview,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .top,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let bottomConstraint = NSLayoutConstraint(
+            item: subview,
+            attribute: .bottom,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .bottom,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let leadingContraint = NSLayoutConstraint(
+            item: subview,
+            attribute: .leading,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .leading,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let trailingContraint = NSLayoutConstraint(
+            item: subview,
+            attribute: .trailing,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .trailing,
+            multiplier: 1.0,
+            constant: 0)
+        
+        addConstraints([
+            topConstraint,
+            bottomConstraint,
+            leadingContraint,
+            trailingContraint])
+    }
+    
+}
+

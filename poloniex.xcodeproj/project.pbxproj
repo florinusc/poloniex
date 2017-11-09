@@ -38,7 +38,6 @@
 		9F1D18471F62FEA400BCAE32 /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18461F62FEA400BCAE32 /* TradingViewController.swift */; };
 		9F1D184F1F64FDDF00BCAE32 /* TickerOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D184E1F64FDDF00BCAE32 /* TickerOrdersViewController.swift */; };
 		9F1D18551F66CBC700BCAE32 /* TickerTrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18541F66CBC700BCAE32 /* TickerTrades.swift */; };
-		9F1D18571F67D63F00BCAE32 /* TickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D18561F67D63F00BCAE32 /* TickerListViewController.swift */; };
 		9F45FC6D1F4D62E00094C0B0 /* coinnames.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F45FC6C1F4D62E00094C0B0 /* coinnames.json */; };
 		9F45FC6F1F4EE5030094C0B0 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45FC6E1F4EE5030094C0B0 /* ChartsViewController.swift */; };
 		9F45FC731F4F38760094C0B0 /* OrderBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45FC721F4F38760094C0B0 /* OrderBookViewController.swift */; };
@@ -110,7 +109,6 @@
 		9F1D18461F62FEA400BCAE32 /* TradingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradingViewController.swift; sourceTree = "<group>"; };
 		9F1D184E1F64FDDF00BCAE32 /* TickerOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerOrdersViewController.swift; sourceTree = "<group>"; };
 		9F1D18541F66CBC700BCAE32 /* TickerTrades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerTrades.swift; sourceTree = "<group>"; };
-		9F1D18561F67D63F00BCAE32 /* TickerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerListViewController.swift; sourceTree = "<group>"; };
 		9F45FC6C1F4D62E00094C0B0 /* coinnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coinnames.json; sourceTree = "<group>"; };
 		9F45FC6E1F4EE5030094C0B0 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		9F45FC721F4F38760094C0B0 /* OrderBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBookViewController.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 			children = (
 				9F1D18211F5B093C00BCAE32 /* TabBarViewController.swift */,
 				6C85B5D31E93FED8004F1C66 /* TickerListVC.swift */,
-				9F1D18561F67D63F00BCAE32 /* TickerListViewController.swift */,
 			);
 			name = "Ticker List";
 			sourceTree = "<group>";
@@ -227,13 +224,13 @@
 		9F1D183C1F5F1CFB00BCAE32 /* Ticker Detail */ = {
 			isa = PBXGroup;
 			children = (
-				9F1D18541F66CBC700BCAE32 /* TickerTrades.swift */,
 				6CDCC8F71E95216D00B56503 /* TickerDetail.swift */,
 				9F1D18441F62C02000BCAE32 /* TickerDetailMenuViewController.swift */,
-				9F1D184E1F64FDDF00BCAE32 /* TickerOrdersViewController.swift */,
 				9F45FC6E1F4EE5030094C0B0 /* ChartsViewController.swift */,
 				9F45FC721F4F38760094C0B0 /* OrderBookViewController.swift */,
 				9F1D18461F62FEA400BCAE32 /* TradingViewController.swift */,
+				9F1D18541F66CBC700BCAE32 /* TickerTrades.swift */,
+				9F1D184E1F64FDDF00BCAE32 /* TickerOrdersViewController.swift */,
 			);
 			name = "Ticker Detail";
 			sourceTree = "<group>";
@@ -465,7 +462,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JSSAlertView/JSSAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -473,7 +470,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSSAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F45FC751F4F453C0094C0B0 /* PriceLineView.swift in Sources */,
-				9F1D18571F67D63F00BCAE32 /* TickerListViewController.swift in Sources */,
 				6CDCC8F81E95216D00B56503 /* TickerDetail.swift in Sources */,
 				9F1D18351F5E784C00BCAE32 /* SweetHMAC.swift in Sources */,
 				9F1D18221F5B093C00BCAE32 /* TabBarViewController.swift in Sources */,

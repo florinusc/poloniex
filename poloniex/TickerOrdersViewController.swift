@@ -46,10 +46,6 @@ class TickerOrdersViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let parentVC = self.parent as? TickerDetailMenuViewController {
-            coinPair = parentVC.coinPair
-        }
-        
         self.newRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.newRefreshControl.addTarget(self, action: #selector(TickerOrdersViewController.refresh), for: .allEvents)
         tableView.refreshControl = newRefreshControl

@@ -171,8 +171,6 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @IBOutlet weak var segmentedControlOutlet: UISegmentedControl!
-    
-    
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
@@ -203,15 +201,20 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         createLoadingView()
         
-        requestData()
+        DispatchQueue.global().async {
+            self.requestData()
+        }
         
+        //Refresh control
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(AccountTradesViewController.refresh), for: .allEvents)
         tableView.refreshControl = refreshControl
     }
     
     @objc func refresh() {
-        requestData()
+        DispatchQueue.global().async {
+           self.requestData()
+        }
     }
     
     func requestData() {
@@ -225,63 +228,61 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         session.dataTask(with: url!, completionHandler: {
             (data, response, error) -> Void in
             if error == nil {
-                DispatchQueue.main.async {
-                    do {
+                
+                do {
+                    if let jsonData = data {
+                        self.coinPairs.removeAll()
+                        self.socket.disconnect()
                         
-                        if let jsonData = data {
+                        let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
+                        
+                        self.coinData = json
+                        
+                        for item in json {
+                            let pair = item.key as! String
                             
-                            self.coinPairs.removeAll()
-                            self.socket.disconnect()
+                            let pairData = item.value as! NSDictionary
                             
-                            let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
+                            var volume = Double(0.0)
+                            var change = Double(0.0)
+                            var lastPrice = Double(0.0)
                             
-                            self.coinData = json
-                            
-                            for item in json {
-                                let pair = item.key as! String
-                                
-                                let pairData = item.value as! NSDictionary
-                                
-                                var volume = Double(0.0)
-                                var change = Double(0.0)
-                                var lastPrice = Double(0.0)
-                                
-                                if let tempvolume = pairData.value(forKey: "baseVolume") as? String {
-                                    if let temptempvolume = Double(tempvolume) {
-                                        volume = round(temptempvolume * 1000) / 1000
-                                    }
-                                }
-                                
-                                if let tempchange = pairData.value(forKey: "percentChange") as? String {
-                                    if let temptempchange = Double(tempchange) {
-                                        change = round(temptempchange * 10000) / 100
-                                    }
-                                }
-                                
-                                if let templastPrice = pairData.value(forKey: "last") as? String {
-                                    if let temptemplastPrice = Double(templastPrice) {
-                                        lastPrice = temptemplastPrice
-                                    }
-                                }
-                                
-                                let pairArr = pair.characters.split(separator: "_").map(String.init)
-                                
-                                if !self.coinPairs.contains(where: {$0.pair == pair}) {
-                                    
-                                    if self.mainCoin == pairArr[0] {
-                                        
-                                    
-                                        self.coinPairs.append(CoinPair(id: 0, pair: pair, firstCurrency: pairArr[0], secondCurrency: pairArr[1], name: "", volume: volume, change: change, lastPrice: lastPrice))
- 
-                                    }
+                            if let tempvolume = pairData.value(forKey: "baseVolume") as? String {
+                                if let temptempvolume = Double(tempvolume) {
+                                    volume = round(temptempvolume * 1000) / 1000
                                 }
                             }
-                            self.requestCoinName()
+                            
+                            if let tempchange = pairData.value(forKey: "percentChange") as? String {
+                                if let temptempchange = Double(tempchange) {
+                                    change = round(temptempchange * 10000) / 100
+                                }
+                            }
+                            
+                            if let templastPrice = pairData.value(forKey: "last") as? String {
+                                if let temptemplastPrice = Double(templastPrice) {
+                                    lastPrice = temptemplastPrice
+                                }
+                            }
+                            
+                            let pairArr = pair.characters.split(separator: "_").map(String.init)
+                            
+                            if !self.coinPairs.contains(where: {$0.pair == pair}) {
+                                
+                                if self.mainCoin == pairArr[0] {
+                                    
+                                
+                                    self.coinPairs.append(CoinPair(id: 0, pair: pair, firstCurrency: pairArr[0], secondCurrency: pairArr[1], name: "", volume: volume, change: change, lastPrice: lastPrice))
+
+                                }
+                            }
                         }
-                    } catch let err {
-                        print(err)
+                        self.requestCoinName()
                     }
+                } catch let err {
+                    print(err)
                 }
+                
             }
         }).resume()
     }
@@ -336,10 +337,15 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 } catch let err { print(err) }
             }
         }
-        self.tableView.reloadData()
-        self.hideLoadingView()
-        refreshControl.endRefreshing()
+        
+        
         socket.connect()
+        
+        DispatchQueue.main.async {
+            self.hideLoadingView()
+            self.refreshControl.endRefreshing()
+            self.tableView.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -384,6 +390,15 @@ class TickerListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return headerView
     }
     
+    let websocketQueue = DispatchQueue(label: "com.poloniex.websocket", qos: .background)
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        socket.disconnect()
+        websocketQueue.suspend()
+    }
+    
 }
 
 extension TickerListVC : WebSocketDelegate {
@@ -399,49 +414,55 @@ extension TickerListVC : WebSocketDelegate {
     
     public func websocketDidReceiveMessage(socket: Starscream.WebSocket, text: String) {
 
-        guard let data = text.data(using: .utf16),
-            let jsonData = try? JSONSerialization.jsonObject(with: data),
-            let jsonDict = jsonData as? NSArray else {
-                return
-        }
-        
-        let arrayCount = jsonDict.count
-        
-        if arrayCount == 3 {
-            if let coinArray = jsonDict[2] as? NSArray {
-                
-                
-                for (index, coin) in coinPairs.enumerated() {
-                    if coinArray[0] as? Int == coin.id {
-                        
-                        if let templastPrice = coinArray[1] as? String {
-                            if let temptemplastPrice = Double(templastPrice) {
-                                coinPairs[index].lastPrice = temptemplastPrice
+        websocketQueue.activate()
+        websocketQueue.async {
+            guard let data = text.data(using: .utf16),
+                let jsonData = try? JSONSerialization.jsonObject(with: data),
+                let jsonDict = jsonData as? NSArray else {
+                    return
+            }
+            
+            let arrayCount = jsonDict.count
+            
+            if arrayCount == 3 {
+                if let coinArray = jsonDict[2] as? NSArray {
+                    
+                    
+                    for (index, coin) in self.coinPairs.enumerated() {
+                        if coinArray[0] as? Int == coin.id {
+                            
+                            if let templastPrice = coinArray[1] as? String {
+                                if let temptemplastPrice = Double(templastPrice) {
+                                    self.coinPairs[index].lastPrice = temptemplastPrice
+                                }
+                            }
+                            
+                            if let tempVolume = coinArray[5] as? String {
+                                if let temptempVolume = Double(tempVolume) {
+                                    self.coinPairs[index].volume = round(temptempVolume * 1000) / 1000
+                                }
+                            }
+                            
+                            if let tempChange = coinArray[4] as? String {
+                                if let temptempChange = Double(tempChange) {
+                                    self.coinPairs[index].change = round(temptempChange * 10000) / 100
+                                }
+                            }
+                            
+                            let indexPath = NSIndexPath(row: index, section: 0)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadRows(at: [indexPath as IndexPath], with: .none)
                             }
                         }
-                        
-                        if let tempVolume = coinArray[5] as? String {
-                            if let temptempVolume = Double(tempVolume) {
-                                coinPairs[index].volume = round(temptempVolume * 1000) / 1000
-                            }
-                        }
-                        
-                        if let tempChange = coinArray[4] as? String {
-                            if let temptempChange = Double(tempChange) {
-                                coinPairs[index].change = round(temptempChange * 10000) / 100
-                            }
-                        }
-                        
-                        let indexPath = NSIndexPath(row: index, section: 0)
-                        tableView.reloadRows(at: [indexPath as IndexPath], with: .none)
-                        
                     }
+                    
+                } else {
+                    print("coinArray cannot be an array")
                 }
-                
-            } else {
-                print("coinArray cannot be an array")
             }
         }
+
     }
     
     public func websocketDidReceiveData(socket: Starscream.WebSocket, data: Data) {

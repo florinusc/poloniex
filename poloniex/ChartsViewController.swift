@@ -48,81 +48,79 @@ class ChartsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func loadAPI() {
-        let date = NSDate()
         
-        let currentTime = Int64(floor(date.timeIntervalSince1970))
-        var previousTime = Int64()
-        
-        if let previousDate = Calendar.current.date(byAdding: .second, value: -chartPeriod*20, to: date as Date) {
-            previousTime = Int64(floor(previousDate.timeIntervalSince1970))
-        }
-        
-        let url = URL(string: "https://poloniex.com/public?command=returnChartData&currencyPair=\(coinPair)&start=\(previousTime)&end=\(currentTime)&period=\(chartPeriod)")
-        
-        let request: NSMutableURLRequest = NSMutableURLRequest()
-        request.url = url
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: url!, completionHandler: {
-            (data, response, error) -> Void in
+        DispatchQueue.global().async {
             
-            if error == nil {
-                DispatchQueue.main.async {
-                    do {
-                        
-                        if let jsonData = data {
-                            let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! [NSDictionary]
+            let date = NSDate()
+            
+            let currentTime = Int64(floor(date.timeIntervalSince1970))
+            var previousTime = Int64()
+            
+            if let previousDate = Calendar.current.date(byAdding: .second, value: -self.chartPeriod*20, to: date as Date) {
+                previousTime = Int64(floor(previousDate.timeIntervalSince1970))
+            }
+            
+            let url = URL(string: "https://poloniex.com/public?command=returnChartData&currencyPair=\(self.coinPair)&start=\(previousTime)&end=\(currentTime)&period=\(self.chartPeriod)")
+            
+            let request: NSMutableURLRequest = NSMutableURLRequest()
+            request.url = url
+            request.httpMethod = "GET"
+            
+            let session = URLSession.shared
+            
+            session.dataTask(with: url!, completionHandler: {
+                (data, response, error) -> Void in
+                
+                if error == nil {
+                    DispatchQueue.main.async {
+                        do {
                             
-                            self.chartDataArray.removeAll()
-                            
-                            for item in json {
-                                let close: Double = item.value(forKey: "close") as! Double
-                                let open: Double = item.value(forKey: "open") as! Double
-                                let volume: Double = item.value(forKey: "volume") as! Double
-                                let high: Double = item.value(forKey: "high") as! Double
-                                let low: Double = item.value(forKey: "low") as! Double
-                                let date: Int = item.value(forKey: "date") as! Int
-                                let quoteVolume: Double = item.value(forKey: "quoteVolume") as! Double
-                                let weightedAverage: Double = item.value(forKeyPath: "weightedAverage") as! Double
+                            if let jsonData = data {
+                                let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! [NSDictionary]
                                 
-                                self.chartDataArray.append(ChartData(date: date, high: high, low: low, open: open, close: close, volume: volume, quoteVolume: quoteVolume, weightedAverage: weightedAverage))
+                                self.chartDataArray.removeAll()
+                                
+                                for item in json {
+                                    let close: Double = item.value(forKey: "close") as! Double
+                                    let open: Double = item.value(forKey: "open") as! Double
+                                    let volume: Double = item.value(forKey: "volume") as! Double
+                                    let high: Double = item.value(forKey: "high") as! Double
+                                    let low: Double = item.value(forKey: "low") as! Double
+                                    let date: Int = item.value(forKey: "date") as! Int
+                                    let quoteVolume: Double = item.value(forKey: "quoteVolume") as! Double
+                                    let weightedAverage: Double = item.value(forKeyPath: "weightedAverage") as! Double
+                                    
+                                    self.chartDataArray.append(ChartData(date: date, high: high, low: low, open: open, close: close, volume: volume, quoteVolume: quoteVolume, weightedAverage: weightedAverage))
+                                    
+                                }
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
                                 
                             }
                             
-                            self.tableView.reloadData()
+                            
+                        } catch let err {
+                            print(err)
                         }
-                        
-                        
-                    } catch let err {
-                        print(err)
                     }
                 }
-            }
-            
-        }).resume()
-        
-        
+                
+            }).resume()
+        }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let parentVC = self.parent as? TickerDetailMenuViewController {
-            coinData = parentVC.coinData
-            coinPair = parentVC.coinPair
-            chartDataArray = parentVC.chartDataArray
-            
-            loadAPI()
-            tableView.reloadData()
-        }
-        
+        loadAPI()
+
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    var priceLine = PriceLineView()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -145,7 +143,7 @@ class ChartsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             priceLineCell.secondVolumeLabel.text = coinData.value(forKey: "quoteVolume") as? String
             priceLineCell.priceChangeLabel.text = coinData.value(forKey: "percentChange") as? String
             
-            var priceLine = PriceLineView()
+            priceLine.removeFromSuperview()
             
             priceLine = PriceLineView(frame: CGRect(x: 2.5, y: 21, width: priceLineCell.bounds.width - 5, height: 20))
             

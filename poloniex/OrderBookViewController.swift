@@ -15,40 +15,59 @@ class OrderBookViewController: UITableViewController {
     
     var coinPair = String()
     
+    let orderBookQueue = DispatchQueue(label: "com.poloniex.orderBook", qos: .utility)
+    
     var bids: [OrderBookEntry] = [] {
         didSet {
-            bids.sort(by: {$0.price > $1.price})
+            orderBookQueue.async {
+                self.bids.sort(by: {$0.price > $1.price})
+            }
         }
     }
     
     var asks: [OrderBookEntry] = [] {
         didSet {
-            asks.sort(by: {$0.price < $1.price})
+            orderBookQueue.async {
+                self.asks.sort(by: {$0.price < $1.price})
+            }
         }
     }
     
     var tempBids : NSDictionary = [:] {
         didSet {
-            for order in tempBids {
+            orderBookQueue.async {
+                var tempTempBids: [OrderBookEntry] = []
                 
-                guard let price = order.key as? String else {return}
-                guard let amount = order.value as? String else {return}
+                for order in self.tempBids {
+                    
+                    guard let price = order.key as? String else {return}
+                    guard let amount = order.value as? String else {return}
+                    
+                    tempTempBids.append(OrderBookEntry(price: Double(price)!, amount: Double(amount)!))
+                }
                 
-                bids.append(OrderBookEntry(price: Double(price)!, amount: Double(amount)!))
+                self.bids = tempTempBids
             }
         }
     }
     
     var tempAsks : NSDictionary = [:] {
         didSet {
-            for order in tempAsks {
+            orderBookQueue.async {
+                var tempTempAsks: [OrderBookEntry] = []
                 
-                guard let price = order.key as? String else {return}
-                guard let amount = order.value as? String else {return}
+                for order in self.tempAsks {
+                    
+                    guard let price = order.key as? String else {return}
+                    guard let amount = order.value as? String else {return}
+                    
+                    tempTempAsks.append(OrderBookEntry(price: Double(price)!, amount: Double(amount)!))
+                    
+                }
                 
-                asks.append(OrderBookEntry(price: Double(price)!, amount: Double(amount)!))
-                
+                self.asks = tempTempAsks
             }
+
         }
     }
     
@@ -59,13 +78,25 @@ class OrderBookViewController: UITableViewController {
         socket.delegate = nil
     }
     
+    var reloadTimer: Timer!
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         if coinPair != "" {
             socket.connect()
+            
+            //set the timer to reload the table every 2 seconds
+            reloadTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(OrderBookViewController.reloadTable), userInfo: nil, repeats: true)
+            
         }
         
+    }
+    
+    @objc func reloadTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -74,17 +105,15 @@ class OrderBookViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        if let parentVC = self.parent as? TickerDetailMenuViewController {
-            coinPair = parentVC.coinPair
-        }
-        
         socket.delegate = self
         socket.connect()
+        
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         socket.disconnect()
+        reloadTimer.invalidate()
     }
 
 
@@ -105,20 +134,23 @@ class OrderBookViewController: UITableViewController {
         if !bids.isEmpty && !asks.isEmpty {
             if indexPath.section == 0 {
                 
-                cell.priceLabel.text = String(asks[indexPath.row].price)
-                cell.amountLabel.text = String(format: "%.8f", asks[indexPath.row].amount)
-                
-                cell.priceLabel.textColor = UIColor.red
-                
+                if asks.indices.contains(indexPath.row) {
+                    cell.priceLabel.text = String(format: "%.8f", asks[indexPath.row].price)
+                    cell.amountLabel.text = String(format: "%.8f", asks[indexPath.row].amount)
+                    
+                    cell.priceLabel.textColor = UIColor.red
+                }
+
                 return cell
                 
             } else {
                 
-                cell.priceLabel.text = String(bids[indexPath.row].price)
-                cell.amountLabel.text = String(format: "%.8f", bids[indexPath.row].amount)
-                
-                cell.priceLabel.textColor = UIColor.green
-                
+                if bids.indices.contains(indexPath.row) {
+                    cell.priceLabel.text = String(format: "%.8f", bids[indexPath.row].price)
+                    cell.amountLabel.text = String(format: "%.8f", bids[indexPath.row].amount)
+                    
+                    cell.priceLabel.textColor = UIColor.green
+                }
                 return cell
             }
         } else {
@@ -210,9 +242,13 @@ extension OrderBookViewController : WebSocketDelegate {
                                     if let index = self.bids.index(where: {$0.price == orderBookEntry.price}) {
                                         
                                         if Double(newAmount) == 0.0 {
-                                            self.bids.remove(at: index)
+                                            if self.bids.indices.contains(index) {
+                                                self.bids.remove(at: index)
+                                            }
                                         } else {
-                                            self.bids[index].amount = Double(newAmount)!
+                                            if self.bids.indices.contains(index) {
+                                                self.bids[index].amount = Double(newAmount)!
+                                            }
                                         }
                                         
                                     } else {
@@ -227,9 +263,13 @@ extension OrderBookViewController : WebSocketDelegate {
                                     if let index = self.asks.index(where: {$0.price == orderBookEntry.price}) {
                                         
                                         if Double(newAmount) == 0.0 {
-                                            self.asks.remove(at: index)
+                                            if self.asks.indices.contains(index) {
+                                                self.asks.remove(at: index)
+                                            }
                                         } else {
-                                            self.asks[index].amount = Double(newAmount)!
+                                            if self.asks.indices.contains(index) {
+                                                self.asks[index].amount = Double(newAmount)!
+                                            }
                                         }
                                         
                                     } else {
@@ -253,10 +293,6 @@ extension OrderBookViewController : WebSocketDelegate {
                 } else {
                     print("could not cast to array")
                 }
-            }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
             }
             
         }

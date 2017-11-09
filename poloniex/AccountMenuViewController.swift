@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import PageMenu
+import Parchment
 
 @IBDesignable class AccountMenuViewController: UIViewController {
 
     @IBInspectable var menuBackgroundColor:UIColor = UIColor.gray
-    
-    var pageMenu : CAPSPageMenu?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +31,31 @@ import PageMenu
         ordersController.title = "Orders"
         controllerArray.append(ordersController)
         
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
-        let parameters: [CAPSPageMenuOption] = [
-            .menuItemSeparatorWidth(0.0),
-            .useMenuLikeSegmentedControl(true),
-            .menuItemSeparatorPercentageHeight(0.1),
-            .scrollMenuBackgroundColor(menuBackgroundColor)
-        ]
+        let pagingViewController = FixedPagingViewController(viewControllers: controllerArray, options: PageMenuOptions())
         
-        // Initialize page menu with controller array, frame, and optional parameters
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
         
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        self.view.addSubview(pageMenu!.view)
+        // Make sure you add the PagingViewController as a child view
+        // controller and contrain it to the edges of the view.
+        addChildViewController(pagingViewController)
+        view.addSubview(pagingViewController.view)
+        view.constrainToEdges(pagingViewController.view)
+        pagingViewController.didMove(toParentViewController: self)
+        
+//        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
+//        // Example:
+//        let parameters: [CAPSPageMenuOption] = [
+//            .menuItemSeparatorWidth(0.0),
+//            .useMenuLikeSegmentedControl(true),
+//            .menuItemSeparatorPercentageHeight(0.1),
+//            .scrollMenuBackgroundColor(menuBackgroundColor)
+//        ]
+//
+//        // Initialize page menu with controller array, frame, and optional parameters
+//        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
+//
+//        // Lastly add page menu as subview of base view controller view
+//        // or use pageMenu controller in you view hierachy as desired
+//        self.view.addSubview(pageMenu!.view)
         
     }
 }

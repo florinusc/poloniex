@@ -46,18 +46,14 @@ class TradingViewController: UITableViewController {
         priceTextField.delegate = self
         amountTextField.delegate = self
         
-        if let parentVC = self.parent as? TickerDetailMenuViewController {
-            coinPair = parentVC.coinPair
-            
-            let mainCoin = self.coinPair.components(separatedBy: "_")
-            
-            if orderType == "Buy" {
-                requestCurrentBalance(coin: mainCoin[0])
-            } else if orderType == "Sell" {
-                requestCurrentBalance(coin: mainCoin[1])
-            } else {
-                print("problem with order type")
-            }
+        let mainCoin = self.coinPair.components(separatedBy: "_")
+        
+        if orderType == "Buy" {
+            requestCurrentBalance(coin: mainCoin[0])
+        } else if orderType == "Sell" {
+            requestCurrentBalance(coin: mainCoin[1])
+        } else {
+            print("problem with order type")
         }
         
         placeOrderBttnOutlet.layer.cornerRadius = 8.0
@@ -77,7 +73,9 @@ class TradingViewController: UITableViewController {
             requestCurrentBalance(coin: mainCoin[1])
         }
         
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -111,138 +109,121 @@ class TradingViewController: UITableViewController {
     
     func postOrder(type: String, price: String, amount: String) {
     
-        let timeNowInt = Int((NSDate().timeIntervalSince1970)*500000)
-        let timeNow = String(timeNowInt)
+        let orderQueue = DispatchQueue(label: "com.poloniex.postOrder", qos: .utility)
         
-        if key != "" && secret != "" {
-            guard let url = URL(string: "https://poloniex.com/tradingApi") else {return}
+        orderQueue.async {
             
-            let sign = "nonce=\(timeNow)&command=\(orderType.lowercased())&currencyPair=\(coinPair)&rate=\(price)&amount=\(amount)"
-            let parameters: Parameters = ["nonce" : timeNow, "command" : orderType.lowercased(), "currencyPair" : coinPair, "rate" : price, "amount" : amount]
-            let hmacSign: String = SweetHMAC(message: sign, secret: secret).HMAC(algorithm: .sha512)
+            let timeNowInt = Int((NSDate().timeIntervalSince1970)*500000)
+            let timeNow = String(timeNowInt)
             
-            var components = URLComponents()
-            let queryItems: [URLQueryItem] = [URLQueryItem(name: "amount", value: amount),
-                                              URLQueryItem(name: "command", value: orderType.lowercased()),
-                                              URLQueryItem(name: "nonce", value: timeNow),
-                                              URLQueryItem(name: "currencyPair", value: coinPair),
-                                              URLQueryItem(name: "rate", value: price),
-                                              ]
-            
-            components.queryItems = queryItems
-            guard let query = components.query else {return}
-            
-            guard let httpBody = query.data(using: .utf8) else {return}
-            
-            let signature = try? HMAC(key: secret, variant: .sha512)
-                .authenticate(Array(httpBody))
-                .map { String(format: "%02X", $0) }
-                .joined()
-
-            let headers: HTTPHeaders = ["Key" : key, "Sign" : signature!]
-            
-            print(parameters)
-            print(signature!)
-            print(hmacSign)
-            
-            var request = URLRequest(url: URL(string: "https://poloniex.com/tradingApi")!)
-            request.httpMethod = "POST"
-            request.httpBody = httpBody
-            
-            request.setValue(key, forHTTPHeaderField: "Key")
-            request.setValue(signature, forHTTPHeaderField: "Sign")
-            
-            let task = URLSession.shared.dataTask(with: request) {
-                (data, response, error) -> Void in
+            if self.key != "" && self.secret != "" {
+                guard let url = URL(string: "https://poloniex.com/tradingApi") else {return}
                 
-                if error == nil {
+                let sign = "nonce=\(timeNow)&command=\(self.orderType.lowercased())&currencyPair=\(self.coinPair)&rate=\(price)&amount=\(amount)"
+                let parameters: Parameters = ["nonce" : timeNow, "command" : self.orderType.lowercased(), "currencyPair" : self.coinPair, "rate" : price, "amount" : amount]
+                let hmacSign: String = SweetHMAC(message: sign, secret: self.self.secret).HMAC(algorithm: .sha512)
+                
+                var components = URLComponents()
+                let queryItems: [URLQueryItem] = [URLQueryItem(name: "amount", value: amount),
+                                                  URLQueryItem(name: "command", value: self.orderType.lowercased()),
+                                                  URLQueryItem(name: "nonce", value: timeNow),
+                                                  URLQueryItem(name: "currencyPair", value: self.self.coinPair),
+                                                  URLQueryItem(name: "rate", value: price),
+                                                  ]
+                
+                components.queryItems = queryItems
+                guard let query = components.query else {return}
+                
+                guard let httpBody = query.data(using: .utf8) else {return}
+                
+                let signature = try? HMAC(key: self.secret, variant: .sha512)
+                    .authenticate(Array(httpBody))
+                    .map { String(format: "%02X", $0) }
+                    .joined()
+                
+                let headers: HTTPHeaders = ["Key" : self.key, "Sign" : signature!]
+                
+                print(parameters)
+                print(signature!)
+                print(hmacSign)
+                
+                var request = URLRequest(url: URL(string: "https://poloniex.com/tradingApi")!)
+                request.httpMethod = "POST"
+                request.httpBody = httpBody
+                
+                request.setValue(self.key, forHTTPHeaderField: "Key")
+                request.setValue(signature, forHTTPHeaderField: "Sign")
+                
+                let task = URLSession.shared.dataTask(with: request) {
+                    (data, response, error) -> Void in
                     
-                    print(data)
-                    print(response)
-                } else {
-                    print(error)
+                    if error == nil {
+                        print(response?.description)
+                    } else {
+                        print(error?.localizedDescription)
+                    }
+                    
                 }
                 
+                task.resume()
+                
+            } else {
+                print("can't show balances because the key and secret are nil")
+                
+                JSSAlertView().show(self, title: "Log in", text: "Please log in before trying to place an order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .gray)
             }
-            
-            task.resume()
-            
-//            request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
-//                response in
-//
-//                print("the response is \(response)")
-//
-//                if let jsonResponse = response.result.value as? NSDictionary {
-//
-//                    print(jsonResponse)
-//
-//                    if let orderNumber = jsonResponse["orderNumber"] as? String {
-//
-//                        print("placed order with id: " + orderNumber)
-//
-//                        JSSAlertView().show(self, title: "Success", text: "The order has been placed", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .white)
-//
-//                        self.priceTextField.text = ""
-//                        self.amountTextField.text = ""
-//
-//                    } else {
-//                        JSSAlertView().show(self, title: "Failure", text: "Not able to place order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .red)
-//                    }
-//                } else {
-//                    print("json is not readable")
-//                    JSSAlertView().show(self, title: "Failure", text: "Not able to place order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .red)
-//                }
-//
-//            })
-//
-        } else {
-            print("can't show balances because the key and secret are nil")
-
-            JSSAlertView().show(self, title: "Log in", text: "Please log in before trying to place an order", noButtons: false, buttonText: nil, cancelButtonText: "Ok", color: .gray)
         }
+        
+
         
     }
     
     func requestCurrentBalance(coin: String) {
     
-        let timeNowInt = Int((NSDate().timeIntervalSince1970)*500000)
-        let timeNow = String(timeNowInt)
+        let backgroundQueue = DispatchQueue(label: "com.poloniex.requestBalance", qos: .background)
         
-        if key != "" && secret != "" {
+        backgroundQueue.async {
+            let timeNowInt = Int((NSDate().timeIntervalSince1970)*500000)
+            let timeNow = String(timeNowInt)
             
-            guard let url = URL(string: "https://poloniex.com/tradingApi") else {return}
-            
-            let sign = "command=returnBalances&nonce=\(timeNow)"
-            
-            let hmacSign: String = SweetHMAC(message: sign, secret: secret).HMAC(algorithm: .sha512)
-            
-            let headers: HTTPHeaders = ["key" : key, "sign" : hmacSign]
-            let parameters: Parameters = ["command" : "returnBalances", "nonce" : timeNow]
-            
-            request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
-                response in
+            if self.key != "" && self.secret != "" {
                 
-                if let jsonResponse = response.result.value as? NSDictionary {
+                guard let url = URL(string: "https://poloniex.com/tradingApi") else {return}
+                
+                let sign = "command=returnBalances&nonce=\(timeNow)"
+                
+                let hmacSign: String = SweetHMAC(message: sign, secret: self.secret).HMAC(algorithm: .sha512)
+                
+                let headers: HTTPHeaders = ["key" : self.key, "sign" : hmacSign]
+                let parameters: Parameters = ["command" : "returnBalances", "nonce" : timeNow]
+                
+                request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON(completionHandler: {
+                    response in
                     
-                    if let balance = jsonResponse.value(forKey: coin) {
-                    
-                        self.currentBalance = String(describing: balance)
-                    
-                    } else {
-                        print("cannot assign value to current balance")
+                    if let jsonResponse = response.result.value as? NSDictionary {
+                        
+                        if let balance = jsonResponse.value(forKey: coin) {
+                            
+                            self.currentBalance = String(describing: balance)
+                            
+                        } else {
+                            print("cannot assign value to current balance")
+                        }
                     }
-                }
-            })
-            
-        } else {
-            currentBalance = "Not logged in"
+                })
+                
+            } else {
+                self.currentBalance = "Not logged in"
+            }
         }
-    
+        
     }
     
     var currentBalance: String = "" {
         didSet {
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
