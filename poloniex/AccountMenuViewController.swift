@@ -41,21 +41,5 @@ import Parchment
         view.constrainToEdges(pagingViewController.view)
         pagingViewController.didMove(toParentViewController: self)
         
-//        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-//        // Example:
-//        let parameters: [CAPSPageMenuOption] = [
-//            .menuItemSeparatorWidth(0.0),
-//            .useMenuLikeSegmentedControl(true),
-//            .menuItemSeparatorPercentageHeight(0.1),
-//            .scrollMenuBackgroundColor(menuBackgroundColor)
-//        ]
-//
-//        // Initialize page menu with controller array, frame, and optional parameters
-//        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), pageMenuOptions: parameters)
-//
-//        // Lastly add page menu as subview of base view controller view
-//        // or use pageMenu controller in you view hierachy as desired
-//        self.view.addSubview(pageMenu!.view)
-        
     }
 }

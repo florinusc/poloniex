@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-//import CryptoSwift
 
 struct Balance {
     var coin: String?
