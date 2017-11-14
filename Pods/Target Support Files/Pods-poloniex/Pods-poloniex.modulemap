@@ -1,0 +1,6 @@
+framework module Pods_poloniex {
+  umbrella header "Pods-poloniex-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.1)
+  - CryptoSwift (0.7.1)
+  - JSSAlertView (3.0.4)
+  - Parchment (0.6.0)
+  - Starscream (2.0.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - CryptoSwift
+  - JSSAlertView
+  - Parchment
+  - Starscream (~> 2.0.3)
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  CryptoSwift: c290ac8976cf28c52c8b88bfe2c58c0302a0e0c0
+  JSSAlertView: 7d8345c88e6fd8b515bc49f0fc8d8c69f6776b9c
+  Parchment: 18c95468970cb4010677e9b74456f4a52f035307
+  Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
+
+PODFILE CHECKSUM: c0438296aba88e2db6539d362808a9bd65b49922
+
+COCOAPODS: 1.3.1
